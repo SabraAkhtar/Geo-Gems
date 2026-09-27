@@ -123,48 +123,96 @@ export const WhyUsSection: React.FC = () => {
               At Geo Gems Crystals, we celebrate the natural beauty of gemstones and crystals, carefully selected for their unique character, color, and lasting appeal. Discover distinctive natural stones with clear product details and a personal, trustworthy buying experience.
             </p>
 
-            {/* D. Four Trust Cards — Exact 2x2 Grid on Desktop & Tablet */}
+            {/* D. Four Trust Cards — Premium 2x2 Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-4.5 mb-7 sm:mb-8">
               {TRUST_CARDS.map((card) => {
                 const Icon = card.icon;
                 return (
                   <div
                     key={card.number}
-                    className="relative bg-[#FFFFFF] rounded-[14px] border border-[#E5DED2] p-4 sm:p-5 flex items-start gap-3.5 sm:gap-4 shadow-[0_2px_10px_rgba(37,34,29,0.02)] hover:border-[#B08D57]/60 transition-all duration-200 group min-h-[175px] sm:min-h-[195px]"
+                    className="relative bg-white rounded-[16px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_4px_20px_rgba(176,141,87,0.08)]"
                   >
-                    {/* Left Element: Organic Pebble Specimen Cutout */}
-                    <div className="w-[78px] h-[96px] sm:w-[86px] sm:h-[108px] rounded-tl-[36px] rounded-br-[32px] rounded-tr-[18px] rounded-bl-[20px] overflow-hidden flex-shrink-0 bg-[#F5F0E6] border border-[#E5DED2]/80 shadow-2xs relative self-center">
-                      <img
-                        src={card.specimenImage}
-                        alt={card.specimenAlt}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
+                    {/* Top gold accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#B08D57]/0 via-[#B08D57]/50 to-[#B08D57]/0 pointer-events-none" />
 
-                    {/* Right Element: Icon, Number, Title & Description */}
-                    <div className="flex-1 flex flex-col justify-between h-full min-w-0">
-                      <div>
-                        {/* Upper row: Thin minimal outline circle around existing icon & number */}
-                        <div className="flex items-center justify-between">
-                          <div className="w-7 h-7 rounded-full border border-[#B08D57]/35 flex items-center justify-center text-[#B08D57]">
-                            <Icon className="w-3.5 h-3.5 stroke-[1.6]" />
+                    <div className="p-4 sm:p-5 flex flex-col gap-3.5">
+                      {/* Header row: Arc image cutout LEFT + Number label RIGHT */}
+                      <div className="flex items-start justify-between gap-3">
+
+                        {/* Asymmetric arc-cut specimen image */}
+                        <div className="relative flex-shrink-0">
+                          {/* Decorative gold partial ring arc around image */}
+                          <svg
+                            className="absolute -top-1.5 -left-1.5 pointer-events-none z-10"
+                            width="64" height="64"
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M10,54 A34,34 0 0,1 54,10"
+                              fill="none"
+                              stroke="#B08D57"
+                              strokeWidth="1"
+                              strokeOpacity="0.5"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+
+                          {/* Image with asymmetric arc cutout — tall rounded left, arc bottom-right */}
+                          <div
+                            className="w-[58px] h-[72px] sm:w-[64px] sm:h-[80px] overflow-hidden bg-[#F5F0E6] border border-[#E5DED2]/80 shadow-sm"
+                            style={{
+                              borderRadius: '32px 14px 28px 16px',
+                            }}
+                          >
+                            <img
+                              src={card.specimenImage}
+                              alt={card.specimenAlt}
+                              className="w-full h-full object-cover object-center group-hover:scale-[1.06] transition-transform duration-500"
+                              loading="lazy"
+                            />
                           </div>
-                          <span className="font-serif text-sm font-medium tracking-wide text-[#B08D57]/80">
-                            {card.number}
-                          </span>
                         </div>
 
-                        {/* Heading in refined serif font */}
-                        <h4 className="font-serif text-[16px] sm:text-[17px] font-normal text-[#292820] mt-2.5 mb-1.5 leading-snug tracking-tight">
+                        {/* Right side: Icon + Number stacked */}
+                        <div className="flex flex-col items-end gap-1">
+                          {/* Numbered label — prominent */}
+                          <span
+                            className="font-serif text-[28px] sm:text-[32px] leading-none font-normal tracking-tight"
+                            style={{ color: '#B08D57', opacity: 0.22 }}
+                          >
+                            {card.number}
+                          </span>
+                          {/* Icon circle */}
+                          <div className="w-7 h-7 rounded-full border border-[#B08D57]/30 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]">
+                            <Icon className="w-3.5 h-3.5 stroke-[1.6]" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Thin decorative gold divider */}
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-[1px] bg-[#B08D57]/40 inline-block" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/30 inline-block" />
+                      </div>
+
+                      {/* Title & Description */}
+                      <div>
+                        <h4 className="font-serif text-[16px] sm:text-[17px] font-normal text-[#292820] mb-1.5 leading-snug tracking-tight">
                           {card.title}
                         </h4>
-
-                        {/* Description */}
-                        <p className="font-sans text-[12px] sm:text-[12.5px] text-[#716B60] font-light leading-[1.55]">
+                        <p className="font-sans text-[12px] sm:text-[12.5px] text-[#716B60] font-light leading-[1.58]">
                           {card.description}
                         </p>
                       </div>
+                    </div>
+
+                    {/* Bottom-right subtle gold corner accent */}
+                    <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
+                        <path d="M48,48 L48,20 Q36,36 20,48 Z" fill="#B08D57" fillOpacity="0.04" />
+                        <path d="M48,20 Q36,36 20,48" stroke="#B08D57" strokeWidth="0.8" strokeOpacity="0.3" fill="none" />
+                      </svg>
                     </div>
                   </div>
                 );

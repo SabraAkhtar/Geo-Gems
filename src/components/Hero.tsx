@@ -170,6 +170,39 @@ export const Hero: React.FC = () => {
           </div>
         ))}
 
+        {/* ─── PREMIUM CURVED EDGE: SVG clip-path wave flowing into cream left ─── */}
+        {/* This SVG sits over the image and "cuts" the left edge into an elegant organic curve */}
+        <svg
+          className="hidden lg:block absolute inset-y-0 left-0 h-full pointer-events-none z-25"
+          style={{ width: '220px', overflow: 'visible' }}
+          viewBox="0 0 220 800"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          {/* Cream fill that creates the curved boundary — mirrors the hero bg */}
+          <path
+            d="M0,0 L0,800 C40,800 55,750 52,680 C50,640 38,600 44,540 C52,460 90,420 88,340 C86,260 42,220 46,140 C50,70 30,30 0,0 Z"
+            fill="#F5F1E9"
+          />
+        </svg>
+
+        {/* ─── THIN GOLD ACCENT LINE following the curve contour ─── */}
+        <svg
+          className="hidden lg:block absolute inset-y-0 left-0 h-full pointer-events-none z-26"
+          style={{ width: '220px', overflow: 'visible' }}
+          viewBox="0 0 220 800"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M52,800 C40,800 28,750 30,680 C32,640 46,600 52,540 C60,460 98,420 96,340 C94,260 50,220 54,140 C58,70 38,30 8,0"
+            fill="none"
+            stroke="#B08D57"
+            strokeWidth="1"
+            strokeOpacity="0.45"
+          />
+        </svg>
+
         {/* Soft Left-Edge Gradient Blend into #F5F1E9 (warm ivory) */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[#F5F1E9] via-[#F5F1E9]/85 via-30% to-transparent pointer-events-none z-20" />
 
@@ -203,6 +236,30 @@ export const Hero: React.FC = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* ─── HERO BOTTOM WAVE TRANSITION into the section below ─── */}
+      <div className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none" aria-hidden="true" style={{ height: '80px' }}>
+        <svg
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          style={{ display: 'block' }}
+        >
+          {/* Cream wave that softly transitions the hero bottom edge */}
+          <path
+            d="M0,80 L0,50 C180,20 360,5 540,15 C720,25 900,55 1080,50 C1260,45 1350,30 1440,20 L1440,80 Z"
+            fill="#F8F5EE"
+          />
+          {/* Thin gold accent line along the wave */}
+          <path
+            d="M0,50 C180,20 360,5 540,15 C720,25 900,55 1080,50 C1260,45 1350,30 1440,20"
+            fill="none"
+            stroke="#B08D57"
+            strokeWidth="0.8"
+            strokeOpacity="0.4"
+          />
+        </svg>
       </div>
 
       {/* Main Two-Column Editorial Content */}

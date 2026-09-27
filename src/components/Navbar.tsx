@@ -167,18 +167,6 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {/* Direct WhatsApp Inquiry CTA Button */}
-            <a
-              href={whatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="primary-button hidden sm:inline-flex text-white font-medium"
-              style={{ padding: '0.85em 1.7em', fontSize: '12px', letterSpacing: '1.8px' }}
-              title="Inquire on WhatsApp"
-            >
-              <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
-              <span>Inquire on WhatsApp</span>
-            </a>
 
             {/* Mobile-only: icon-only WhatsApp quick access */}
             <a

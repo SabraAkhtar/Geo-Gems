@@ -22,7 +22,7 @@ export const JewelrySection: React.FC = () => {
       : JEWELRY_PIECES.filter((item) => item.category === activeTab);
 
   return (
-    <section id="jewelry" className="relative py-16 lg:py-24 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
+    <section id="jewelry" className="relative py-12 lg:py-20 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">

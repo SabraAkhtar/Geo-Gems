@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#FAF8F3] text-[#292820] border-t border-[#E5DED2] select-none">
       <div className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* ROW 1 — Main Footer Content */}
-        <div className="py-14 sm:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="py-12 sm:py-14 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Brand Identity Area — Left Column (5 columns on desktop) */}
           <div className="lg:col-span-5 space-y-3.5">
             <div

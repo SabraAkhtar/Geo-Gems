@@ -9,7 +9,7 @@ export const BespokeInquiryCTA: React.FC = () => {
   );
 
   return (
-    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-20 sm:py-24 lg:py-28 overflow-hidden select-none">
+    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-16 sm:py-20 lg:py-24 overflow-hidden select-none">
       {/* ONE large partial outline ring behind the composition + 3 tiny subtle dots */}
       <div
         aria-hidden="true"

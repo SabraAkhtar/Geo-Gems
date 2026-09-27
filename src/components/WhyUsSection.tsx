@@ -62,7 +62,7 @@ export const WhyUsSection: React.FC = () => {
   const { setCurrentView } = useEcommerce();
 
   return (
-    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-16 sm:py-20 lg:py-24 overflow-hidden select-none">
+    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-12 sm:py-16 lg:py-20 overflow-hidden select-none">
       {/* Centered Content Container */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Two-Column Editorial Layout */}

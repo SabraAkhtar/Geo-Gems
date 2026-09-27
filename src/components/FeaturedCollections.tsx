@@ -7,7 +7,7 @@ export const FeaturedCollections: React.FC = () => {
   const { navigateToCollection } = useEcommerce();
 
   return (
-    <section className="relative py-16 lg:py-24 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
+    <section className="relative py-12 lg:py-20 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
       {/* Subtle tiny hollow ring near a far corner of the section */}
       <div
         aria-hidden="true"

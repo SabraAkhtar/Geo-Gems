@@ -50,7 +50,7 @@ export const InspirationSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative py-16 sm:py-20 lg:py-24 bg-[#F8F5EE] border-b border-[#E5DFD5] overflow-hidden">
+      <section className="relative py-12 sm:py-16 lg:py-20 bg-[#F8F5EE] border-b border-[#E5DFD5] overflow-hidden">
         {/* ONE large thin outline ring behind the gemstone image composition, partially cropped by the section boundary */}
         <div
           aria-hidden="true"

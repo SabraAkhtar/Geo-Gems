@@ -247,7 +247,7 @@ export const ContactView: React.FC = () => {
       </section>
 
       {/* SECTION 02 — MAIN CONTACT FORM + CONTACT INFORMATION */}
-      <section id="inquiry-form-section" className="py-16 sm:py-20 lg:py-24 bg-[#FAF8F3]">
+      <section id="inquiry-form-section" className="py-12 sm:py-16 lg:py-20 bg-[#FAF8F3]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
             
@@ -616,7 +616,7 @@ export const ContactView: React.FC = () => {
       </section>
 
       {/* SECTION 04 — HOW THE INQUIRY PROCESS WORKS */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAF8F3]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAF8F3]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="font-eyebrow block mb-2">
@@ -682,7 +682,7 @@ export const ContactView: React.FC = () => {
       </section>
 
       {/* SECTION 05 — FREQUENTLY ASKED QUESTIONS */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#F8F5EE] border-t border-[#E5DED2]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#F8F5EE] border-t border-[#E5DED2]">
         <div className="max-w-[860px] mx-auto px-5 sm:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <span className="font-eyebrow block mb-2">

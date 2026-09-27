@@ -82,7 +82,7 @@ export const CategorySection: React.FC = () => {
   };
 
   return (
-    <section id="gemstones-categories" className="relative py-16 sm:py-20 lg:py-24 bg-[#F5F1E9] border-b border-[#D8CFC2] overflow-hidden select-none">
+    <section id="gemstones-categories" className="relative py-12 sm:py-16 lg:py-20 bg-[#F5F1E9] border-b border-[#D8CFC2] overflow-hidden select-none">
       {/* Subtle Decorative Elements — Strictly in background corners away from images & titles */}
       <div
         aria-hidden="true"

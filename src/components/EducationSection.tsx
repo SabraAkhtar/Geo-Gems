@@ -8,7 +8,7 @@ export const EducationSection: React.FC = () => {
   const { openArticle } = useEcommerce();
 
   return (
-    <section className="relative py-16 lg:py-24 bg-[#FAF8F3] border-b border-[#E5DED2] overflow-hidden">
+    <section className="relative py-12 lg:py-20 bg-[#FAF8F3] border-b border-[#E5DED2] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with one small outline ring + thin line combination */}
         <div className="relative text-center max-w-2xl mx-auto mb-12">

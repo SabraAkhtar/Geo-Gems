@@ -70,7 +70,7 @@ export const AboutView: React.FC = () => {
       </div>
 
       {/* PRIMARY ABOUT SECTION — Asymmetric 2-Column Luxury Composition */}
-      <section className="py-14 sm:py-20 lg:py-28 overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="max-w-[1300px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
             
@@ -236,7 +236,7 @@ export const AboutView: React.FC = () => {
       </section>
 
       {/* OUR STANDARDS & COMMITMENTS — Premium Asymmetric Split Layout */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#F5F1E9] border-t border-[#E5DED2]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#F5F1E9] border-t border-[#E5DED2]">
         <div className="max-w-[1300px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-18 items-start">
             

@@ -142,82 +142,73 @@ export const WhyUsSection: React.FC = () => {
             return (
               <div
                 key={card.number}
-                className="relative bg-white rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_6px_24px_rgba(176,141,87,0.10)] flex flex-col"
+                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_6px_24px_rgba(176,141,87,0.10)] min-h-[230px] flex flex-col"
               >
-                {/* ── Text Content Area ── */}
-                <div className="p-5 sm:p-6 pb-2 flex-1 flex flex-col">
-                  {/* Row: Icon circle (left) + Number (right) */}
-                  <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-10 h-10 rounded-full border border-[#D8CFC2] flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]/80">
-                      <Icon className="w-[18px] h-[18px] stroke-[1.5]" />
-                    </div>
-                    <span className="font-serif text-[14px] font-normal tracking-[0.08em] text-[#B08D57]/65">
-                      {card.number}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h4 className="font-serif text-[17px] sm:text-[18px] font-normal text-[#292820] leading-snug tracking-tight mb-2">
-                    {card.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#716B60] font-light leading-[1.6] mb-3">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* ── Large Curved-Dome Gemstone Image at Bottom ── */}
-                <div className="relative h-[150px] sm:h-[160px] lg:h-[145px] xl:h-[160px] overflow-hidden mt-auto">
-                  {/* SVG concave arc overlay — dome-shaped image top edge */}
-                  <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
-                    <svg
-                      viewBox="0 0 300 44"
-                      preserveAspectRatio="none"
-                      className="w-full block"
-                      style={{ height: '44px' }}
-                    >
-                      {/* White concave fill — edges tall, center reveals image */}
-                      <path
-                        d="M0,0 L300,0 L300,44 Q150,2 0,44 Z"
-                        fill="white"
-                      />
-                      {/* Thin gold accent line following the dome curve */}
-                      <path
-                        d="M0,44 Q150,2 300,44"
-                        fill="none"
-                        stroke="#B08D57"
-                        strokeWidth="1.2"
-                        strokeOpacity="0.45"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Gemstone image */}
+                {/* ── Background Image with Elliptical Top-Left Curve ── */}
+                <div 
+                  className="absolute right-0 bottom-0 w-[72%] h-[68%] overflow-hidden z-0"
+                  style={{ borderTopLeftRadius: '100%' }}
+                >
                   <img
                     src={card.specimenImage}
                     alt={card.specimenAlt}
                     className="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
                     loading="lazy"
                   />
+                  {/* Subtle dark overlay for contrast, fades on hover */}
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                </div>
 
-                  {/* Subtle bottom vignette */}
-                  <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/15 to-transparent pointer-events-none" />
+                {/* ── Thin Gold Accent Line following the curve ── */}
+                <div 
+                  className="absolute right-0 bottom-0 z-10 pointer-events-none"
+                  style={{ 
+                    width: 'calc(72% + 5px)', 
+                    height: 'calc(68% + 5px)', 
+                    borderTopLeftRadius: '100%',
+                    borderTop: '1px solid rgba(176,141,87,0.45)',
+                    borderLeft: '1px solid rgba(176,141,87,0.45)'
+                  }}
+                />
 
-                  {/* Small gold decorative flourish — bottom right */}
-                  <div className="absolute bottom-2.5 right-3 z-20 pointer-events-none" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M20,22 Q14,18 12,12 Q16,16 22,14"
-                        stroke="#B08D57"
-                        strokeWidth="1"
-                        strokeOpacity="0.5"
-                        strokeLinecap="round"
-                        fill="none"
-                      />
-                      <circle cx="21" cy="13" r="1.2" fill="#B08D57" fillOpacity="0.35" />
-                    </svg>
+                {/* ── Botanical Leaf Flourish at the bottom intersection ── */}
+                <div className="absolute bottom-0 z-20 pointer-events-none" style={{ left: 'calc(28% - 14px)' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="opacity-70 text-[#B08D57]">
+                    {/* Small leaf left */}
+                    <path d="M10,22 C10,16 6,12 2,12 C6,12 10,16 10,22 Z" fill="currentColor" />
+                    {/* Tall leaf middle */}
+                    <path d="M10,22 C10,12 15,6 22,6 C15,6 10,12 10,22 Z" fill="currentColor" />
+                    {/* Medium leaf right */}
+                    <path d="M10,22 C10,17 14,13 18,14 C14,13 10,17 10,22 Z" fill="currentColor" />
+                  </svg>
+                </div>
+
+                {/* ── Text Content Area ── */}
+                <div className="relative z-20 p-5 sm:p-6 flex-1 flex flex-col pointer-events-none">
+                  {/* Top Row: Icon circle + Number */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-9 h-9 rounded-full border border-[#B08D57]/40 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]/50 backdrop-blur-sm">
+                      <Icon className="w-4 h-4 stroke-[1.5]" />
+                    </div>
+                    <span className="font-serif text-[13px] font-medium tracking-wide text-[#B08D57]/70">
+                      {card.number}
+                    </span>
                   </div>
+
+                  {/* Title */}
+                  <h4 className="font-serif text-[16px] sm:text-[17px] font-normal text-[#292820] leading-snug tracking-tight mb-2.5 pr-2">
+                    {card.title}
+                  </h4>
+
+                  {/* Divider */}
+                  <div className="mb-3.5">
+                    <span className="w-7 h-[1.5px] bg-[#B08D57]/40 inline-block" />
+                  </div>
+
+                  {/* Description - restricted width to avoid image overlap */}
+                  <p className="font-sans text-[11px] sm:text-[12px] text-[#716B60] font-light leading-[1.6] w-[65%] sm:w-[60%]">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             );

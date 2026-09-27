@@ -80,9 +80,9 @@ export const ProductGrid: React.FC = () => {
           ))}
         </div>
 
-        {/* 4-Column Grid on Desktop, 2 on Mobile */}
+        {/* 4-Column Grid on Desktop, 1 on Mobile, 2 on Small Tablet */}
         {filteredGemstones.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {filteredGemstones.slice(0, 8).map((gemstone) => (
               <ProductCard key={gemstone.id} gemstone={gemstone} />
             ))}

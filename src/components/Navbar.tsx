@@ -173,7 +173,7 @@ export const Navbar: React.FC = () => {
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="sm:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
+              className="md:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
@@ -185,7 +185,7 @@ export const Navbar: React.FC = () => {
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="primary-button hidden sm:inline-flex text-white font-medium"
+              className="primary-button hidden md:inline-flex text-white font-medium"
               style={{ padding: '0.85em 1.7em', fontSize: '12px', letterSpacing: '1.8px' }}
               title="Inquire on WhatsApp"
             >

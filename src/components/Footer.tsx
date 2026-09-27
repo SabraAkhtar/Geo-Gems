@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#0A0A0A] text-[#F5F1E9] border-t border-[#2A2A2A] select-none">
       <div className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* ROW 1 — Main Footer Content */}
-        <div className="py-12 sm:py-14 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="py-12 sm:py-14 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start">
           {/* Brand Identity Area — Left Column (5 columns on desktop) */}
           <div className="lg:col-span-5 space-y-3.5">
             <div
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2.5">
               <span
                 aria-hidden="true"
-                className="w-6 h-[1px] bg-[#B08D57] inline-block"
+                className="hidden sm:inline-block w-6 h-[1px] bg-[#B08D57]"
                 style={{ opacity: 0.5 }}
               />
               <p className="font-eyebrow text-xs text-[#B08D57]">
@@ -195,13 +195,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ROW 2 — Simple Copyright Bar */}
-        <div className="border-t border-[#2A2A2A] py-6 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[12.5px] text-[#A39B8F]">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
-            <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
-            <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-[#3D3A35]" />
+        <div className="border-t border-[#2A2A2A] py-6 sm:py-7 flex flex-col md:flex-row items-center justify-between gap-5 font-sans text-[12.5px] text-[#A39B8F]">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left leading-relaxed">
+            <span>© 2026 GEO GEMS CRYSTALS.<br className="sm:hidden" /> Natural gemstones &amp; crystals.</span>
+            <span className="hidden md:inline-block w-1 h-1 rounded-full bg-[#3D3A35]" />
             <button
               onClick={() => handleNavigate('admin')}
-              className="hover:text-[#B08D57] transition-colors cursor-pointer text-[#6B655D]"
+              className="hover:text-[#B08D57] transition-colors cursor-pointer text-[#6B655D] mt-1 md:mt-0"
               title="Admin Dashboard Login"
             >
               Admin Dashboard

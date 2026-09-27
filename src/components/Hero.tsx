@@ -275,8 +275,8 @@ export const Hero: React.FC = () => {
 
           {/* Main Editorial Headline with Animated Rotating Text & Blinking Cursor */}
           <h1 className="font-display-xl text-left mb-6 sm:mb-7">
-            <span className="block text-[#121212] whitespace-nowrap">Natural Stones.</span>
-            <span className="flex items-center text-[#B08D57] h-[1.12em] whitespace-nowrap overflow-visible">
+            <span className="block text-[#121212]">Natural Stones.</span>
+            <span className="flex items-center text-[#B08D57] min-h-[1.12em] overflow-visible">
               <span>{displayText || '\u00A0'}</span>
               {/* Typewriter Blinking Cursor */}
               <span

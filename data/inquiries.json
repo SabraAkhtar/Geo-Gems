@@ -1,0 +1,13 @@
+[
+  {
+    "id": "inq-1790505899403-xtxh",
+    "stoneId": null,
+    "stoneName": "Test Stone",
+    "customerName": "Test User",
+    "contact": "test@test.com",
+    "message": "Test inquiry message",
+    "status": "new",
+    "notes": "",
+    "createdAt": "2026-09-27T10:44:59.403Z"
+  }
+]

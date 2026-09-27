@@ -1,0 +1,6 @@
+{
+  "name": "GEO GEMS CRYSTALS",
+  "description": "Discover authentic, certified natural gemstones and crystals with detailed disclosures, international shipping, and bespoke inquiry service.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

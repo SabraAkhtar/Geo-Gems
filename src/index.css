@@ -1,0 +1,461 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-obsidian-black: #121212;
+  --color-charcoal-deep: #1A1916;
+  --color-warm-ivory: #F8F5EE;
+  --color-champagne-gold: #B08D57;
+  --color-gold-hover: #9E7B47;
+  --color-stone-beige: #D8CFC2;
+  --color-soft-sage: #7D8976;
+  --color-muted-gray: #716B60;
+  --color-ivory-white: #FAF8F3;
+  --color-card-border: #E5DED2;
+  --color-dark-divider: #3A352D;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF8F3;
+    color: #292820;
+    line-height: 1.65;
+    letter-spacing: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: #121212;
+  }
+}
+
+/* =========================================================================
+   GEO GEMS CRYSTALS — PROFESSIONAL TYPOGRAPHY SYSTEM UTILITIES
+   ========================================================================= */
+
+/* Hero Display Heading (Desktop 48–64px, Mobile 36–52px) */
+.font-display-xl {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #121212;
+}
+
+/* Main Page Heading (Desktop 44–56px, Mobile 34–42px) */
+.font-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #121212;
+}
+
+/* Section Headings (Desktop 36–48px, Mobile 30–36px) */
+.font-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #121212;
+}
+
+/* Subsection Headings (24–32px) */
+.font-h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  line-height: 1.18;
+  color: #121212;
+}
+
+/* Product Card Title (18–22px, visually stronger than secondary metadata) */
+.font-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #121212;
+}
+
+/* Hero Subtitle (16–18px, line-height 1.7, max-width 650px) */
+.font-hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 650px;
+  color: #3D3933;
+}
+
+/* Body Large (17–18px) */
+.font-body-large {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #3D3933;
+}
+
+/* Default Body (16px, line-height 1.7) */
+.font-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #292820;
+}
+
+/* Body Small / Introductory Descriptions (15–16px, line-height 1.68) */
+.font-body-small {
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.68;
+  color: #4A453D;
+}
+
+/* Small Editorial Eyebrows / Labels (12–13px, 500 weight, 0.14em tracking, uppercase) */
+.font-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: #9E7B47;
+}
+
+/* Product ID Text (12–13px, 0.06em tracking) */
+.font-stone-id {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5A544A;
+}
+
+/* Navigation Links (Desktop 15–16px, 500 weight) */
+.font-nav {
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Price Display (16–20px on cards, up to 24px on detail) */
+.font-price {
+  font-family: var(--font-sans);
+  font-size: clamp(17px, 1.6vw, 20px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #121212;
+}
+
+/* Price on Request (16–18px, 500 weight) */
+.font-price-request {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #9E7B47;
+}
+
+/* Button Typography (13–14px, 500–600 weight, 0.02em tracking) */
+.font-btn {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================================
+   GEO GEMS CRYSTALS — LUXURY BUTTON SYSTEM
+   ========================================================================= */
+
+/* 1. PRIMARY BUTTON — Luxury Gold #B08D57 with subtle upward lift */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+
+  padding: 1.1em 2.25em;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+
+  color: #FFFFFF !important;
+  background-color: #B08D57;
+
+  border: none;
+  border-radius: 45px;
+
+  box-shadow: 0px 8px 15px rgba(176, 141, 87, 0.16);
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  min-height: 44px;
+}
+
+.primary-button:hover {
+  background-color: #7D8976;
+  box-shadow: 0px 12px 20px rgba(125, 137, 118, 0.24);
+  color: #FFFFFF !important;
+  transform: translateY(-4px);
+}
+
+.primary-button:active {
+  transform: translateY(-1px);
+}
+
+.primary-button:focus-visible {
+  outline: 2px solid #B08D57;
+  outline-offset: 3px;
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .primary-button {
+    padding: 0.95em 1.75em;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+  }
+}
+
+/* 2. SECONDARY BUTTON — Soft Sage #7D8976 Expandable Compact Capsule */
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 2px 2px 10px rgba(125, 137, 118, 0.18);
+
+  background-color: #7D8976;
+  color: #FFFFFF !important;
+  outline: none;
+  text-decoration: none;
+  vertical-align: middle;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.secondary-button .sign {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.secondary-button .sign svg {
+  width: 17px;
+  height: 17px;
+  color: #FFFFFF;
+}
+
+.secondary-button .sign svg path {
+  fill: currentColor;
+}
+
+.secondary-button .text {
+  position: absolute;
+  right: 0%;
+
+  width: 0%;
+  opacity: 0;
+
+  color: #FFFFFF;
+
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover expansion */
+.secondary-button:hover,
+.secondary-button:focus-visible {
+  width: 130px;
+  border-radius: 40px;
+  background-color: #687362;
+  box-shadow: 2px 4px 14px rgba(104, 115, 98, 0.28);
+}
+
+.secondary-button:hover .sign,
+.secondary-button:focus-visible .sign {
+  width: 30%;
+  padding-left: 14px;
+}
+
+.secondary-button:hover .text,
+.secondary-button:focus-visible .text {
+  opacity: 1;
+  width: 70%;
+  padding-right: 12px;
+  text-align: center;
+}
+
+/* Wider variant for 8+ char text like "Learn More", "Save Stone", "Consult" */
+.secondary-button.wide:hover,
+.secondary-button.wide:focus-visible {
+  width: 146px;
+}
+
+.secondary-button.wide:hover .sign,
+.secondary-button.wide:focus-visible .sign {
+  width: 28%;
+  padding-left: 14px;
+}
+
+.secondary-button.wide:hover .text,
+.secondary-button.wide:focus-visible .text {
+  width: 72%;
+  padding-right: 12px;
+}
+
+/* Compact variant for product cards, lists, dense footers */
+.secondary-button.sm {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.secondary-button.sm .sign svg {
+  width: 14px;
+  height: 14px;
+}
+
+.secondary-button.sm .text {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.secondary-button.sm:hover,
+.secondary-button.sm:focus-visible {
+  width: 96px;
+}
+
+.secondary-button.sm:hover .sign,
+.secondary-button.sm:focus-visible .sign {
+  width: 32%;
+  padding-left: 10px;
+}
+
+.secondary-button.sm:hover .text,
+.secondary-button.sm:focus-visible .text {
+  width: 68%;
+  padding-right: 8px;
+}
+
+/* Click */
+.secondary-button:active {
+  transform: translate(2px, 2px);
+}
+
+.secondary-button:focus-visible {
+  outline: 2px solid #7D8976;
+  outline-offset: 3px;
+}
+
+/* Product Specification Label (12.5px, 500 weight, 0.06em tracking, uppercase) */
+.font-spec-label {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5A544A;
+}
+
+/* Product Specification Value (15–16px, 400–500 weight, 1.5 line-height) */
+.font-spec-val {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #121212;
+}
+
+/* Breadcrumbs (13px, 400–500 weight, 1.4 line-height) */
+.font-breadcrumb {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #5A544A;
+}
+
+/* Luxury Editorial Max Reading Widths (650px - 700px) */
+.max-reading-hero {
+  max-width: 650px;
+}
+.max-reading-section {
+  max-width: 660px;
+}
+.max-reading-article {
+  max-width: 700px;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CFC2;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B08D57;
+}

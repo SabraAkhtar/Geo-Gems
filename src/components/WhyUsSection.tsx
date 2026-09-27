@@ -63,12 +63,12 @@ export const WhyUsSection: React.FC = () => {
 
   return (
     <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-16 sm:py-20 lg:py-24 overflow-hidden select-none">
-      {/* Centered Content Container matching 1440px viewport specification */}
+      {/* Centered Content Container */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Two-Column Editorial Layout: Left ~46%, Right ~54%, Column gap 48px to 64px */}
+        {/* Two-Column Editorial Layout */}
         <div className="flex flex-col lg:flex-row items-stretch gap-10 sm:gap-12 lg:gap-14 xl:gap-16">
           
-          {/* LEFT COLUMN: ONE LARGE, DOMINANT GEMSTONE PHOTOGRAPH (~46% on desktop) */}
+          {/* LEFT COLUMN: LARGE GEMSTONE PHOTOGRAPH */}
           <div className="w-full lg:w-[46%] flex flex-col justify-center">
             <div className="relative w-full h-[480px] sm:h-[580px] lg:h-[630px] xl:h-[660px] rounded-[14px] sm:rounded-[16px] overflow-hidden border border-[#E5DED2] shadow-[0_4px_24px_rgba(37,34,29,0.05)] bg-[#FAF8F3] group">
               <img
@@ -77,11 +77,7 @@ export const WhyUsSection: React.FC = () => {
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 loading="lazy"
               />
-
-              {/* Natural gentle vignette at the bottom */}
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
-
-              {/* Bottom-left inside caption: Nature's Beauty in Every Stone */}
               <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">
                 <p className="font-serif italic text-2xl sm:text-3xl text-white drop-shadow-md leading-tight tracking-wide font-normal">
                   Nature's Beauty
@@ -96,10 +92,8 @@ export const WhyUsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: EXACT CONTENT HIERARCHY (~54% on desktop) */}
+          {/* RIGHT COLUMN: CONTENT */}
           <div className="w-full lg:w-[54%] flex flex-col justify-center">
-            
-            {/* A. Eyebrow Label with thin gold horizontal line */}
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               <span className="w-8 sm:w-10 h-[1.5px] bg-[#B08D57] inline-block flex-shrink-0" />
               <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[3px] text-[#B08D57] uppercase">
@@ -107,7 +101,6 @@ export const WhyUsSection: React.FC = () => {
               </span>
             </div>
 
-            {/* B. Main Heading with subtle decorative motif */}
             <div className="flex items-center justify-between gap-4 mb-4 sm:mb-5">
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-normal text-[#292820] leading-[1.12] tracking-tight">
                 A World of Natural Beauty
@@ -118,108 +111,10 @@ export const WhyUsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* C. Supporting Paragraph */}
             <p className="font-body text-[#4A453D] mb-7 sm:mb-8 max-reading-section">
               At Geo Gems Crystals, we celebrate the natural beauty of gemstones and crystals, carefully selected for their unique character, color, and lasting appeal. Discover distinctive natural stones with clear product details and a personal, trustworthy buying experience.
             </p>
 
-            {/* D. Four Trust Cards — Premium 2x2 Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-4.5 mb-7 sm:mb-8">
-              {TRUST_CARDS.map((card) => {
-                const Icon = card.icon;
-                return (
-                  <div
-                    key={card.number}
-                    className="relative bg-white rounded-[16px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_4px_20px_rgba(176,141,87,0.08)]"
-                  >
-                    {/* Top gold accent line */}
-                    <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#B08D57]/0 via-[#B08D57]/50 to-[#B08D57]/0 pointer-events-none" />
-
-                    <div className="p-4 sm:p-5 flex flex-col gap-3.5">
-                      {/* Header row: Arc image cutout LEFT + Number label RIGHT */}
-                      <div className="flex items-start justify-between gap-3">
-
-                        {/* Asymmetric arc-cut specimen image */}
-                        <div className="relative flex-shrink-0">
-                          {/* Decorative gold partial ring arc around image */}
-                          <svg
-                            className="absolute -top-1.5 -left-1.5 pointer-events-none z-10"
-                            width="64" height="64"
-                            viewBox="0 0 64 64"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M10,54 A34,34 0 0,1 54,10"
-                              fill="none"
-                              stroke="#B08D57"
-                              strokeWidth="1"
-                              strokeOpacity="0.5"
-                              strokeLinecap="round"
-                            />
-                          </svg>
-
-                          {/* Image with asymmetric arc cutout — tall rounded left, arc bottom-right */}
-                          <div
-                            className="w-[58px] h-[72px] sm:w-[64px] sm:h-[80px] overflow-hidden bg-[#F5F0E6] border border-[#E5DED2]/80 shadow-sm"
-                            style={{
-                              borderRadius: '32px 14px 28px 16px',
-                            }}
-                          >
-                            <img
-                              src={card.specimenImage}
-                              alt={card.specimenAlt}
-                              className="w-full h-full object-cover object-center group-hover:scale-[1.06] transition-transform duration-500"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-
-                        {/* Right side: Icon + Number stacked */}
-                        <div className="flex flex-col items-end gap-1">
-                          {/* Numbered label — prominent */}
-                          <span
-                            className="font-serif text-[28px] sm:text-[32px] leading-none font-normal tracking-tight"
-                            style={{ color: '#B08D57', opacity: 0.22 }}
-                          >
-                            {card.number}
-                          </span>
-                          {/* Icon circle */}
-                          <div className="w-7 h-7 rounded-full border border-[#B08D57]/30 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]">
-                            <Icon className="w-3.5 h-3.5 stroke-[1.6]" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Thin decorative gold divider */}
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-[1px] bg-[#B08D57]/40 inline-block" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]/30 inline-block" />
-                      </div>
-
-                      {/* Title & Description */}
-                      <div>
-                        <h4 className="font-serif text-[16px] sm:text-[17px] font-normal text-[#292820] mb-1.5 leading-snug tracking-tight">
-                          {card.title}
-                        </h4>
-                        <p className="font-sans text-[12px] sm:text-[12.5px] text-[#716B60] font-light leading-[1.58]">
-                          {card.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Bottom-right subtle gold corner accent */}
-                    <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
-                        <path d="M48,48 L48,20 Q36,36 20,48 Z" fill="#B08D57" fillOpacity="0.04" />
-                        <path d="M48,20 Q36,36 20,48" stroke="#B08D57" strokeWidth="0.8" strokeOpacity="0.3" fill="none" />
-                      </svg>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* E. About Geo Gems Link */}
             <div className="pt-1">
               <button
                 onClick={() => {
@@ -235,6 +130,98 @@ export const WhyUsSection: React.FC = () => {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════════
+            FOUR TRUST CARDS — Full-width horizontal row
+            Reference style: icon+number top, title+desc, curved dome image bottom
+            ═══════════════════════════════════════════════════════════════ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mt-14 sm:mt-16 lg:mt-20">
+          {TRUST_CARDS.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.number}
+                className="relative bg-white rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_6px_24px_rgba(176,141,87,0.10)] flex flex-col"
+              >
+                {/* ── Text Content Area ── */}
+                <div className="p-5 sm:p-6 pb-2 flex-1 flex flex-col">
+                  {/* Row: Icon circle (left) + Number (right) */}
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="w-10 h-10 rounded-full border border-[#D8CFC2] flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]/80">
+                      <Icon className="w-[18px] h-[18px] stroke-[1.5]" />
+                    </div>
+                    <span className="font-serif text-[14px] font-normal tracking-[0.08em] text-[#B08D57]/65">
+                      {card.number}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h4 className="font-serif text-[17px] sm:text-[18px] font-normal text-[#292820] leading-snug tracking-tight mb-2">
+                    {card.title}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#716B60] font-light leading-[1.6] mb-3">
+                    {card.description}
+                  </p>
+                </div>
+
+                {/* ── Large Curved-Dome Gemstone Image at Bottom ── */}
+                <div className="relative h-[150px] sm:h-[160px] lg:h-[145px] xl:h-[160px] overflow-hidden mt-auto">
+                  {/* SVG concave arc overlay — dome-shaped image top edge */}
+                  <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
+                    <svg
+                      viewBox="0 0 300 44"
+                      preserveAspectRatio="none"
+                      className="w-full block"
+                      style={{ height: '44px' }}
+                    >
+                      {/* White concave fill — edges tall, center reveals image */}
+                      <path
+                        d="M0,0 L300,0 L300,44 Q150,2 0,44 Z"
+                        fill="white"
+                      />
+                      {/* Thin gold accent line following the dome curve */}
+                      <path
+                        d="M0,44 Q150,2 300,44"
+                        fill="none"
+                        stroke="#B08D57"
+                        strokeWidth="1.2"
+                        strokeOpacity="0.45"
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Gemstone image */}
+                  <img
+                    src={card.specimenImage}
+                    alt={card.specimenAlt}
+                    className="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
+                    loading="lazy"
+                  />
+
+                  {/* Subtle bottom vignette */}
+                  <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-black/15 to-transparent pointer-events-none" />
+
+                  {/* Small gold decorative flourish — bottom right */}
+                  <div className="absolute bottom-2.5 right-3 z-20 pointer-events-none" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M20,22 Q14,18 12,12 Q16,16 22,14"
+                        stroke="#B08D57"
+                        strokeWidth="1"
+                        strokeOpacity="0.5"
+                        strokeLinecap="round"
+                        fill="none"
+                      />
+                      <circle cx="21" cy="13" r="1.2" fill="#B08D57" fillOpacity="0.35" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 

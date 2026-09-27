@@ -96,7 +96,8 @@ export const AdminDashboard: React.FC = () => {
       const res = await fetch('/api/admin/inquiries', {
         headers: { Authorization: `Bearer ${token}` },
       });
-      if (res.ok) {
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
         const data = await res.json();
         if (Array.isArray(data.inquiries)) {
           setInquiries(
@@ -104,12 +105,26 @@ export const AdminDashboard: React.FC = () => {
               (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
             )
           );
+          return;
         }
       }
     } catch {
       // Ignore network errors
     } finally {
       setIsLoadingInquiries(false);
+    }
+
+    // Read stored inquiries from local storage
+    try {
+      const saved = localStorage.getItem('geo_gems_inquiries');
+      if (saved) {
+        const list = JSON.parse(saved);
+        if (Array.isArray(list)) {
+          setInquiries(list);
+        }
+      }
+    } catch {
+      // Ignore
     }
   }, [adminToken]);
 

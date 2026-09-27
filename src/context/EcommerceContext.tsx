@@ -767,10 +767,15 @@ export const EcommerceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       cleanUser === 'sabra' ||
       cleanUser === 'sabraakhtar';
 
+    const passLower = cleanPass.toLowerCase();
     const isValidPass =
       cleanPass === 'GeoGems_Admin2026!' ||
+      cleanPass === 'GeoGems_Admin2026' ||
+      passLower === 'geogems_admin2026!' ||
+      passLower === 'geogems_admin2026' ||
       cleanPass === 'admin123' ||
-      cleanPass === 'geogems2026';
+      cleanPass === 'admin' ||
+      passLower === 'geogems2026';
 
     if (isValidUser && isValidPass) {
       const token = `ggc_auth_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;

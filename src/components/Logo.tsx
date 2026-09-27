@@ -13,7 +13,7 @@ export const Logo: React.FC<LogoProps> = ({
   size = 'md',
 }) => {
   const sizeClasses = {
-    sm: 'h-10 sm:h-12',
+    sm: 'h-9 sm:h-12',
     md: 'h-14 sm:h-16',
     lg: 'h-20 sm:h-24',
     xl: 'h-28 sm:h-32',

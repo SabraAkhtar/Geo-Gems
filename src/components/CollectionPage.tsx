@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { SlidersHorizontal, RotateCcw, Sparkles, Bookmark, BookOpen } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { SlidersHorizontal, RotateCcw, Sparkles, Bookmark, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
 import { GEMSTONES } from '../data/gemstones';
 import { GEMSTONE_CATEGORIES } from '../data/categories';
 import { CURATED_COLLECTIONS } from '../data/collections';
@@ -284,167 +284,18 @@ export const CollectionPage: React.FC = () => {
         </div>
 
         {/* Main Section: Filters Sidebar + Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Filter Sidebar */}
-          <div className="lg:col-span-3 bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b border-[#E5DED2]">
-              <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-[#B08D57]" />
-                <span className="font-sans text-[13px] font-semibold text-[#121212] uppercase tracking-[0.08em]">
-                  Filter Stones
-                </span>
-                {activeFiltersCount > 0 && (
-                  <span className="w-5 h-5 bg-[#B08D57] text-[#FAF8F3] text-[10px] font-sans font-bold rounded-full flex items-center justify-center">
-                    {activeFiltersCount}
-                  </span>
-                )}
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Left Column: Filter Sidebar — collapsible on mobile */}
+          <FilterSidebar
+            filters={filters}
+            setFilters={setFilters}
+            resetFilters={resetFilters}
+            activeFiltersCount={activeFiltersCount}
+            formatPrice={formatPrice}
+            cuts={cuts}
+            colors={colors}
+          />
 
-              {activeFiltersCount > 0 && (
-                <button
-                  onClick={resetFilters}
-                  className="text-xs text-[#B08D57] hover:text-[#121212] flex items-center gap-1 font-sans font-medium transition-colors cursor-pointer"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>Reset</span>
-                </button>
-              )}
-            </div>
-
-            {/* Cut / Shape */}
-            <div>
-              <label className="block font-spec-label mb-2">
-                Cut &amp; Shape
-              </label>
-              <div className="space-y-1.5 font-sans">
-                {cuts.map((cut) => (
-                  <label
-                    key={cut}
-                    className="flex items-center gap-2 text-[13px] text-[#5A544A] cursor-pointer hover:text-[#121212] transition-colors"
-                  >
-                    <input
-                      type="radio"
-                      name="cutFilter"
-                      checked={
-                        cut === 'All Cuts'
-                          ? !filters.selectedCut || filters.selectedCut === 'All Cuts'
-                          : filters.selectedCut === cut
-                      }
-                      onChange={() =>
-                        setFilters((prev) => ({
-                          ...prev,
-                          selectedCut: cut === 'All Cuts' ? null : cut,
-                        }))
-                      }
-                      className="accent-[#B08D57]"
-                    />
-                    <span>{cut}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Price Range */}
-            <div>
-              <div className="flex items-center justify-between font-spec-label mb-2">
-                <span>Maximum Price</span>
-                <span className="text-[#B08D57] font-sans font-semibold">
-                  {formatPrice(filters.priceRange[1])}
-                </span>
-              </div>
-              <input
-                type="range"
-                min="500"
-                max="50000"
-                step="500"
-                value={filters.priceRange[1]}
-                onChange={(e) =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    priceRange: [prev.priceRange[0], Number(e.target.value)],
-                  }))
-                }
-                className="w-full accent-[#B08D57] cursor-pointer"
-              />
-              <div className="flex justify-between text-[11px] font-sans text-[#5A544A] mt-1">
-                <span>{formatPrice(500)}</span>
-                <span>{formatPrice(50000)}+</span>
-              </div>
-            </div>
-
-            {/* Carat Weight Slider */}
-            <div>
-              <div className="flex items-center justify-between font-spec-label mb-2">
-                <span>Maximum Weight</span>
-                <span className="text-[#B08D57] font-sans font-semibold">
-                  {filters.caratRange[1]} ct
-                </span>
-              </div>
-              <input
-                type="range"
-                min="1"
-                max="50"
-                step="0.5"
-                value={filters.caratRange[1]}
-                onChange={(e) =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    caratRange: [prev.caratRange[0], Number(e.target.value)],
-                  }))
-                }
-                className="w-full accent-[#B08D57] cursor-pointer"
-              />
-              <div className="flex justify-between text-[11px] font-sans text-[#5A544A] mt-1">
-                <span>1.0 ct</span>
-                <span>50.0 ct</span>
-              </div>
-            </div>
-
-            {/* In stock only toggle */}
-            <div className="pt-2 border-t border-[#E5DED2]">
-              <label className="flex items-center gap-2 text-xs font-sans text-[#121212] cursor-pointer font-medium">
-                <input
-                  type="checkbox"
-                  checked={filters.inStockOnly}
-                  onChange={(e) =>
-                    setFilters((prev) => ({ ...prev, inStockOnly: e.target.checked }))
-                  }
-                  className="rounded text-[#B08D57] focus:ring-0 accent-[#B08D57]"
-                />
-                <span>Available Stones Only</span>
-              </label>
-            </div>
-
-            {/* Collections Quick Filter */}
-            <div className="pt-4 border-t border-[#E5DED2]">
-              <label className="block font-spec-label mb-2">
-                Collections
-              </label>
-              <div className="space-y-1.5 font-sans">
-                {CURATED_COLLECTIONS.map((col) => (
-                  <button
-                    key={col.id}
-                    type="button"
-                    onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        selectedCategory: null,
-                        selectedCollection: prev.selectedCollection === col.id ? null : col.id,
-                        selectedType: null,
-                      }))
-                    }
-                    className={`block w-full text-left text-[13px] py-1 transition-colors cursor-pointer ${
-                      filters.selectedCollection === col.id
-                        ? 'text-[#B08D57] font-semibold'
-                        : 'text-[#5A544A] hover:text-[#121212]'
-                    }`}
-                  >
-                    {col.title}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* Right Column: Gemstones Grid */}
           <div className="lg:col-span-9">
@@ -465,7 +316,7 @@ export const CollectionPage: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
                 {filteredGemstones.map((gem) => (
                   <ProductCard key={gem.id} gemstone={gem} />
                 ))}
@@ -477,3 +328,142 @@ export const CollectionPage: React.FC = () => {
     </div>
   );
 };
+
+// -------------------------------------------------------
+// Collapsible Filter Sidebar Component
+// -------------------------------------------------------
+function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, formatPrice, cuts, colors }: any) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="lg:col-span-3">
+      {/* Mobile toggle button */}
+      <button
+        className="lg:hidden w-full flex items-center justify-between bg-white border border-[#E5DED2] rounded-2xl px-4 py-3.5 shadow-xs cursor-pointer mb-2"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <div className="flex items-center gap-2">
+          <SlidersHorizontal className="w-4 h-4 text-[#B08D57]" />
+          <span className="font-sans text-[13px] font-semibold text-[#121212] uppercase tracking-[0.08em]">Filter Stones</span>
+          {activeFiltersCount > 0 && (
+            <span className="w-5 h-5 bg-[#B08D57] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+              {activeFiltersCount}
+            </span>
+          )}
+        </div>
+        {open ? <ChevronUp className="w-4 h-4 text-[#5A544A]" /> : <ChevronDown className="w-4 h-4 text-[#5A544A]" />}
+      </button>
+
+      {/* Filter panel — always visible on desktop, toggleable on mobile */}
+      <div className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}>
+        {/* Header */}
+        <div className="hidden lg:flex items-center justify-between pb-3 border-b border-[#E5DED2]">
+          <div className="flex items-center gap-2">
+            <SlidersHorizontal className="w-4 h-4 text-[#B08D57]" />
+            <span className="font-sans text-[13px] font-semibold text-[#121212] uppercase tracking-[0.08em]">Filter Stones</span>
+            {activeFiltersCount > 0 && (
+              <span className="w-5 h-5 bg-[#B08D57] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                {activeFiltersCount}
+              </span>
+            )}
+          </div>
+          {activeFiltersCount > 0 && (
+            <button
+              onClick={resetFilters}
+              className="text-xs text-[#B08D57] hover:text-[#121212] flex items-center gap-1 font-sans font-medium transition-colors cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>Reset</span>
+            </button>
+          )}
+        </div>
+
+        {/* Reset on mobile */}
+        {activeFiltersCount > 0 && (
+          <button
+            onClick={resetFilters}
+            className="lg:hidden text-xs text-[#B08D57] flex items-center gap-1 font-sans font-medium cursor-pointer"
+          >
+            <RotateCcw className="w-3 h-3" />
+            <span>Reset Filters</span>
+          </button>
+        )}
+
+        {/* Cut / Shape */}
+        <div>
+          <label className="block font-spec-label mb-2">Cut &amp; Shape</label>
+          <div className="space-y-1.5 font-sans">
+            {cuts.map((cut: string) => (
+              <label key={cut} className="flex items-center gap-2 text-[13px] text-[#5A544A] cursor-pointer hover:text-[#121212] transition-colors">
+                <input
+                  type="radio"
+                  name="cutFilter"
+                  checked={cut === 'All Cuts' ? !filters.selectedCut || filters.selectedCut === 'All Cuts' : filters.selectedCut === cut}
+                  onChange={() => setFilters((prev: any) => ({ ...prev, selectedCut: cut === 'All Cuts' ? null : cut }))}
+                  className="accent-[#B08D57]"
+                />
+                <span>{cut}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Price Range */}
+        <div>
+          <div className="flex items-center justify-between font-spec-label mb-2">
+            <span>Maximum Price</span>
+            <span className="text-[#B08D57] font-sans font-semibold">{formatPrice(filters.priceRange[1])}</span>
+          </div>
+          <input type="range" min="500" max="50000" step="500" value={filters.priceRange[1]}
+            onChange={(e) => setFilters((prev: any) => ({ ...prev, priceRange: [prev.priceRange[0], Number(e.target.value)] }))}
+            className="w-full accent-[#B08D57] cursor-pointer" />
+          <div className="flex justify-between text-[11px] font-sans text-[#5A544A] mt-1">
+            <span>{formatPrice(500)}</span>
+            <span>{formatPrice(50000)}+</span>
+          </div>
+        </div>
+
+        {/* Carat Weight */}
+        <div>
+          <div className="flex items-center justify-between font-spec-label mb-2">
+            <span>Maximum Weight</span>
+            <span className="text-[#B08D57] font-sans font-semibold">{filters.caratRange[1]} ct</span>
+          </div>
+          <input type="range" min="1" max="50" step="0.5" value={filters.caratRange[1]}
+            onChange={(e) => setFilters((prev: any) => ({ ...prev, caratRange: [prev.caratRange[0], Number(e.target.value)] }))}
+            className="w-full accent-[#B08D57] cursor-pointer" />
+          <div className="flex justify-between text-[11px] font-sans text-[#5A544A] mt-1">
+            <span>1.0 ct</span>
+            <span>50.0 ct</span>
+          </div>
+        </div>
+
+        {/* In stock only */}
+        <div className="pt-2 border-t border-[#E5DED2]">
+          <label className="flex items-center gap-2 text-xs font-sans text-[#121212] cursor-pointer font-medium">
+            <input type="checkbox" checked={filters.inStockOnly}
+              onChange={(e) => setFilters((prev: any) => ({ ...prev, inStockOnly: e.target.checked }))}
+              className="rounded text-[#B08D57] focus:ring-0 accent-[#B08D57]" />
+            <span>Available Stones Only</span>
+          </label>
+        </div>
+
+        {/* Collections */}
+        <div className="pt-4 border-t border-[#E5DED2]">
+          <label className="block font-spec-label mb-2">Collections</label>
+          <div className="space-y-1.5 font-sans">
+            {CURATED_COLLECTIONS.map((col) => (
+              <button key={col.id} type="button"
+                onClick={() => setFilters((prev: any) => ({ ...prev, selectedCategory: null, selectedCollection: prev.selectedCollection === col.id ? null : col.id, selectedType: null }))}
+                className={`block w-full text-left text-[13px] py-1 transition-colors cursor-pointer ${
+                  filters.selectedCollection === col.id ? 'text-[#B08D57] font-semibold' : 'text-[#5A544A] hover:text-[#121212]'
+                }`}>
+                {col.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

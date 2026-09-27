@@ -28,10 +28,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
   return (
     <div
       onClick={() => openGemstoneDetail(gemstone)}
-      className="group bg-white rounded-2xl border border-[#E5DED2] hover:border-[#B08D57]/70 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xs hover:shadow-md cursor-pointer relative"
+      className="group bg-white rounded-xl sm:rounded-2xl border border-[#E5DED2] hover:border-[#B08D57]/70 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xs hover:shadow-md cursor-pointer relative"
     >
       {/* Top Image Container */}
-      <div className="relative aspect-[4/3] sm:aspect-[1/1] overflow-hidden bg-[#F3EFE8]">
+      <div className="relative aspect-[1/1] overflow-hidden bg-[#F3EFE8]">
         <img
           src={gemstone.images[0] || '/stones/ruby.jpg'}
           alt={gemstone.name}
@@ -46,7 +46,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
             e.stopPropagation();
             toggleSavedStone(gemstone.id);
           }}
-          className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md transition-all z-10 shadow-xs cursor-pointer ${
+          className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full backdrop-blur-md transition-all z-10 shadow-xs cursor-pointer ${
             isSaved
               ? 'bg-[#B08D57] text-white border border-[#B08D57]'
               : 'bg-[#121212]/50 text-white/90 hover:bg-[#121212]/80 border border-white/20'
@@ -54,61 +54,61 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
           title={isSaved ? 'Remove from Saved Stones' : 'Save Stone'}
           aria-label={isSaved ? 'Remove from Saved Stones' : 'Save Stone'}
         >
-          <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-current' : ''}`} />
+          <Bookmark className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isSaved ? 'fill-current' : ''}`} />
         </button>
 
-        {/* Hover Quick Action Overlay — Single simple button only on hover */}
-        <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-[#1B1916]/45 via-[#1B1916]/15 to-transparent opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 flex items-center justify-center z-10">
+        {/* Hover Quick Action Overlay */}
+        <div className="absolute inset-x-0 bottom-0 p-2 sm:p-3 bg-gradient-to-t from-[#1B1916]/45 via-[#1B1916]/15 to-transparent opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 flex items-center justify-center z-10">
           <button
             onClick={(e) => {
               e.stopPropagation();
               openGemstoneDetail(gemstone);
             }}
-            className="w-full py-2.5 px-4 bg-[#B08D57] hover:bg-[#7D8976] text-white text-xs font-sans font-medium tracking-wider uppercase rounded-full shadow-sm flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            className="w-full py-2 px-3 bg-[#B08D57] hover:bg-[#7D8976] text-white text-[10px] sm:text-xs font-sans font-medium tracking-wider uppercase rounded-full shadow-sm flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
           >
-            <Eye className="w-3.5 h-3.5 text-white" />
+            <Eye className="w-3 h-3 text-white" />
             <span>View Stone</span>
           </button>
         </div>
       </div>
 
-      {/* Product Content Details: Title, Specs, Stone ID, Price */}
-      <div className="p-4 sm:p-5 flex flex-grow flex-col justify-between bg-white">
+      {/* Product Content Details */}
+      <div className="p-3 sm:p-4 md:p-5 flex flex-grow flex-col justify-between bg-white">
         <div>
-          {/* Eyebrow & Product ID */}
-          <div className="flex items-center justify-between gap-2 mb-1.5">
-            <span className="font-eyebrow text-[12px]">
+          {/* Eyebrow & Product ID — stacked on mobile */}
+          <div className="flex items-start justify-between gap-1 mb-1">
+            <span className="font-eyebrow text-[10px] sm:text-[12px] leading-tight">
               {gemstone.type}
             </span>
-            <span className="font-stone-id text-[12px]">
+            <span className="font-stone-id text-[9px] sm:text-[11px] text-right shrink-0 leading-tight">
               {stoneId}
             </span>
           </div>
 
-          {/* Stone Name in Cormorant Garamond (18–22px) */}
-          <h3 className="font-card-title text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-1 leading-snug">
+          {/* Stone Name */}
+          <h3 className="font-card-title text-[14px] sm:text-[17px] text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-1 leading-snug mt-0.5">
             {gemstone.name}
           </h3>
 
-          {/* Important Product Details: Weight & Origin/Cut (14–15px) */}
-          <p className="font-sans text-[14px] text-[#5A544A] font-normal mt-1 line-clamp-1">
+          {/* Weight & Origin */}
+          <p className="font-sans text-[11px] sm:text-[13px] text-[#5A544A] font-normal mt-0.5 line-clamp-1">
             {weightDisplay} • {gemstone.origin ? gemstone.origin.split(',')[0] : gemstone.cut}
           </p>
         </div>
 
-        {/* Price & Secondary Expandable WhatsApp Button Footer */}
-        <div className="mt-4 pt-3 border-t border-[#E5DED2] flex items-center justify-between">
+        {/* Price & WhatsApp */}
+        <div className="mt-3 pt-2.5 border-t border-[#E5DED2] flex items-center justify-between">
           <div>
             {isSold ? (
-              <span className="font-sans text-[14px] font-medium text-[#5A544A]">
+              <span className="font-sans text-[11px] sm:text-[13px] font-medium text-[#5A544A]">
                 Sold
               </span>
             ) : priceInfo.isPriceOnRequest ? (
-              <span className="font-price-request text-[15px]">
+              <span className="font-price-request text-[11px] sm:text-[14px]">
                 Price on Request
               </span>
             ) : (
-              <span className="font-price text-[17px] sm:text-[19px]">
+              <span className="font-price text-[13px] sm:text-[17px]">
                 {priceInfo.label}
               </span>
             )}
@@ -118,7 +118,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
             size="sm"
             href={cardWhatsAppUrl}
             target="_blank"
-            icon={<WhatsAppIcon className="w-4 h-4 text-white" />}
+            icon={<WhatsAppIcon className="w-3.5 h-3.5 text-white" />}
             text={isSold ? 'Similar' : 'Inquire'}
             title={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}
             ariaLabel={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}

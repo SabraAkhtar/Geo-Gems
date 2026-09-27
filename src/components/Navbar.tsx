@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
     <>
       {/* Full-width Luxury Header / Navigation Bar */}
       <header className="sticky top-0 z-40 bg-[#FAF8F3] border-b border-[#D8CFC2] shadow-xs select-none transition-colors">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 h-20 sm:h-22 flex items-center justify-between gap-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
           {/* LEFT — Official Brand Logo */}
           <div
             onClick={() => {
@@ -85,7 +85,8 @@ export const Navbar: React.FC = () => {
             className="cursor-pointer transition-transform hover:opacity-95 flex-shrink-0"
             title="GEO GEMS CRYSTALS — Natural Stones"
           >
-            <Logo size="md" variant="light" layout="stacked" showTagline={true} />
+            <Logo size="sm" variant="light" layout="stacked" showTagline={false} className="sm:hidden" />
+            <Logo size="md" variant="light" layout="stacked" showTagline={true} className="hidden sm:block" />
           </div>
 
           {/* CENTER — Primary Navigation Links (Home, Gemstones, Crystals, About, Contact) */}
@@ -167,6 +168,31 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Direct WhatsApp Inquiry CTA Button */}
+            <a
+              href={whatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="primary-button hidden sm:inline-flex text-white font-medium"
+              style={{ padding: '0.85em 1.7em', fontSize: '12px', letterSpacing: '1.8px' }}
+              title="Inquire on WhatsApp"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
+              <span>Inquire on WhatsApp</span>
+            </a>
+
+            {/* Mobile-only: icon-only WhatsApp quick access */}
+            <a
+              href={whatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
+              title="WhatsApp Inquiry"
+              aria-label="WhatsApp Inquiry"
+            >
+              <WhatsAppIcon className="w-5 h-5" style={{ color: '#25D366' }} />
+            </a>
+
+            {/* Desktop WhatsApp CTA */}
             <a
               href={whatsAppUrl}
               target="_blank"

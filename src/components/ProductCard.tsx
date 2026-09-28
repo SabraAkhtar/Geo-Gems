@@ -73,22 +73,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
       </div>
 
       {/* Product Content Details */}
-      <div className="p-3 sm:p-4 md:p-5 flex flex-grow flex-col justify-between bg-white">
+      <div className="p-2.5 sm:p-4 md:p-5 flex flex-grow flex-col justify-between bg-white">
         <div>
-          {/* Eyebrow & Product ID — stacked on mobile */}
-          <div className="flex items-start justify-between gap-1 mb-1">
-            <span className="font-eyebrow text-[10px] sm:text-[12px] leading-tight">
-              {gemstone.type}
-            </span>
-            <span className="font-stone-id text-[9px] sm:text-[11px] text-right shrink-0 leading-tight">
+          {/* Stone type eyebrow */}
+          <span className="font-eyebrow text-[10px] sm:text-[11px] leading-tight block mb-0.5">
+            {gemstone.type}
+          </span>
+
+          {/* Stone Name + ID row */}
+          <div className="flex items-start justify-between gap-2 mb-0.5">
+            <h3 className="font-card-title text-[13px] sm:text-[16px] text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-1 leading-snug min-w-0">
+              {gemstone.name}
+            </h3>
+            <span className="font-stone-id text-[9px] sm:text-[10px] text-[#8C8578] flex-shrink-0 leading-tight pt-0.5">
               {stoneId}
             </span>
           </div>
-
-          {/* Stone Name */}
-          <h3 className="font-card-title text-[14px] sm:text-[17px] text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-1 leading-snug mt-0.5">
-            {gemstone.name}
-          </h3>
 
           {/* Weight & Origin */}
           <p className="font-sans text-[11px] sm:text-[13px] text-[#5A544A] font-normal mt-0.5 line-clamp-1">

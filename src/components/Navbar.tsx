@@ -15,9 +15,6 @@ export const Navbar: React.FC = () => {
   } = useEcommerce();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isSearchHovered, setIsSearchHovered] = useState(false);
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [searchInputValue, setSearchInputValue] = useState('');
 
   // Primary business inquiry WhatsApp URL
   const whatsAppUrl = getGeneralWhatsAppUrl(
@@ -111,69 +108,24 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* RIGHT — Search Icon + INQUIRE ON WHATSAPP */}
-          <div className="flex items-center gap-3.5 sm:gap-5 flex-shrink-0">
-            {/* Expandable Search Bar on Hover / Focus */}
-            <div
-              className="relative flex items-center"
-              onMouseEnter={() => setIsSearchHovered(true)}
-              onMouseLeave={() => {
-                if (!isSearchFocused && !searchInputValue) {
-                  setIsSearchHovered(false);
-                }
-              }}
+          {/* RIGHT — Search + WhatsApp CTA + Hamburger */}
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+            {/* Search icon — always visible, opens modal on click */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="p-2 text-[#25221D] hover:text-[#B08D57] transition-colors cursor-pointer flex-shrink-0"
+              title="Search gemstones & crystals"
+              aria-label="Search gemstones and crystals"
             >
-              <div
-                className={`flex items-center rounded-xl transition-all duration-300 ease-out bg-[#FAF8F3] overflow-hidden ${
-                  isSearchHovered || isSearchFocused || searchInputValue
-                    ? 'w-44 sm:w-56 border border-[#B08D57] shadow-xs px-2.5 py-1.5'
-                    : 'w-9 h-9 border border-transparent hover:border-[#D8CFC2] justify-center'
-                }`}
-              >
-                <button
-                  onClick={() => setIsSearchOpen(true)}
-                  className="text-[#25221D] hover:text-[#B08D57] transition-colors cursor-pointer flex-shrink-0 flex items-center justify-center"
-                  title="Search gemstones & crystals"
-                  aria-label="Search gemstones and crystals"
-                >
-                  <Search className="w-[18px] h-[18px] stroke-[1.75]" />
-                </button>
+              <Search className="w-[20px] h-[20px] stroke-[1.75]" />
+            </button>
 
-                <input
-                  type="text"
-                  placeholder="Search stones, origins, cuts…"
-                  value={searchInputValue}
-                  onChange={(e) => setSearchInputValue(e.target.value)}
-                  onFocus={() => {
-                    setIsSearchFocused(true);
-                    setIsSearchHovered(true);
-                  }}
-                  onBlur={() => {
-                    setIsSearchFocused(false);
-                    if (!searchInputValue) setIsSearchHovered(false);
-                  }}
-                  onClick={() => setIsSearchOpen(true)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      setIsSearchOpen(true);
-                    }
-                  }}
-                  className={`bg-transparent text-xs text-[#25221D] placeholder-[#8C8578] outline-none ml-2 transition-all duration-300 ${
-                    isSearchHovered || isSearchFocused || searchInputValue
-                      ? 'w-full opacity-100'
-                      : 'w-0 opacity-0 pointer-events-none'
-                  }`}
-                />
-              </div>
-            </div>
-
-
-            {/* Mobile/Tablet-only: icon-only WhatsApp quick access (up to lg) */}
+            {/* sm–md only: compact WhatsApp icon button */}
             <a
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
+              className="hidden sm:flex lg:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors items-center justify-center"
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
@@ -193,7 +145,7 @@ export const Navbar: React.FC = () => {
               <span>Inquire on WhatsApp</span>
             </a>
 
-            {/* Mobile/Tablet Menu Hamburger (up to lg) */}
+            {/* Hamburger — visible below lg */}
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="p-2 text-[#25221D] hover:text-[#B08D57] lg:hidden cursor-pointer"

@@ -31,9 +31,9 @@ export const Footer: React.FC = () => {
     <footer className="bg-[#0A0A0A] text-[#F5F1E9] border-t border-[#2A2A2A] select-none">
       <div className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* ROW 1 — Main Footer Content */}
-        <div className="py-12 sm:py-14 lg:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start">
-          {/* Brand Identity Area — Left Column (5 columns on desktop) */}
-          <div className="lg:col-span-5 space-y-3.5">
+        <div className="py-10 sm:py-14 lg:py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start">
+          {/* Brand Identity Area — full width on mobile, 5 cols on desktop */}
+          <div className="col-span-2 lg:col-span-5 space-y-3">
             <div
               onClick={() => handleNavigate('home')}
               className="cursor-pointer inline-block"
@@ -55,14 +55,14 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Short Brand Description */}
-            <p className="font-sans text-[14.5px] text-[#A39B8F] leading-[1.7] max-w-[380px]">
+            <p className="font-sans text-[13.5px] text-[#A39B8F] leading-[1.7] max-w-[380px]">
               Discover natural gemstones and crystals, carefully selected for collectors, jewelry
               businesses, and crystal buyers worldwide.
             </p>
           </div>
 
-          {/* Explore Column (2 columns on desktop) */}
-          <div className="lg:col-span-2 space-y-3.5">
+          {/* Explore Column */}
+          <div className="col-span-1 lg:col-span-2 space-y-3">
             <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
               Explore
             </h4>
@@ -110,8 +110,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Help & Contact Column (3 columns on desktop) */}
-          <div className="lg:col-span-3 space-y-3.5">
+          {/* Help & Contact Column */}
+          <div className="col-span-1 lg:col-span-3 space-y-3">
             <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
               Customer Support
             </h4>
@@ -153,8 +153,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Social Media Column (2 columns on desktop) */}
-          <div className="lg:col-span-2 space-y-3.5">
+          {/* Social Media Column */}
+          <div className="col-span-2 sm:col-span-1 lg:col-span-2 space-y-3">
             <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
               Follow Us
             </h4>

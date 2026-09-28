@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
   const activeSlide = HERO_SLIDES[slideIndex];
 
   return (
-    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[720px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '110px' }}>
+    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[620px] sm:min-h-[720px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '110px' }}>
       {/* Subtle Editorial Decorative System — Strictly Behind Gemstone Composition */}
       <div
         aria-hidden="true"
@@ -281,7 +281,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Main Two-Column Editorial Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 flex-grow flex flex-col justify-between">
+      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 sm:px-8 lg:px-12 pt-14 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 flex-grow flex flex-col justify-between">
         <div className="w-full lg:max-w-[52%] xl:max-w-[50%] flex flex-col justify-center my-auto">
           {/* Eyebrow Label */}
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">

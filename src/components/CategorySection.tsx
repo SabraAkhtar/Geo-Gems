@@ -153,7 +153,7 @@ export const CategorySection: React.FC = () => {
 
         {/* Carousel Container with Side Navigation Chevrons */}
         <div 
-          className="relative group/carousel"
+          className="relative group/carousel overflow-hidden"
           onMouseEnter={() => setIsInteracting(true)}
           onMouseLeave={() => setIsInteracting(false)}
         >

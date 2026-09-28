@@ -75,7 +75,7 @@ export const AboutView: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
             
             {/* LEFT SIDE — Creative Gemstone Visual Composition */}
-            <div className="lg:col-span-6 xl:col-span-7 relative">
+            <div className="lg:col-span-6 xl:col-span-7 relative overflow-hidden lg:overflow-visible">
               <div className="relative mx-auto max-w-[560px] lg:max-w-none h-[410px] sm:h-[480px] lg:h-[530px]">
                 
                 {/* Secondary Card (Upper-Left): Raw Natural Crystals */}

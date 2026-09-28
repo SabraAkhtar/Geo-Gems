@@ -54,7 +54,7 @@ const FEATURE_CARDS: FeatureCardItem[] = [
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="relative bg-transparent py-0 select-none overflow-visible" style={{ marginTop: '-110px', zIndex: 20 }}>
+    <section className="relative bg-transparent py-0 select-none overflow-hidden" style={{ marginTop: '-60px', zIndex: 20 }}>
       <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* 4 Feature Cards Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">

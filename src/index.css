@@ -17,6 +17,20 @@
   --color-dark-divider: #3A352D;
 }
 
+/* =========================================================================
+   GLOBAL — Prevent horizontal overflow / scrollbar on all screens
+   ========================================================================= */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 @layer base {
   body {
     font-family: var(--font-sans);

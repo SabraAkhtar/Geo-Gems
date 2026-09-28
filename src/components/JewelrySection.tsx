@@ -74,7 +74,7 @@ export const JewelrySection: React.FC = () => {
             const whatsappUrl = getWhatsAppInquiryUrl(stoneObj);
 
             return (
-              <div key={piece.id} className="relative">
+              <div key={piece.id} className="relative overflow-hidden rounded-2xl">
                 {/* ONE thin open rectangular editorial frame slightly offset behind the main jewelry image (ONLY used here) */}
                 {idx === 0 && (
                   <div

@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
   const activeSlide = HERO_SLIDES[slideIndex];
 
   return (
-    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[620px] sm:min-h-[720px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '110px' }}>
+    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[620px] sm:min-h-[720px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '80px' }}>
       {/* Subtle Editorial Decorative System — Strictly Behind Gemstone Composition */}
       <div
         aria-hidden="true"

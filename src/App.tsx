@@ -57,7 +57,7 @@ const MainAppContent: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F3] text-[#292820] font-sans antialiased selection:bg-[#B08D57]/20 selection:text-[#121212]">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F3] text-[#292820] font-sans antialiased selection:bg-[#B08D57]/20 selection:text-[#121212] overflow-x-hidden w-full">
       {/* Top Refined Header & Brand Navigation */}
       <Navbar />
 

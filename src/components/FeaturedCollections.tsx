@@ -43,18 +43,19 @@ export const FeaturedCollections: React.FC = () => {
         </div>
 
         {/* Collections Grid - Equal Height Editorial Cards with Prominent Gemstone Imagery */}
+        {/* Top row: 2 equal cards — each half width on md+, full-12-col on lg */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
-          {/* Item 1 - The Ruby Collection (Equal Height to Sapphire Selections) */}
+          {/* Item 1 - The Ruby Collection */}
           <div
             onClick={() => navigateToCollection(CURATED_COLLECTIONS[0].id)}
-            className="col-span-1 md:col-span-1 lg:col-span-6 group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[340px] sm:h-[380px] lg:h-[420px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
+            className="md:col-span-1 lg:col-span-6 group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[340px] sm:h-[380px] lg:h-[420px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
           >
             <img
               src={CURATED_COLLECTIONS[0].image}
               alt={CURATED_COLLECTIONS[0].title}
               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
             />
-            {/* Darker gradient overlay, gets slightly darker on hover to ensure text pops */}
+            {/* Darker gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D0B09]/80 via-[#1B1916]/30 via-40% to-transparent group-hover:from-[#0D0B09]/90 transition-all duration-300 pointer-events-none" />
             <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end pointer-events-none">
               <div className="inline-block bg-[#0D0B09]/40 backdrop-blur-md rounded-xl px-5 py-3 border border-white/10 self-start group-hover:border-[#D4B06A]/40 transition-colors duration-300">
@@ -65,10 +66,10 @@ export const FeaturedCollections: React.FC = () => {
             </div>
           </div>
 
-          {/* Item 2 - Sapphire Selections (Identical Height to The Ruby Collection) */}
+          {/* Item 2 - Sapphire Selections */}
           <div
             onClick={() => navigateToCollection(CURATED_COLLECTIONS[1].id)}
-            className="col-span-1 md:col-span-1 lg:col-span-6 group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[340px] sm:h-[380px] lg:h-[420px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
+            className="md:col-span-1 lg:col-span-6 group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[340px] sm:h-[380px] lg:h-[420px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
           >
             <img
               src={CURATED_COLLECTIONS[1].image}
@@ -84,13 +85,15 @@ export const FeaturedCollections: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* 3 Columns for remaining collections */}
+        {/* Bottom row: always 3 equal columns — use separate grid so md gives 3-col too */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 mt-6">
           {CURATED_COLLECTIONS.slice(2).map((col) => (
             <div
               key={col.id}
               onClick={() => navigateToCollection(col.id)}
-              className="col-span-1 md:col-span-1 lg:col-span-4 group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[260px] sm:h-[300px] lg:h-[320px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
+              className="group cursor-pointer relative overflow-hidden rounded-2xl bg-[#EAE3D8] h-[260px] sm:h-[300px] lg:h-[320px] shadow-md hover:shadow-xl border border-[#D8CFC2] transition-all duration-300"
             >
               <img
                 src={col.image}

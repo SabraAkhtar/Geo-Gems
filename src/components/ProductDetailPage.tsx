@@ -343,67 +343,67 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
               </div>
 
               <div className="divide-y divide-[#F0EAE1] text-xs sm:text-[13.5px]">
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Stone Name</span>
-                  <span className="font-spec-val text-right">{gemstone.name}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Stone Name</span>
+                  <span className="font-spec-val text-right min-w-0 truncate">{gemstone.name}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Product ID</span>
-                  <span className="font-spec-val">{stoneId}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Product ID</span>
+                  <span className="font-spec-val min-w-0 truncate">{stoneId}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Category</span>
-                  <span className="font-spec-val">{gemstone.type}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Category</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.type}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Form / Cut</span>
-                  <span className="font-spec-val">{gemstone.cut}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Form / Cut</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.cut}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Weight</span>
-                  <span className="font-spec-val">{weightText}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Weight</span>
+                  <span className="font-spec-val min-w-0 truncate">{weightText}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Size</span>
-                  <span className="font-spec-val">{gemstone.dimensions}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Size</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.dimensions}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Color</span>
-                  <span className="font-spec-val">{gemstone.color}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Color</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.color}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Clarity</span>
-                  <span className="font-spec-val">{gemstone.clarity}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Clarity</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.clarity}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Origin</span>
-                  <span className="font-spec-val">{gemstone.origin || 'Natural Origin'}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Origin</span>
+                  <span className="font-spec-val min-w-0 truncate">{gemstone.origin || 'Natural Origin'}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Treatment</span>
-                  <span className="font-spec-val font-medium text-[#121212]">{gemstone.treatment}</span>
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Treatment</span>
+                  <span className="font-spec-val font-medium text-[#121212] min-w-0 truncate">{gemstone.treatment}</span>
                 </div>
 
-                <div className="px-5 py-3 flex items-center justify-between">
-                  <span className="font-spec-label">Availability</span>
-                  <span className="font-spec-val text-[#7D8976] font-medium">
+                <div className="px-5 py-3 flex items-center justify-between gap-3">
+                  <span className="font-spec-label flex-shrink-0">Availability</span>
+                  <span className="font-spec-val text-[#7D8976] font-medium min-w-0 truncate">
                     {isSold ? 'Sold' : isReserved ? 'Reserved' : 'Available'}
                   </span>
                 </div>
 
                 {gemstone.certificate && gemstone.certificate.issuer && (
-                  <div className="px-5 py-3 flex items-center justify-between bg-[#FAF8F3]/60">
-                    <span className="font-spec-label">Report / Certificate</span>
-                    <span className="font-spec-val text-[#B08D57] font-semibold">
+                  <div className="px-5 py-3 flex items-center justify-between gap-3 bg-[#FAF8F3]/60">
+                    <span className="font-spec-label flex-shrink-0">Report / Certificate</span>
+                    <span className="font-spec-val text-[#B08D57] font-semibold min-w-0 truncate">
                       {gemstone.certificate.issuer} #{gemstone.certificate.reportNumber}
                     </span>
                   </div>

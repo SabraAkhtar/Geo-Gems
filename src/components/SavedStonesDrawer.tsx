@@ -32,7 +32,7 @@ export const SavedStonesDrawer: React.FC = () => {
         onClick={() => setIsSavedStonesOpen(false)}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="fixed inset-y-0 right-0 max-w-full flex">
         <div className="w-screen max-w-md bg-[#FAF8F3] border-l border-[#E5DED2] shadow-2xl flex flex-col justify-between">
           {/* Header */}
           <div className="p-6 border-b border-[#E5DED2] flex items-center justify-between bg-white">
@@ -95,7 +95,7 @@ export const SavedStonesDrawer: React.FC = () => {
                         openGemstoneDetail(stone);
                         setIsSavedStonesOpen(false);
                       }}
-                      className="w-18 h-18 rounded-lg overflow-hidden bg-[#161514] flex-shrink-0 cursor-pointer"
+                      className="w-[72px] h-[72px] rounded-lg overflow-hidden bg-[#161514] flex-shrink-0 cursor-pointer"
                     >
                       <img
                         src={stone.images[0] || '/stones/ruby.jpg'}

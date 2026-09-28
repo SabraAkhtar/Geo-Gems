@@ -86,11 +86,11 @@ export const Navbar: React.FC = () => {
             title="GEO GEMS CRYSTALS — Natural Stones"
           >
             <Logo size="sm" variant="light" layout="stacked" showTagline={false} className="sm:hidden" />
-            <Logo size="md" variant="light" layout="stacked" showTagline={true} className="hidden sm:block" />
+            <Logo size="md" variant="light" layout="stacked" showTagline={true} className="hidden sm:block lg:block" />
           </div>
 
           {/* CENTER — Primary Navigation Links (Home, Gemstones, Crystals, About, Contact) */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center justify-center gap-8 lg:gap-11 xl:gap-12">
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center justify-center gap-8 lg:gap-11 xl:gap-12">
             {navLinks.map((item) => {
               return (
                 <button
@@ -168,24 +168,24 @@ export const Navbar: React.FC = () => {
             </div>
 
 
-            {/* Mobile-only: icon-only WhatsApp quick access */}
+            {/* Mobile/Tablet-only: icon-only WhatsApp quick access (up to lg) */}
             <a
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="md:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
+              className="lg:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
               <WhatsAppIcon className="w-5 h-5" style={{ color: '#25D366' }} />
             </a>
 
-            {/* Desktop WhatsApp CTA */}
+            {/* Desktop WhatsApp CTA (lg and above) */}
             <a
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="primary-button hidden md:inline-flex text-white font-medium"
+              className="primary-button hidden lg:inline-flex text-white font-medium"
               style={{ padding: '0.85em 1.7em', fontSize: '12px', letterSpacing: '1.8px' }}
               title="Inquire on WhatsApp"
             >
@@ -193,10 +193,10 @@ export const Navbar: React.FC = () => {
               <span>Inquire on WhatsApp</span>
             </a>
 
-            {/* Mobile Menu Hamburger */}
+            {/* Mobile/Tablet Menu Hamburger (up to lg) */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-[#25221D] hover:text-[#B08D57] md:hidden cursor-pointer"
+              className="p-2 text-[#25221D] hover:text-[#B08D57] lg:hidden cursor-pointer"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
@@ -205,9 +205,9 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile / Tablet Drawer (shown below lg) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 lg:hidden animate-in fade-in duration-200">
           <div
             className="fixed inset-0 bg-black/40 backdrop-blur-xs"
             onClick={() => setMobileMenuOpen(false)}

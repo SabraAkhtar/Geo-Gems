@@ -8,6 +8,7 @@ export const CategorySection: React.FC = () => {
   const { navigateToCategory } = useEcommerce();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activePageIndex, setActivePageIndex] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(2);
   const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
   const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
 
@@ -21,27 +22,50 @@ export const CategorySection: React.FC = () => {
     const maxScroll = scrollWidth - clientWidth;
     if (maxScroll > 0) {
       const progress = scrollLeft / maxScroll;
-      // 2 or 3 page dots based on progress
-      setActivePageIndex(progress > 0.45 ? 1 : 0);
+      const pages = Math.max(2, totalPages);
+      const pageIndex = Math.min(pages - 1, Math.round(progress * (pages - 1)));
+      setActivePageIndex(pageIndex);
     }
   };
 
-  const [isHovering, setIsHovering] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
+
+  // Compute dynamic page count whenever the container resizes
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const computePages = () => {
+      const { scrollWidth, clientWidth } = el;
+      if (clientWidth > 0) {
+        setTotalPages(Math.max(2, Math.ceil(scrollWidth / clientWidth)));
+      }
+    };
+    computePages();
+    const ro = new ResizeObserver(computePages);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (el) {
       el.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
-      
+
+      // Pause auto-scroll on touch as well as mouse hover
+      const onTouchStart = () => setIsInteracting(true);
+      const onTouchEnd = () => setTimeout(() => setIsInteracting(false), 1500);
+      el.addEventListener('touchstart', onTouchStart, { passive: true });
+      el.addEventListener('touchend', onTouchEnd, { passive: true });
+
       let autoScrollInterval: ReturnType<typeof setInterval>;
-      
-      if (!isHovering) {
+
+      if (!isInteracting) {
         autoScrollInterval = setInterval(() => {
           if (el) {
             const { scrollLeft, scrollWidth, clientWidth } = el;
             const maxScroll = scrollWidth - clientWidth;
-            
+
             if (scrollLeft >= maxScroll - 10) {
               el.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
@@ -53,10 +77,12 @@ export const CategorySection: React.FC = () => {
 
       return () => {
         el.removeEventListener('scroll', handleScroll);
+        el.removeEventListener('touchstart', onTouchStart);
+        el.removeEventListener('touchend', onTouchEnd);
         if (autoScrollInterval) clearInterval(autoScrollInterval);
       };
     }
-  }, [isHovering]);
+  }, [isInteracting]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -73,8 +99,10 @@ export const CategorySection: React.FC = () => {
     if (scrollContainerRef.current) {
       const { scrollWidth, clientWidth } = scrollContainerRef.current;
       const maxScroll = scrollWidth - clientWidth;
+      const pages = Math.max(2, totalPages);
+      const targetScroll = pageIndex === 0 ? 0 : pageIndex >= pages - 1 ? maxScroll : (maxScroll / (pages - 1)) * pageIndex;
       scrollContainerRef.current.scrollTo({
-        left: pageIndex === 0 ? 0 : maxScroll,
+        left: targetScroll,
         behavior: 'smooth',
       });
       setActivePageIndex(pageIndex);
@@ -126,8 +154,8 @@ export const CategorySection: React.FC = () => {
         {/* Carousel Container with Side Navigation Chevrons */}
         <div 
           className="relative group/carousel"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          onMouseEnter={() => setIsInteracting(true)}
+          onMouseLeave={() => setIsInteracting(false)}
         >
           {/* Left Arrow Button */}
           {canScrollLeft && (
@@ -184,26 +212,20 @@ export const CategorySection: React.FC = () => {
             ))}
           </div>
 
-          {/* Pagination Dots */}
+          {/* Pagination Dots — dynamic count based on scroll width */}
           <div className="flex items-center justify-center gap-2 mt-8 sm:mt-10">
-            <button
-              onClick={() => scrollToPage(0)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                activePageIndex === 0
-                  ? 'bg-[#B08D57] w-6 rounded-full'
-                  : 'bg-[#D8CFC2] hover:bg-[#B08D57]'
-              }`}
-              aria-label="Go to first slide"
-            />
-            <button
-              onClick={() => scrollToPage(1)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                activePageIndex === 1
-                  ? 'bg-[#B08D57] w-6 rounded-full'
-                  : 'bg-[#D8CFC2] hover:bg-[#B08D57]'
-              }`}
-              aria-label="Go to second slide"
-            />
+            {Array.from({ length: totalPages }).map((_, pageIdx) => (
+              <button
+                key={pageIdx}
+                onClick={() => scrollToPage(pageIdx)}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  activePageIndex === pageIdx
+                    ? 'bg-[#B08D57] w-6'
+                    : 'bg-[#D8CFC2] w-2.5 hover:bg-[#B08D57]'
+                }`}
+                aria-label={`Go to page ${pageIdx + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

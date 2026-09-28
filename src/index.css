@@ -459,3 +459,56 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #B08D57;
 }
+
+/* =========================================================================
+   UTILITY — Hide scrollbar while keeping scroll functionality
+   ========================================================================= */
+.no-scrollbar {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Edge */
+}
+
+/* =========================================================================
+   TOUCH-DEVICE FIX — Prevent primary-button hover lift from persisting
+   after tap on touch screens
+   ========================================================================= */
+@media (hover: none) {
+  .primary-button:hover {
+    transform: none;
+    box-shadow: 0px 8px 15px rgba(176, 141, 87, 0.16);
+    background-color: #B08D57;
+  }
+
+  .primary-button:active {
+    transform: translateY(-1px);
+    background-color: #7D8976;
+  }
+
+  /* Also keep secondary-button as circle on touch — don't expand */
+  .secondary-button:hover,
+  .secondary-button:focus-visible {
+    width: 45px;
+    border-radius: 50%;
+  }
+
+  .secondary-button.sm:hover,
+  .secondary-button.sm:focus-visible {
+    width: 36px;
+    border-radius: 50%;
+  }
+
+  .secondary-button:hover .text,
+  .secondary-button:focus-visible .text {
+    opacity: 0;
+    width: 0;
+  }
+
+  .secondary-button.sm:hover .text,
+  .secondary-button.sm:focus-visible .text {
+    opacity: 0;
+    width: 0;
+  }
+}

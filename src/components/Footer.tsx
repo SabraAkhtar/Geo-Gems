@@ -184,10 +184,10 @@ export const Footer: React.FC = () => {
               <div className="pt-1">
                 <a
                   href="mailto:concierge@geogemscrystals.com"
-                  className="inline-flex items-center gap-2 hover:text-[#FFFFFF] transition-colors group text-xs text-[#A39B8F]"
+                  className="inline-flex items-start gap-2 hover:text-[#FFFFFF] transition-colors group text-xs text-[#A39B8F]"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#B08D57]" />
-                  <span>concierge@geogemscrystals.com</span>
+                  <Mail className="w-3.5 h-3.5 text-[#B08D57] flex-shrink-0 mt-px" />
+                  <span className="break-all">concierge@geogemscrystals.com</span>
                 </a>
               </div>
             </div>

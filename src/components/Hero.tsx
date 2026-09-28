@@ -213,7 +213,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#F5F1E9] to-transparent pointer-events-none z-20" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#F5F1E9] to-transparent pointer-events-none z-20" />
 
-        {/* Active Specimen Badge in bottom-right corner */}
+        {/* Active Specimen Badge in bottom-right corner — sm and above */}
         <div className="hidden sm:flex absolute bottom-6 right-6 z-30 items-center gap-2 px-3 py-1.5 rounded-full bg-[#FAF8F3]/90 backdrop-blur-md border border-[#D8CFC2] shadow-sm text-xs pointer-events-auto">
           <span className="w-2 h-2 rounded-full bg-[#B08D57] animate-pulse" />
           <span className="text-[11px] font-medium text-[#6F6A63] tracking-wide">
@@ -235,6 +235,24 @@ export const Hero: React.FC = () => {
               />
             ))}
           </div>
+        </div>
+
+        {/* Mobile-only slide dots — bottom-center, below specimen badge threshold */}
+        <div className="sm:hidden absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 pointer-events-auto">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setSlideIndex(i);
+                setDisplayText('');
+                setIsDeleting(false);
+              }}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                slideIndex === i ? 'bg-[#B08D57] w-5' : 'bg-[#D8CFC2]/80 w-2 hover:bg-[#B08D57]/60'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
 

@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
               Explore
             </h4>
-            <ul className="space-y-1.5 font-sans text-[14px] text-[#A39B8F]">
+            <ul className="space-y-1.5 font-sans text-[14px] sm:text-[14px] text-[#A39B8F]">
               <li>
                 <button
                   onClick={() => navigateToCatalogMode('Gemstone')}

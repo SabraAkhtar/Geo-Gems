@@ -32,26 +32,55 @@ body {
 }
 
 /* =========================================================================
-   GLOBAL — Consistent section vertical rhythm
+   MOBILE-FIRST — Base body sizing and reading comfort
    ========================================================================= */
-/* Ensure sections don't have excessive spacing on mobile */
-@media (max-width: 640px) {
-  .section-gap {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+@layer base {
+  body {
+    font-size: 15px; /* Slightly larger base on mobile for readability */
   }
 }
 
 /* =========================================================================
-   GLOBAL — Minimum touch target size for interactive elements
+   MOBILE — Aggressive touch target enforcement
+   =========================================================================
+   Only applied to interactive elements, not decorative spans/divs.
+   Exceptions use .no-touch-target
    ========================================================================= */
-button, a, [role="button"] {
-  min-height: 44px;
+@media (max-width: 1023px) {
+  button:not(.no-touch-target),
+  a:not(.no-touch-target),
+  [role="button"]:not(.no-touch-target) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Inline text links and tiny pagination dots are exceptions */
+  .inline-touch,
+  .dot-btn {
+    min-height: unset;
+    min-width: unset;
+  }
 }
 
-/* Exception for purely decorative/inline elements */
-.no-touch-target {
-  min-height: unset;
+/* =========================================================================
+   MOBILE — Section vertical rhythm (compact but premium)
+   ========================================================================= */
+@media (max-width: 639px) {
+  section {
+    /* Sections should breathe but not waste space on small phones */
+    padding-top: max(2rem, 5vw);
+    padding-bottom: max(2rem, 5vw);
+  }
+}
+
+/* =========================================================================
+   MOBILE — Horizontal page padding safety
+   =========================================================================
+   Ensure content never touches edges on very narrow screens.
+   ========================================================================= */
+@media (max-width: 359px) {
+  .px-4 { padding-left: 0.875rem; padding-right: 0.875rem; }
+  .px-5 { padding-left: 0.875rem; padding-right: 0.875rem; }
 }
 
 @layer base {

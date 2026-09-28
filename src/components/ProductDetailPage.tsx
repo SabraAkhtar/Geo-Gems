@@ -74,7 +74,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
   const hasVideo = Boolean(gemstone.videoUrl && gemstone.videoUrl.trim());
 
   return (
-    <article className="min-h-screen bg-[#FAF8F3] text-[#292820] py-6 sm:py-10">
+    <article className="min-h-screen bg-[#FAF8F3] text-[#292820] py-4 sm:py-6 lg:py-10 pb-24 sm:pb-6 lg:pb-10">
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Breadcrumb & Return Bar */}
         <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs">
@@ -450,13 +450,36 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
               {similarStones.map((simStone) => (
                 <ProductCard key={simStone.id} gemstone={simStone} />
               ))}
             </div>
           </section>
         )}
+      </div>
+
+      {/* ─── STICKY MOBILE WHATSAPP CTA BAR ─── */}
+      {/* Visible only on mobile (below lg). Stays fixed at the bottom for easy access. */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#FAF8F3]/95 backdrop-blur-md border-t border-[#E5DED2] px-4 py-3 shadow-[0_-4px_20px_rgba(37,34,29,0.08)]">
+        <div className="flex items-center gap-3 max-w-lg mx-auto">
+          <div className="flex-1 min-w-0">
+            <p className="text-[11px] font-sans text-[#716B60] truncate">{gemstone.name}</p>
+            <p className="text-[13px] font-serif font-medium text-[#121212]">
+              {priceInfo.isPriceOnRequest ? 'Price on Request' : priceInfo.label}
+            </p>
+          </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="primary-button flex-shrink-0"
+            style={{ padding: '0.75em 1.4em', fontSize: '12px', letterSpacing: '1.4px' }}
+          >
+            <WhatsAppIcon className="w-4 h-4 text-white" />
+            <span>{getInquiryButtonLabel(gemstone)}</span>
+          </a>
+        </div>
       </div>
     </article>
   );

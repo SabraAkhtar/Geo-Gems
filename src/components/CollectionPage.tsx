@@ -137,17 +137,12 @@ export const CollectionPage: React.FC = () => {
   const breadcrumbPrimary = isCrystalView ? 'Crystals' : 'Gemstones';
 
   return (
-    <div className="py-10 lg:py-16 bg-[#FAF8F3] min-h-screen">
+    <div className="py-8 sm:py-10 lg:py-16 bg-[#FAF8F3] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb & Header */}
-        <div className="mb-8">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 font-breadcrumb mb-3">
-            <button
-              onClick={() => setCurrentView('home')}
-              className="hover:text-[#B08D57] transition-colors cursor-pointer"
-            >
-              Home
-            </button>
+        <div className="mb-6 sm:mb-8">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 font-breadcrumb mb-3 text-xs">
+            <button onClick={() => setCurrentView('home')} className="hover:text-[#B08D57] transition-colors cursor-pointer">Home</button>
             <span className="text-[#B7AEA2]">/</span>
             <span className="text-[#121212] font-medium">{breadcrumbPrimary}</span>
             {filters.selectedType && (
@@ -158,61 +153,32 @@ export const CollectionPage: React.FC = () => {
             )}
           </nav>
 
-          <div className="flex flex-col gap-4">
-            <div>
-              <div className="inline-flex items-center gap-3 mb-1">
-                <span
-                  aria-hidden="true"
-                  className="w-6 h-[1px] bg-[#B08D57] inline-block"
-                  style={{ opacity: 0.28 }}
-                />
-                <span className="font-eyebrow">
-                  {isCrystalView ? 'Natural Crystal Formations' : 'Natural Gemstones & Crystals'}
-                </span>
-              </div>
-              <h1 className="font-h1 text-[#121212]">{headingTitle}</h1>
-              <p className="font-body-small text-[#5A544A] mt-1.5">
-                {filteredGemstones.length} natural stone{filteredGemstones.length === 1 ? '' : 's'} available
-              </p>
-            </div>
+          <h1 className="font-h1 text-[#121212] mb-1">{headingTitle}</h1>
+          <p className="font-body-small text-[#5A544A]">
+            {filteredGemstones.length} stone{filteredGemstones.length === 1 ? '' : 's'} available
+          </p>
 
-            {/* Sorting & Saved Stones Bar — wraps cleanly on mobile */}
-            <div className="flex flex-wrap items-center gap-2">
-              {savedStonesCount > 0 && (
-                <button
-                  onClick={() => setIsSavedStonesOpen(true)}
-                  className="px-3 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                >
-                  <Bookmark className="w-3.5 h-3.5 text-[#B08D57] fill-current" />
-                  <span>Saved ({savedStonesCount})</span>
-                </button>
-              )}
-
+          {/* Sort + filter controls — compact on mobile */}
+          <div className="flex flex-wrap items-center gap-2 mt-4">
+            {savedStonesCount > 0 && (
               <button
-                onClick={() => {
-                  setCurrentView('education');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-3 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#5A544A] hover:text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                onClick={() => setIsSavedStonesOpen(true)}
+                className="px-3 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
               >
-                <BookOpen className="w-3.5 h-3.5 text-[#B08D57]" />
-                <span className="hidden sm:inline">Gemstone Guides</span>
-                <span className="sm:hidden">Guides</span>
+                <Bookmark className="w-3.5 h-3.5 text-[#B08D57] fill-current" />
+                <span>Saved ({savedStonesCount})</span>
               </button>
-
-              <select
-                value={filters.sortBy}
-                onChange={(e) =>
-                  setFilters((prev) => ({ ...prev, sortBy: e.target.value as any }))
-                }
-                className="px-3 py-2 bg-white border border-[#E5DED2] rounded-xl text-xs text-[#121212] focus:outline-none focus:border-[#B08D57] cursor-pointer"
-              >
-                <option value="featured">Sort: Featured</option>
-                <option value="price-low">Price: Low → High</option>
-                <option value="price-high">Price: High → Low</option>
-                <option value="carat-high">Weight: Largest First</option>
-              </select>
-            </div>
+            )}
+            <select
+              value={filters.sortBy}
+              onChange={(e) => setFilters((prev) => ({ ...prev, sortBy: e.target.value as any }))}
+              className="px-3 py-2 bg-white border border-[#E5DED2] rounded-xl text-xs text-[#121212] focus:outline-none focus:border-[#B08D57] cursor-pointer ml-auto"
+            >
+              <option value="featured">Sort: Featured</option>
+              <option value="price-low">Price: Low → High</option>
+              <option value="price-high">Price: High → Low</option>
+              <option value="carat-high">Weight: Largest</option>
+            </select>
           </div>
         </div>
 

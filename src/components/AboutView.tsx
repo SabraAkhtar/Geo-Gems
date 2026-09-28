@@ -70,173 +70,134 @@ export const AboutView: React.FC = () => {
       </div>
 
       {/* PRIMARY ABOUT SECTION — Asymmetric 2-Column Luxury Composition */}
-      <section className="py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <section className="py-10 sm:py-14 lg:py-20 overflow-hidden">
         <div className="max-w-[1300px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
-            
-            {/* LEFT SIDE — Creative Gemstone Visual Composition */}
-            <div className="lg:col-span-6 xl:col-span-7 relative overflow-hidden lg:overflow-visible">
-              <div className="relative mx-auto max-w-[560px] lg:max-w-none h-[410px] sm:h-[480px] lg:h-[530px]">
-                
-                {/* Secondary Card (Upper-Left): Raw Natural Crystals */}
-                <div className="absolute left-0 top-3 sm:top-4 w-[54%] sm:w-[50%] h-[240px] sm:h-[300px] lg:h-[330px] rounded-[20px] sm:rounded-[26px] overflow-hidden shadow-[0_14px_35px_rgba(41,40,32,0.09)] border border-[#E5DED2]/70 bg-[#F3EFE8] group">
-                  <img
-                    src={whyUsCrystalsImg}
-                    alt="Natural mineral formations and untreated crystals"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-20 items-center">
 
-                {/* Main Card (Center-Right): Vivid Emerald on Mother Matrix */}
-                <div className="absolute right-0 bottom-4 sm:bottom-4 w-[62%] sm:w-[58%] h-[280px] sm:h-[350px] lg:h-[390px] rounded-[22px] sm:rounded-[30px] overflow-hidden shadow-[0_20px_48px_rgba(41,40,32,0.12)] border border-[#E5DED2]/80 bg-[#F3EFE8] group z-10">
+            {/* ── MOBILE: clean stacked images (no overlap) ── */}
+            {/* ── DESKTOP: overlapping absolute composition ── */}
+
+            {/* LEFT SIDE — Visual Composition */}
+            <div className="lg:col-span-6 xl:col-span-7">
+
+              {/* MOBILE stacked layout */}
+              <div className="lg:hidden flex flex-col gap-3">
+                <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#E5DED2] shadow-md bg-[#F3EFE8]">
                   <img
                     src={heroEmeraldImg}
                     alt="Exceptional Colombian Emerald crystals on quartz matrix"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                 </div>
-
-                {/* Floating Card 1 (Top-Right above Main Card) */}
-                <div className="absolute right-1 sm:right-6 top-0 z-20 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4.5 shadow-[0_12px_32px_rgba(41,40,32,0.12)] border border-[#E5DED2] max-w-[195px] sm:max-w-[240px]">
-                  <div className="flex items-center justify-between gap-1.5 mb-1 sm:mb-1.5">
-                    <span className="font-serif text-base sm:text-xl font-normal text-[#121212] tracking-tight">
-                      Natural Stones
-                    </span>
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B08D57] flex-shrink-0" />
+                <div className="w-full aspect-[16/7] rounded-2xl overflow-hidden border border-[#E5DED2] shadow-sm bg-[#F3EFE8]">
+                  <img
+                    src={whyUsCrystalsImg}
+                    alt="Natural mineral formations and untreated crystals"
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Mobile trust badges row */}
+                <div className="flex gap-3 mt-1">
+                  <div className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-xl bg-white border border-[#E5DED2] shadow-xs">
+                    <ShieldCheck className="w-5 h-5 text-[#B08D57] flex-shrink-0" />
+                    <div>
+                      <span className="text-[12px] font-sans font-semibold text-[#121212] block leading-tight">Authentic Origin</span>
+                      <span className="text-[10px] text-[#5A544A] font-sans">Natural Stones</span>
+                    </div>
                   </div>
-                  <p className="text-[11px] sm:text-[12px] text-[#5A544A] leading-snug font-normal mb-2 sm:mb-2.5">
-                    Carefully selected gemstones and crystals with clear details.
-                  </p>
-                  {/* Miniature Faceted Gem Avatars */}
-                  <div className="flex items-center -space-x-1 sm:-space-x-1.5 pt-1 border-t border-[#E5DED2]/60">
-                    <img
-                      src={gemSapphireImg}
-                      alt="Sapphire"
-                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-contain bg-[#FAF8F3] border border-white shadow-2xs"
-                    />
-                    <img
-                      src={gemEmeraldImg}
-                      alt="Emerald"
-                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-contain bg-[#FAF8F3] border border-white shadow-2xs"
-                    />
-                    <img
-                      src={gemRubyImg}
-                      alt="Ruby"
-                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-contain bg-[#FAF8F3] border border-white shadow-2xs"
-                    />
-                    <img
-                      src={gemDiamondImg}
-                      alt="Diamond"
-                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-contain bg-[#FAF8F3] border border-white shadow-2xs"
-                    />
-                    <span className="text-[10px] sm:text-[11px] font-sans font-medium text-[#B08D57] pl-1.5 sm:pl-2.5">
-                      Selected Stones
-                    </span>
+                  <div className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-xl bg-white border border-[#E5DED2] shadow-xs">
+                    <Sparkles className="w-4 h-4 text-[#B08D57] flex-shrink-0" />
+                    <div>
+                      <span className="text-[12px] font-sans font-semibold text-[#121212] block leading-tight">Selected Stones</span>
+                      <span className="text-[10px] text-[#5A544A] font-sans">Carefully Chosen</span>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Floating Card 2 (Bottom-Left) */}
-                <div className="absolute left-1 sm:left-4 bottom-0 z-20 bg-white/95 backdrop-blur-md rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 shadow-md border border-[#E5DED2] flex items-center gap-2.5 max-w-[210px]">
-                  <ShieldCheck className="w-5 h-5 text-[#B08D57] flex-shrink-0" />
-                  <div>
-                    <span className="text-[12px] font-sans font-semibold text-[#121212] block">
-                      Authentic Origin
-                    </span>
-                    <span className="text-[11px] text-[#5A544A] font-sans block">
-                      Natural Gemstones &amp; Crystals
-                    </span>
+              {/* DESKTOP overlapping composition — hidden on mobile */}
+              <div className="relative overflow-hidden lg:overflow-visible hidden lg:block">
+                <div className="relative mx-auto max-w-[560px] lg:max-w-none h-[530px]">
+
+                  {/* Secondary Card (Upper-Left) */}
+                  <div className="absolute left-0 top-4 w-[50%] h-[300px] lg:h-[330px] rounded-[26px] overflow-hidden shadow-[0_14px_35px_rgba(41,40,32,0.09)] border border-[#E5DED2]/70 bg-[#F3EFE8] group">
+                    <img src={whyUsCrystalsImg} alt="Natural mineral formations" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Main Card (Center-Right) */}
+                  <div className="absolute right-0 bottom-4 w-[58%] h-[350px] lg:h-[390px] rounded-[30px] overflow-hidden shadow-[0_20px_48px_rgba(41,40,32,0.12)] border border-[#E5DED2]/80 bg-[#F3EFE8] group z-10">
+                    <img src={heroEmeraldImg} alt="Colombian Emerald crystals" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Floating Card 1 (Top-Right) */}
+                  <div className="absolute right-6 top-0 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-[0_12px_32px_rgba(41,40,32,0.12)] border border-[#E5DED2] max-w-[240px]">
+                    <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                      <span className="font-serif text-xl font-normal text-[#121212] tracking-tight">Natural Stones</span>
+                      <Sparkles className="w-4 h-4 text-[#B08D57] flex-shrink-0" />
+                    </div>
+                    <p className="text-[12px] text-[#5A544A] leading-snug mb-2.5">Carefully selected gemstones and crystals with clear details.</p>
+                    <div className="flex items-center -space-x-1.5 pt-1 border-t border-[#E5DED2]/60">
+                      {[gemSapphireImg, gemEmeraldImg, gemRubyImg, gemDiamondImg].map((src, i) => (
+                        <img key={i} src={src} alt="" className="w-6 h-6 rounded-full object-contain bg-[#FAF8F3] border border-white shadow-2xs" />
+                      ))}
+                      <span className="text-[11px] font-sans font-medium text-[#B08D57] pl-2.5">Selected Stones</span>
+                    </div>
+                  </div>
+
+                  {/* Floating Card 2 (Bottom-Left) */}
+                  <div className="absolute left-4 bottom-0 z-20 bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 shadow-md border border-[#E5DED2] flex items-center gap-2.5 max-w-[210px]">
+                    <ShieldCheck className="w-5 h-5 text-[#B08D57] flex-shrink-0" />
+                    <div>
+                      <span className="text-[12px] font-sans font-semibold text-[#121212] block">Authentic Origin</span>
+                      <span className="text-[11px] text-[#5A544A] font-sans block">Natural Gemstones &amp; Crystals</span>
+                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
-            {/* RIGHT SIDE — About Geo Gems Content */}
+            {/* RIGHT SIDE — About Content */}
             <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center relative">
-              {/* ONE thin vertical editorial divider line between image area and text area on desktop, with a tiny hollow circle at the end */}
-              <div
-                aria-hidden="true"
-                className="hidden lg:flex flex-col items-center pointer-events-none select-none absolute -left-7 xl:-left-10 top-1/2 -translate-y-1/2"
-              >
-                <span
-                  className="w-[1px] h-64 xl:h-72 bg-[#B7AEA2] block"
-                  style={{ opacity: 0.25 }}
-                />
-                <span
-                  className="w-2 h-2 rounded-full border border-[#B08D57] block mt-1.5"
-                  style={{ opacity: 0.30 }}
-                />
+              <div aria-hidden="true" className="hidden lg:flex flex-col items-center pointer-events-none select-none absolute -left-7 xl:-left-10 top-1/2 -translate-y-1/2">
+                <span className="w-[1px] h-64 xl:h-72 bg-[#B7AEA2] block" style={{ opacity: 0.25 }} />
+                <span className="w-2 h-2 rounded-full border border-[#B08D57] block mt-1.5" style={{ opacity: 0.30 }} />
               </div>
 
-              {/* Eyebrow Label */}
               <div className="flex items-center gap-3 mb-2.5">
-                <span className="font-eyebrow">
-                  About Us
-                </span>
+                <span className="font-eyebrow">About Us</span>
                 <span className="w-7 h-[1px] bg-[#B08D57]/60 inline-block" />
               </div>
-
-              {/* Main Heading in Cormorant Garamond */}
-              <h1 className="font-h1 text-[#121212] mb-5">
-                About Geo Gems Crystals
-              </h1>
-
-              {/* Short Readable Descriptive Text */}
+              <h1 className="font-h1 text-[#121212] mb-5">About Geo Gems Crystals</h1>
               <div className="space-y-4 font-body text-[#3D3933] max-reading-article mb-7">
-                <p>
-                  At Geo Gems Crystals, we celebrate the natural beauty, rich colors, and lasting
-                  character of natural gemstones and crystals. Every stone has its own look and
-                  natural form, shaped over time inside the Earth.
-                </p>
-                <p>
-                  We believe buying a gemstone or crystal should be simple, clear, and trustworthy.
-                  Each stone is presented with clear photography, accurate weight and size
-                  measurements, and available origin and treatment details.
-                </p>
-                <p>
-                  Whether you are a collector, a jewelry business, or discovering gemstones for the
-                  first time, we are here to help you find the right stone.
-                </p>
+                <p>At Geo Gems Crystals, we celebrate the natural beauty, rich colors, and lasting character of natural gemstones and crystals. Every stone has its own look and natural form, shaped over time inside the Earth.</p>
+                <p>We believe buying a gemstone or crystal should be simple, clear, and trustworthy. Each stone is presented with clear photography, accurate weight and size measurements, and available origin and treatment details.</p>
+                <p>Whether you are a collector, a jewelry business, or discovering gemstones for the first time, we are here to help you find the right stone.</p>
               </div>
-
-              {/* Optional Visual Details with Minimal Separators */}
               <div className="flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-5 py-4 border-y border-[#E5DED2] mb-8 text-xs sm:text-[13.5px] text-[#292820]">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-                  <span className="font-medium tracking-wide">Natural Gemstones</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-                  <span className="font-medium tracking-wide">Clear Stone Details</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
-                  <span className="font-medium tracking-wide">Direct WhatsApp Inquiry</span>
-                </div>
+                {['Natural Gemstones', 'Clear Stone Details', 'Direct WhatsApp Inquiry'].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B08D57]" />
+                    <span className="font-medium tracking-wide">{item}</span>
+                  </div>
+                ))}
               </div>
-
-              {/* Primary Stylish CTA Button */}
               <div>
-                <button
-                  onClick={handleExploreClick}
-                  className="primary-button"
-                >
+                <button onClick={handleExploreClick} className="primary-button w-full sm:w-auto">
                   <span>Explore Our Gemstones</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* OUR STANDARDS & COMMITMENTS — Premium Asymmetric Split Layout */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-[#F5F1E9] border-t border-[#E5DED2]">
+      <section className="py-10 sm:py-14 lg:py-20 bg-[#F5F1E9] border-t border-[#E5DED2]">
         <div className="max-w-[1300px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-18 items-start">
             

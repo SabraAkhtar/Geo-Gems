@@ -56,13 +56,13 @@ export const TrustStrip: React.FC = () => {
   return (
     <section className="relative bg-transparent py-0 select-none overflow-hidden" style={{ marginTop: '-50px', zIndex: 20 }}>
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {FEATURE_CARDS.map((card) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.number}
-                className="relative bg-[#FFFFFF] rounded-2xl border border-[#E5DED2] overflow-hidden p-5 sm:p-6 shadow-[0_4px_24px_rgba(37,34,29,0.06)] hover:border-[#B08D57]/50 transition-all duration-500 min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] flex flex-col justify-between group"
+                className="relative bg-[#FFFFFF] rounded-2xl border border-[#E5DED2] overflow-hidden p-4 sm:p-5 lg:p-6 shadow-[0_4px_24px_rgba(37,34,29,0.06)] hover:border-[#B08D57]/50 transition-all duration-500 min-h-[180px] sm:min-h-[200px] lg:min-h-[240px] flex flex-col justify-between group"
               >
                 {/* Top Area: Circular Icon & Number */}
                 <div className="flex items-center justify-between z-10 relative">
@@ -75,13 +75,12 @@ export const TrustStrip: React.FC = () => {
                 </div>
 
                 {/* Middle Area: Heading & Gold Divider */}
-                <div className="relative z-20 mt-6 pr-6">
-                  <h3 className="font-serif text-[18px] sm:text-[19px] font-normal text-[#292820] leading-snug tracking-tight group-hover:text-[#B08D57] transition-colors duration-300">
+                <div className="relative z-20 mt-4 sm:mt-6 pr-4 sm:pr-6">
+                  <h3 className="font-serif text-[16px] sm:text-[18px] font-normal text-[#292820] leading-snug tracking-tight group-hover:text-[#B08D57] transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <div className="w-8 h-[1px] bg-[#B08D57] my-3.5 opacity-70" />
-                  {/* Lower Area: Description */}
-                  <p className="font-sans text-[13px] text-[#716B60] font-light leading-relaxed max-w-[85%]">
+                  <div className="w-6 h-[1px] bg-[#B08D57] my-2.5 sm:my-3.5 opacity-70" />
+                  <p className="font-sans text-[12px] sm:text-[13px] text-[#716B60] font-light leading-relaxed max-w-[85%]">
                     {card.description}
                   </p>
                 </div>

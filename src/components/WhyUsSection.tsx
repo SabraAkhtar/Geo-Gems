@@ -142,7 +142,7 @@ export const WhyUsSection: React.FC = () => {
             return (
               <div
                 key={card.number}
-                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] hover:shadow-[0_6px_24px_rgba(176,141,87,0.10)] min-h-[230px] flex flex-col"
+                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] min-h-[200px] sm:min-h-[220px] lg:min-h-[230px] flex flex-col"
               >
                 {/* ── Background Image with Elliptical Top-Left Curve ── */}
                 <div 

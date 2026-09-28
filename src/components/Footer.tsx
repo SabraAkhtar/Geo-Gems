@@ -197,15 +197,7 @@ export const Footer: React.FC = () => {
         {/* ROW 2 — Simple Copyright Bar */}
         <div className="border-t border-[#2A2A2A] py-6 sm:py-7 flex flex-col md:flex-row items-center justify-between gap-5 font-sans text-[12.5px] text-[#A39B8F]">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left leading-relaxed">
-            <span>© 2026 GEO GEMS CRYSTALS.<br className="sm:hidden" /> Natural gemstones &amp; crystals.</span>
-            <span className="hidden md:inline-block w-1 h-1 rounded-full bg-[#3D3A35]" />
-            <button
-              onClick={() => handleNavigate('admin')}
-              className="hover:text-[#B08D57] transition-colors cursor-pointer text-[#6B655D] mt-1 md:mt-0"
-              title="Admin Dashboard Login"
-            >
-              Admin Dashboard
-            </button>
+            <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
           </div>
 
           <div className="flex items-center gap-6 text-center sm:text-right">

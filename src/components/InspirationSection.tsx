@@ -50,7 +50,7 @@ export const InspirationSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative py-12 sm:py-16 lg:py-20 bg-[#F8F5EE] border-b border-[#E5DFD5] overflow-hidden">
+      <section className="relative py-10 sm:py-14 lg:py-20 bg-[#F8F5EE] border-b border-[#E5DFD5] overflow-hidden">
         {/* ONE large thin outline ring behind the gemstone image composition, partially cropped by the section boundary */}
         <div
           aria-hidden="true"
@@ -88,7 +88,7 @@ export const InspirationSection: React.FC = () => {
           </div>
 
           {/* Four equal-width gemstone cards in one row on desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6.5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {inspirationItems.map((item) => (
               <div
                 key={item.title}
@@ -123,20 +123,17 @@ export const InspirationSection: React.FC = () => {
                 </div>
 
                 {/* Cream/off-white content area underneath each image */}
-                <div className="p-5 sm:p-5.5 flex flex-col justify-between flex-grow bg-[#FAF8F3]">
+                <div className="p-3 sm:p-5 flex flex-col justify-between flex-grow bg-[#FAF8F3]">
                   <div>
-                    {/* Elegant serif card title */}
-                    <h3 className="font-serif text-[17px] sm:text-[18px] font-normal text-[#292820] leading-snug group-hover:text-[#B08D57] transition-colors">
+                    <h3 className="font-serif text-[14px] sm:text-[17px] font-normal text-[#292820] leading-snug group-hover:text-[#B08D57] transition-colors line-clamp-2">
                       {item.title}
                     </h3>
-                    {/* Short muted description */}
-                    <p className="text-[12.5px] sm:text-[13px] text-[#716B60] font-light leading-relaxed mt-2">
+                    <p className="hidden sm:block text-[12px] sm:text-[13px] text-[#716B60] font-light leading-relaxed mt-1.5">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Bottom CTA */}
-                  <div className="mt-5 pt-4 border-t border-[#E5DFD5] flex items-center justify-center">
+                  <div className="mt-3 sm:mt-5 pt-3 sm:pt-4 border-t border-[#E5DFD5] flex items-center justify-center">
                     <button
                       type="button"
                       onClick={(e) => {

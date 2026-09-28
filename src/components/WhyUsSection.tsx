@@ -62,7 +62,7 @@ export const WhyUsSection: React.FC = () => {
   const { setCurrentView } = useEcommerce();
 
   return (
-    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-12 sm:py-16 lg:py-20 overflow-hidden select-none">
+    <section className="relative w-full bg-[#F8F5EE] border-b border-[#E5DED2] py-10 sm:py-14 lg:py-20 overflow-hidden select-none">
       {/* Centered Content Container */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Two-Column Editorial Layout */}
@@ -70,7 +70,7 @@ export const WhyUsSection: React.FC = () => {
           
           {/* LEFT COLUMN: LARGE GEMSTONE PHOTOGRAPH */}
           <div className="w-full lg:w-[46%] flex flex-col justify-center">
-            <div className="relative w-full h-[480px] sm:h-[580px] lg:h-[630px] xl:h-[660px] rounded-[14px] sm:rounded-[16px] overflow-hidden border border-[#E5DED2] shadow-[0_4px_24px_rgba(37,34,29,0.05)] bg-[#FAF8F3] group">
+            <div className="relative w-full h-[280px] sm:h-[420px] lg:h-[580px] xl:h-[630px] rounded-[14px] overflow-hidden border border-[#E5DED2] shadow-[0_4px_24px_rgba(37,34,29,0.05)] bg-[#FAF8F3] group">
               <img
                 src={whyUsCrystalsImg}
                 alt="Exquisite natural crystals, amethyst cluster, rose quartz, lapis lazuli and quartz on warm sunlit stone"
@@ -136,7 +136,7 @@ export const WhyUsSection: React.FC = () => {
             FOUR TRUST CARDS — Full-width horizontal row
             Reference style: icon+number top, title+desc, curved dome image bottom
             ═══════════════════════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mt-14 sm:mt-16 lg:mt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 mt-10 sm:mt-14 lg:mt-18">
           {TRUST_CARDS.map((card) => {
             const Icon = card.icon;
             return (

@@ -22,7 +22,7 @@ export const JewelrySection: React.FC = () => {
       : JEWELRY_PIECES.filter((item) => item.category === activeTab);
 
   return (
-    <section id="jewelry" className="relative py-12 lg:py-20 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
+    <section id="jewelry" className="relative py-10 sm:py-14 lg:py-20 bg-[#FAF8F3] border-b border-[#E1D9CD] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
@@ -67,7 +67,7 @@ export const JewelrySection: React.FC = () => {
         </div>
 
         {/* 6 Jewelry Product Cards Grid */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
           {filteredPieces.map((piece, idx) => {
             const stoneObj = jewelryToGemstone(piece);
             const isSaved = isStoneSaved(piece.id);
@@ -130,7 +130,7 @@ export const JewelrySection: React.FC = () => {
                 </div>
 
                 {/* Details Section */}
-                <div className="p-5 flex flex-col flex-grow justify-between bg-white">
+                <div className="p-3 sm:p-4 lg:p-5 flex flex-col flex-grow justify-between bg-white">
                   <div>
                     {/* Metal & Category */}
                     <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-[#B08D57] font-sans font-medium mb-1">
@@ -139,12 +139,12 @@ export const JewelrySection: React.FC = () => {
                     </div>
 
                     {/* Title in Cormorant Garamond */}
-                    <h3 className="font-card-title text-[#121212] group-hover:text-[#B08D57] transition-colors leading-snug line-clamp-1 mb-1.5">
+                    <h3 className="font-serif text-[13px] sm:text-[16px] text-[#121212] group-hover:text-[#B08D57] transition-colors leading-snug line-clamp-2 mb-1">
                       {piece.name}
                     </h3>
 
                     {/* Specs / Origin */}
-                    <p className="font-sans text-[13px] text-[#716B60] font-normal line-clamp-1 mb-3">
+                    <p className="hidden sm:block font-sans text-[11px] sm:text-[13px] text-[#716B60] font-normal line-clamp-1 mb-2">
                       {piece.specs}
                     </p>
                   </div>
@@ -155,7 +155,7 @@ export const JewelrySection: React.FC = () => {
                       <span className="text-[11px] uppercase tracking-wider text-[#5A544A] font-sans font-medium block">
                         Price
                       </span>
-                      <span className="font-price text-[17px] sm:text-[19px]">
+                      <span className="font-serif text-[14px] sm:text-[17px] font-medium text-[#121212]">
                         {formatPrice(piece.priceUSD)}
                       </span>
                     </div>

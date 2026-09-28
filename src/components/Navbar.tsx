@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
     <>
       {/* Full-width Luxury Header / Navigation Bar */}
       <header className="sticky top-0 z-40 bg-[#FAF8F3] border-b border-[#D8CFC2] shadow-xs select-none transition-colors">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-14 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
           {/* LEFT — Official Brand Logo */}
           <div
             onClick={() => {

@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
   const activeSlide = HERO_SLIDES[slideIndex];
 
   return (
-    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[620px] sm:min-h-[720px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '80px' }}>
+    <section className="relative w-full bg-[#F5F1E9] text-[#25221D] overflow-hidden min-h-[540px] sm:min-h-[660px] lg:min-h-[800px] flex flex-col justify-between select-none" style={{ paddingBottom: '60px' }}>
       {/* Subtle Editorial Decorative System — Strictly Behind Gemstone Composition */}
       <div
         aria-hidden="true"
@@ -281,7 +281,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Main Two-Column Editorial Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 sm:px-8 lg:px-12 pt-14 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 flex-grow flex flex-col justify-between">
+      <div className="relative z-10 max-w-[1400px] mx-auto w-full px-5 sm:px-8 lg:px-12 pt-10 sm:pt-20 lg:pt-28 pb-6 sm:pb-10 flex-grow flex flex-col justify-between">
         <div className="w-full lg:max-w-[52%] xl:max-w-[50%] flex flex-col justify-center my-auto">
           {/* Eyebrow Label */}
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
@@ -292,11 +292,10 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Main Editorial Headline with Animated Rotating Text & Blinking Cursor */}
-          <h1 className="font-display-xl text-left mb-6 sm:mb-7">
+          <h1 className="font-display-xl text-left mb-4 sm:mb-6">
             <span className="block text-[#121212]">Natural Stones.</span>
             <span className="flex items-center text-[#B08D57] min-h-[1.12em] overflow-visible">
               <span>{displayText || '\u00A0'}</span>
-              {/* Typewriter Blinking Cursor */}
               <span
                 className="inline-block w-[3px] sm:w-[4px] lg:w-[4.5px] h-[0.76em] bg-[#B08D57] ml-1.5 sm:ml-2 rounded-xs animate-pulse flex-shrink-0"
                 aria-hidden="true"
@@ -304,9 +303,9 @@ export const Hero: React.FC = () => {
             </span>
           </h1>
 
-          {/* Supporting Paragraph with fixed reserve height to eliminate layout shifting across slides */}
-          <div className="min-h-[64px] sm:min-h-[70px] lg:min-h-[76px] flex items-start max-reading-hero mb-8 sm:mb-9">
-            <p className="font-hero-subtitle transition-opacity duration-300">
+          {/* Supporting Paragraph */}
+          <div className="min-h-[56px] sm:min-h-[70px] lg:min-h-[76px] flex items-start max-reading-hero mb-6 sm:mb-8">
+            <p className="font-hero-subtitle transition-opacity duration-300 text-[14px] sm:text-[16px] lg:text-[17px]">
               {activeSlide.tagline}
             </p>
           </div>
@@ -338,7 +337,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom Editorial Detail synced with current slide */}
-        <div className="pt-14 sm:pt-20 lg:pt-24 pb-2 flex items-center gap-3 sm:gap-4">
+        <div className="pt-8 sm:pt-16 lg:pt-20 pb-2 flex items-center gap-3 sm:gap-4">
           <span className="w-8 sm:w-10 h-[1px] bg-[#B08D57] inline-block flex-shrink-0" />
           <span className="text-[10px] sm:text-xs font-sans tracking-[0.22em] text-[#6F6A63] uppercase font-light truncate transition-all duration-500">
             {activeSlide.footerTag}

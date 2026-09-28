@@ -31,6 +31,29 @@ body {
   max-width: 100%;
 }
 
+/* =========================================================================
+   GLOBAL — Consistent section vertical rhythm
+   ========================================================================= */
+/* Ensure sections don't have excessive spacing on mobile */
+@media (max-width: 640px) {
+  .section-gap {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* =========================================================================
+   GLOBAL — Minimum touch target size for interactive elements
+   ========================================================================= */
+button, a, [role="button"] {
+  min-height: 44px;
+}
+
+/* Exception for purely decorative/inline elements */
+.no-touch-target {
+  min-height: unset;
+}
+
 @layer base {
   body {
     font-family: var(--font-sans);
@@ -53,30 +76,30 @@ body {
    GEO GEMS CRYSTALS — PROFESSIONAL TYPOGRAPHY SYSTEM UTILITIES
    ========================================================================= */
 
-/* Hero Display Heading (Desktop 44–56px, Mobile 36–46px) */
+/* Hero Display Heading (Desktop 44–56px, Mobile 32–44px) */
 .font-display-xl {
   font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: #121212;
 }
 
-/* Main Page Heading (Desktop 40–48px, Mobile 32–40px) */
+/* Main Page Heading (Desktop 40–48px, Mobile 28–38px) */
 .font-h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.015em;
   color: #121212;
 }
 
-/* Section Headings (Desktop 32–40px, Mobile 28–34px) */
+/* Section Headings (Desktop 32–40px, Mobile 24–32px) */
 .font-h2 {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.01em;

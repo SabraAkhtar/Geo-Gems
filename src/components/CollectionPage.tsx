@@ -158,7 +158,7 @@ export const CollectionPage: React.FC = () => {
             )}
           </nav>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="flex flex-col gap-4">
             <div>
               <div className="inline-flex items-center gap-3 mb-1">
                 <span
@@ -169,30 +169,22 @@ export const CollectionPage: React.FC = () => {
                 <span className="font-eyebrow">
                   {isCrystalView ? 'Natural Crystal Formations' : 'Natural Gemstones & Crystals'}
                 </span>
-                <EditorialSmallDots
-                  variant="pair-horizontal"
-                  color="#B7AEA2"
-                  accentColor="#B08D57"
-                  opacity={0.26}
-                />
               </div>
               <h1 className="font-h1 text-[#121212]">{headingTitle}</h1>
-              <p className="font-body-small text-[#5A544A] mt-1.5 max-reading-section">
-                Showing {filteredGemstones.length} natural stone
-                {filteredGemstones.length === 1 ? '' : 's'} with clear details on weight, origin, and
-                availability.
+              <p className="font-body-small text-[#5A544A] mt-1.5">
+                {filteredGemstones.length} natural stone{filteredGemstones.length === 1 ? '' : 's'} available
               </p>
             </div>
 
-            {/* Sorting & Saved Stones Bar */}
-            <div className="flex flex-wrap items-center gap-3 text-xs font-sans">
+            {/* Sorting & Saved Stones Bar — wraps cleanly on mobile */}
+            <div className="flex flex-wrap items-center gap-2">
               {savedStonesCount > 0 && (
                 <button
                   onClick={() => setIsSavedStonesOpen(true)}
-                  className="px-3.5 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-3 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Bookmark className="w-3.5 h-3.5 text-[#B08D57] fill-current" />
-                  <span>Saved Stones ({savedStonesCount})</span>
+                  <span>Saved ({savedStonesCount})</span>
                 </button>
               )}
 
@@ -201,27 +193,25 @@ export const CollectionPage: React.FC = () => {
                   setCurrentView('education');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="px-3.5 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#5A544A] hover:text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="px-3 py-2 bg-white border border-[#E5DED2] hover:border-[#B08D57] rounded-xl text-xs font-medium text-[#5A544A] hover:text-[#121212] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <BookOpen className="w-3.5 h-3.5 text-[#B08D57]" />
-                <span>Gemstone Guides</span>
+                <span className="hidden sm:inline">Gemstone Guides</span>
+                <span className="sm:hidden">Guides</span>
               </button>
 
-              <div className="flex items-center gap-2">
-                <span className="text-[#5A544A] font-medium tracking-wide">Sort:</span>
-                <select
-                  value={filters.sortBy}
-                  onChange={(e) =>
-                    setFilters((prev) => ({ ...prev, sortBy: e.target.value as any }))
-                  }
-                  className="px-3 py-2 bg-white border border-[#E5DED2] rounded-xl text-xs text-[#121212] focus:outline-none focus:border-[#B08D57] cursor-pointer"
-                >
-                  <option value="featured">Featured Stones</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="carat-high">Weight: Largest First</option>
-                </select>
-              </div>
+              <select
+                value={filters.sortBy}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, sortBy: e.target.value as any }))
+                }
+                className="px-3 py-2 bg-white border border-[#E5DED2] rounded-xl text-xs text-[#121212] focus:outline-none focus:border-[#B08D57] cursor-pointer"
+              >
+                <option value="featured">Sort: Featured</option>
+                <option value="price-low">Price: Low → High</option>
+                <option value="price-high">Price: High → Low</option>
+                <option value="carat-high">Weight: Largest First</option>
+              </select>
             </div>
           </div>
         </div>
@@ -316,7 +306,7 @@ export const CollectionPage: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
                 {filteredGemstones.map((gem) => (
                   <ProductCard key={gem.id} gemstone={gem} />
                 ))}

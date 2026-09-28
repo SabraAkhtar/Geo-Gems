@@ -291,7 +291,7 @@ export const ContactView: React.FC = () => {
 
               <form onSubmit={handleFormSubmit} className="space-y-5">
                 {/* Row 1: Your Name & Your Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs sm:text-[13px] font-medium text-[#292820] mb-1.5">
                       Your Name <span className="text-[#B08D57]">*</span>
@@ -336,7 +336,7 @@ export const ContactView: React.FC = () => {
                 </div>
 
                 {/* Row 2: Phone Number & Inquiry Type */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs sm:text-[13px] font-medium text-[#292820] mb-1.5">
                       Phone Number <span className="text-[#5A544A] font-normal">(optional)</span>
@@ -369,7 +369,7 @@ export const ContactView: React.FC = () => {
                 </div>
 
                 {/* Row 3: Stone You're Interested In & Subject */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs sm:text-[13px] font-medium text-[#292820] mb-1.5">
                       Stone You&apos;re Interested In{' '}
@@ -432,7 +432,7 @@ export const ContactView: React.FC = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="primary-button w-full sm:w-auto min-w-[220px]"
+                    className="primary-button w-full sm:w-auto"
                   >
                     <span>Send Inquiry</span>
                     <ArrowRight className="w-4 h-4" />

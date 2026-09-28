@@ -110,7 +110,7 @@ export const CategorySection: React.FC = () => {
   };
 
   return (
-    <section id="gemstones-categories" className="relative py-12 sm:py-16 lg:py-20 bg-[#F5F1E9] border-b border-[#D8CFC2] overflow-hidden select-none">
+    <section id="gemstones-categories" className="relative py-10 sm:py-14 lg:py-20 bg-[#F5F1E9] border-b border-[#D8CFC2] overflow-hidden select-none">
       {/* Subtle Decorative Elements — Strictly in background corners away from images & titles */}
       <div
         aria-hidden="true"
@@ -189,10 +189,10 @@ export const CategorySection: React.FC = () => {
               <div
                 key={category.id}
                 onClick={() => navigateToCategory(category.id)}
-                className="flex-shrink-0 flex flex-col items-center group cursor-pointer w-[128px] sm:w-[150px] md:w-[170px] lg:w-[190px]"
+                className="flex-shrink-0 flex flex-col items-center group cursor-pointer w-[110px] sm:w-[140px] md:w-[160px] lg:w-[185px]"
               >
                 {/* Perfect Circle Container for the Stone Image */}
-                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden aspect-square bg-[#EAE3D8] relative shadow-md border-2 border-[#D8CFC2] group-hover:border-[#B08D57] group-hover:shadow-xl transition-all duration-300">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden aspect-square bg-[#EAE3D8] relative shadow-md border-2 border-[#D8CFC2] group-hover:border-[#B08D57] group-hover:shadow-xl transition-all duration-300">
                   <img
                     src={category.image}
                     alt={category.name}

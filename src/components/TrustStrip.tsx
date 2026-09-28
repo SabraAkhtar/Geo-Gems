@@ -54,16 +54,15 @@ const FEATURE_CARDS: FeatureCardItem[] = [
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="relative bg-transparent py-0 select-none overflow-hidden" style={{ marginTop: '-60px', zIndex: 20 }}>
-      <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* 4 Feature Cards Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+    <section className="relative bg-transparent py-0 select-none overflow-hidden" style={{ marginTop: '-50px', zIndex: 20 }}>
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {FEATURE_CARDS.map((card) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.number}
-                className="relative bg-[#FFFFFF] rounded-2xl border border-[#E5DED2] overflow-hidden p-6 sm:p-7 shadow-[0_4px_24px_rgba(37,34,29,0.06)] hover:border-[#B08D57]/50 hover:shadow-[0_12px_40px_rgba(37,34,29,0.08)] transition-all duration-500 min-h-[240px] lg:min-h-[260px] flex flex-col justify-between group"
+                className="relative bg-[#FFFFFF] rounded-2xl border border-[#E5DED2] overflow-hidden p-5 sm:p-6 shadow-[0_4px_24px_rgba(37,34,29,0.06)] hover:border-[#B08D57]/50 transition-all duration-500 min-h-[200px] sm:min-h-[220px] lg:min-h-[240px] flex flex-col justify-between group"
               >
                 {/* Top Area: Circular Icon & Number */}
                 <div className="flex items-center justify-between z-10 relative">

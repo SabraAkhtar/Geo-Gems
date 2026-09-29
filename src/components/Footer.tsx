@@ -28,98 +28,100 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0A0A0A] text-[#F5F1E9] border-t border-[#2A2A2A] select-none">
-      <div className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-12">
+    /*
+      Footer colour palette — warm deep taupe/charcoal with gold accents.
+      Matches the brand's warm ivory + champagne gold identity.
+      Background: #2C2416  (deep warm charcoal — feels like aged wood / dark stone)
+      Border:     #3D3020  (slightly lighter warm divider)
+      Headings:   #E8D5A8  (warm parchment)
+      Body text:  #B5A48A  (muted warm sand)
+      Hover:      #D4B06A  (champagne gold hover)
+      Gold accent: #B08D57 (existing brand gold)
+    */
+    <footer
+      className="select-none"
+      style={{ backgroundColor: '#2C2416', borderTop: '1px solid #3D3020' }}
+    >
+      <div className="max-w-[1300px] mx-auto px-5 sm:px-10 lg:px-12">
+
+        {/* TOP GOLD LINE ACCENT */}
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-60" />
+
         {/* ROW 1 — Main Footer Content */}
-        <div className="py-10 sm:py-14 lg:py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start">
-          {/* Brand Identity Area — full width on mobile, 5 cols on desktop */}
-          <div className="col-span-2 lg:col-span-5 space-y-3">
+        <div
+          className="py-10 sm:py-14 lg:py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start"
+        >
+          {/* Brand Identity — full width on mobile, 5 cols on desktop */}
+          <div className="col-span-2 lg:col-span-5 space-y-4">
             <div
               onClick={() => handleNavigate('home')}
               className="cursor-pointer inline-block"
-              title="Geo Gems Crystals Home"
+              title="Geo Gems Crystals"
             >
+              {/* Logo on warm dark bg — the gold G shows beautifully */}
               <Logo size="md" variant="light" showTagline={false} />
             </div>
 
-            {/* Tagline with subtle editorial line */}
+            {/* Gold tagline line */}
             <div className="flex items-center gap-2.5">
-              <span
-                aria-hidden="true"
-                className="hidden sm:inline-block w-6 h-[1px] bg-[#B08D57]"
-                style={{ opacity: 0.5 }}
-              />
-              <p className="font-eyebrow text-xs text-[#B08D57]">
+              <span className="w-6 h-[1px] bg-[#B08D57] inline-block opacity-70" />
+              <p className="font-eyebrow text-[10px] sm:text-xs" style={{ color: '#B08D57' }}>
                 NATURAL STONES • TIMELESS BEAUTY
               </p>
             </div>
 
-            {/* Short Brand Description */}
-            <p className="font-sans text-[13.5px] text-[#A39B8F] leading-[1.7] max-w-[380px]">
-              Discover natural gemstones and crystals, carefully selected for collectors, jewelry
-              businesses, and crystal buyers worldwide.
+            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#B5A48A' }}>
+              Discover natural gemstones and crystals, carefully selected for collectors,
+              jewelry businesses, and crystal buyers worldwide.
             </p>
           </div>
 
           {/* Explore Column */}
           <div className="col-span-1 lg:col-span-2 space-y-3">
-            <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
+            <h4
+              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
+              style={{ color: '#E8D5A8' }}
+            >
               Explore
             </h4>
-            <ul className="space-y-1.5 font-sans text-[14px] sm:text-[14px] text-[#A39B8F]">
-              <li>
-                <button
-                  onClick={() => navigateToCatalogMode('Gemstone')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
-                >
-                  Gemstones
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateToCatalogMode('Crystal')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
-                >
-                  Crystals
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigate('education')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
-                >
-                  Gemstone Guides
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setIsSavedStonesOpen(true)}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
-                >
-                  Saved Stones{savedStonesCount > 0 ? ` (${savedStonesCount})` : ''}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigate('about')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
-                >
-                  About Us
-                </button>
-              </li>
+            <ul className="space-y-2 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
+              {[
+                { label: 'Gemstones', action: () => navigateToCatalogMode('Gemstone') },
+                { label: 'Crystals', action: () => navigateToCatalogMode('Crystal') },
+                { label: 'Gemstone Guides', action: () => handleNavigate('education') },
+                {
+                  label: `Saved Stones${savedStonesCount > 0 ? ` (${savedStonesCount})` : ''}`,
+                  action: () => setIsSavedStonesOpen(true),
+                },
+                { label: 'About Us', action: () => handleNavigate('about') },
+              ].map((item) => (
+                <li key={item.label}>
+                  <button
+                    onClick={item.action}
+                    className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
+                    style={{ color: 'inherit' }}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Help & Contact Column */}
+          {/* Customer Support Column */}
           <div className="col-span-1 lg:col-span-3 space-y-3">
-            <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
+            <h4
+              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
+              style={{ color: '#E8D5A8' }}
+            >
               Customer Support
             </h4>
-            <ul className="space-y-1.5 font-sans text-[14px] text-[#A39B8F]">
+            <ul className="space-y-2 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
               <li>
                 <button
                   onClick={() => handleNavigate('contact')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
+                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
+                  style={{ color: 'inherit' }}
                 >
                   Contact Us
                 </button>
@@ -129,7 +131,8 @@ export const Footer: React.FC = () => {
                   href={whatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer inline-block text-left leading-[1.8]"
+                  className="inline-block text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
+                  style={{ color: 'inherit' }}
                 >
                   Inquire on WhatsApp
                 </a>
@@ -137,7 +140,8 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => handleNavigate('privacy')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
+                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
+                  style={{ color: 'inherit' }}
                 >
                   Privacy Policy
                 </button>
@@ -145,7 +149,8 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => handleNavigate('terms')}
-                  className="hover:text-[#FFFFFF] transition-colors cursor-pointer text-left leading-[1.8]"
+                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
+                  style={{ color: 'inherit' }}
                 >
                   Shipping &amp; Delivery
                 </button>
@@ -153,20 +158,24 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Social Media Column */}
+          {/* Follow Us Column */}
           <div className="col-span-2 sm:col-span-1 lg:col-span-2 space-y-3">
-            <h4 className="font-sans text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F5F1E9]">
+            <h4
+              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
+              style={{ color: '#E8D5A8' }}
+            >
               Follow Us
             </h4>
-            <div className="space-y-2 font-sans text-[14px] text-[#A39B8F]">
+            <div className="space-y-2.5 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
               <div>
                 <a
                   href={OFFICIAL_INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-[#FFFFFF] transition-colors group leading-[1.8]"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] group"
+                  style={{ color: 'inherit' }}
                 >
-                  <Instagram className="w-4 h-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
+                  <Instagram className="w-4 h-4 flex-shrink-0" style={{ color: '#B08D57' }} />
                   <span>Instagram</span>
                 </a>
               </div>
@@ -175,18 +184,20 @@ export const Footer: React.FC = () => {
                   href={OFFICIAL_TIKTOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-[#FFFFFF] transition-colors group leading-[1.8]"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] group"
+                  style={{ color: 'inherit' }}
                 >
-                  <Music2 className="w-4 h-4 text-[#B08D57] group-hover:scale-110 transition-transform" />
+                  <Music2 className="w-4 h-4 flex-shrink-0" style={{ color: '#B08D57' }} />
                   <span>TikTok</span>
                 </a>
               </div>
-              <div className="pt-1">
+              <div>
                 <a
                   href="mailto:concierge@geogemscrystals.com"
-                  className="inline-flex items-start gap-2 hover:text-[#FFFFFF] transition-colors group text-xs text-[#A39B8F]"
+                  className="inline-flex items-start gap-2 transition-colors hover:text-[#D4B06A] text-[12px]"
+                  style={{ color: 'inherit' }}
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#B08D57] flex-shrink-0 mt-px" />
+                  <Mail className="w-3.5 h-3.5 flex-shrink-0 mt-px" style={{ color: '#B08D57' }} />
                   <span className="break-all">concierge@geogemscrystals.com</span>
                 </a>
               </div>
@@ -194,22 +205,28 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ROW 2 — Simple Copyright Bar */}
-        <div className="border-t border-[#2A2A2A] py-6 sm:py-7 flex flex-col md:flex-row items-center justify-between gap-5 font-sans text-[12.5px] text-[#A39B8F]">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left leading-relaxed">
-            <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
-          </div>
+        {/* BOTTOM COPYRIGHT BAR */}
+        <div
+          className="py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-[12px]"
+          style={{
+            borderTop: '1px solid #3D3020',
+            color: '#7A6E5E',
+          }}
+        >
+          <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
 
-          <div className="flex items-center gap-6 text-center sm:text-right">
+          <div className="flex items-center gap-5">
             <button
               onClick={() => handleNavigate('privacy')}
-              className="hover:text-[#FFFFFF] transition-colors cursor-pointer"
+              className="transition-colors hover:text-[#D4B06A] cursor-pointer"
+              style={{ color: 'inherit' }}
             >
               Privacy Policy
             </button>
             <button
               onClick={() => handleNavigate('terms')}
-              className="hover:text-[#FFFFFF] transition-colors cursor-pointer"
+              className="transition-colors hover:text-[#D4B06A] cursor-pointer"
+              style={{ color: 'inherit' }}
             >
               Shipping &amp; Delivery
             </button>

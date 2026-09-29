@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LogoProps {
   className?: string;
@@ -12,22 +12,23 @@ export const Logo: React.FC<LogoProps> = ({
   className = '',
   size = 'md',
 }) => {
+  // Navbar: sm = 40px, md = 48px
+  // Footer: md = 64px
   const sizeClasses = {
-    sm: 'h-9 sm:h-12',
-    md: 'h-14 sm:h-16',
-    lg: 'h-20 sm:h-24',
-    xl: 'h-28 sm:h-32',
+    sm: 'h-10',
+    md: 'h-12 sm:h-14',
+    lg: 'h-16 sm:h-20',
+    xl: 'h-24 sm:h-28',
   };
 
   return (
     <div className={`flex items-center justify-center select-none ${className}`}>
       <img
         src="/logo.png"
-        alt="GEO GEMS CRYSTALS Logo"
-        className={`${sizeClasses[size]} w-auto object-contain transition-transform duration-300`}
+        alt="GEO GEMS CRYSTALS"
+        className={`${sizeClasses[size]} w-auto object-contain`}
         referrerPolicy="no-referrer"
       />
     </div>
   );
 };
-

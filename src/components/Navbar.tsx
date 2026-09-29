@@ -79,11 +79,12 @@ export const Navbar: React.FC = () => {
               setCurrentView('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="cursor-pointer transition-transform hover:opacity-95 flex-shrink-0"
+            className="cursor-pointer hover:opacity-90 transition-opacity flex-shrink-0"
             title="GEO GEMS CRYSTALS — Natural Stones"
           >
-            <Logo size="sm" variant="light" layout="stacked" showTagline={false} className="sm:hidden" />
-            <Logo size="md" variant="light" layout="stacked" showTagline={true} className="hidden sm:block lg:block" />
+            {/* Mobile: smaller logo, Desktop: medium with more height */}
+            <Logo size="sm" variant="light" className="sm:hidden" />
+            <Logo size="sm" variant="light" className="hidden sm:block" />
           </div>
 
           {/* CENTER — Primary Navigation Links (Home, Gemstones, Crystals, About, Contact) */}

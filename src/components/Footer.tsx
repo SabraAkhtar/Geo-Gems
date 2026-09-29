@@ -40,12 +40,12 @@ export const Footer: React.FC = () => {
     */
     <footer
       className="select-none"
-      style={{ backgroundColor: '#2C2416', borderTop: '1px solid #3D3020' }}
+      style={{ backgroundColor: '#7D8976', borderTop: '1px solid #687362' }}
     >
       <div className="max-w-[1300px] mx-auto px-5 sm:px-10 lg:px-12">
 
         {/* TOP GOLD LINE ACCENT */}
-        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-60" />
+        <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-50" />
 
         {/* ROW 1 — Main Footer Content */}
         <div
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
 
-            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#B5A48A' }}>
+            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#E8F0E6' }}>
               Discover natural gemstones and crystals, carefully selected for collectors,
               jewelry businesses, and crystal buyers worldwide.
             </p>
@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 lg:col-span-2 space-y-3">
             <h4
               className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
-              style={{ color: '#E8D5A8' }}
+              style={{ color: '#FFFFFF' }}
             >
               Explore
             </h4>

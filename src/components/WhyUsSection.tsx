@@ -142,52 +142,25 @@ export const WhyUsSection: React.FC = () => {
             return (
               <div
                 key={card.number}
-                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] min-h-[200px] sm:min-h-[220px] lg:min-h-[230px] flex flex-col"
+                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] flex flex-col"
               >
-                {/* ── Background Image with Elliptical Top-Left Curve ── */}
-                <div 
-                  className="absolute right-0 bottom-0 w-[72%] h-[68%] overflow-hidden z-0"
-                  style={{ borderTopLeftRadius: '100%' }}
-                >
+                {/* ── Image at BOTTOM — fixed height, does NOT overlap text ── */}
+                <div className="w-full h-[130px] sm:h-[140px] overflow-hidden flex-shrink-0 order-last">
                   <img
                     src={card.specimenImage}
                     alt={card.specimenAlt}
                     className="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
                     loading="lazy"
                   />
-                  {/* Subtle dark overlay for contrast, fades on hover */}
-                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                  {/* Gradient fade top so it blends into card */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[130px] bg-gradient-to-b from-[#FAF8F3] via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* ── Thin Gold Accent Line following the curve ── */}
-                <div 
-                  className="absolute right-0 bottom-0 z-10 pointer-events-none"
-                  style={{ 
-                    width: 'calc(72% + 5px)', 
-                    height: 'calc(68% + 5px)', 
-                    borderTopLeftRadius: '100%',
-                    borderTop: '1px solid rgba(176,141,87,0.45)',
-                    borderLeft: '1px solid rgba(176,141,87,0.45)'
-                  }}
-                />
-
-                {/* ── Botanical Leaf Flourish at the bottom intersection ── */}
-                <div className="absolute bottom-0 z-20 pointer-events-none" style={{ left: 'calc(28% - 14px)' }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="opacity-70 text-[#B08D57]">
-                    {/* Small leaf left */}
-                    <path d="M10,22 C10,16 6,12 2,12 C6,12 10,16 10,22 Z" fill="currentColor" />
-                    {/* Tall leaf middle */}
-                    <path d="M10,22 C10,12 15,6 22,6 C15,6 10,12 10,22 Z" fill="currentColor" />
-                    {/* Medium leaf right */}
-                    <path d="M10,22 C10,17 14,13 18,14 C14,13 10,17 10,22 Z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                {/* ── Text Content Area ── */}
-                <div className="relative z-20 p-5 sm:p-6 flex-1 flex flex-col pointer-events-none">
+                {/* ── Text Content Area — full width, no overlap ── */}
+                <div className="relative z-10 p-4 sm:p-5 flex flex-col flex-grow">
                   {/* Top Row: Icon circle + Number */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-9 h-9 rounded-full border border-[#B08D57]/40 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]/50 backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-9 h-9 rounded-full border border-[#B08D57]/40 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]">
                       <Icon className="w-4 h-4 stroke-[1.5]" />
                     </div>
                     <span className="font-serif text-[13px] font-medium tracking-wide text-[#B08D57]/70">
@@ -196,17 +169,15 @@ export const WhyUsSection: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h4 className="font-serif text-[16px] sm:text-[17px] font-normal text-[#292820] leading-snug tracking-tight mb-2.5 pr-2">
+                  <h4 className="font-serif text-[15px] sm:text-[16px] font-medium text-[#292820] leading-snug mb-2">
                     {card.title}
                   </h4>
 
-                  {/* Divider */}
-                  <div className="mb-3.5">
-                    <span className="w-7 h-[1.5px] bg-[#B08D57]/40 inline-block" />
-                  </div>
+                  {/* Gold divider */}
+                  <div className="w-7 h-[1.5px] bg-[#B08D57]/50 mb-2.5" />
 
-                  {/* Description - restricted width to avoid image overlap */}
-                  <p className="font-sans text-[11px] sm:text-[12px] text-[#716B60] font-light leading-[1.6] w-[65%] sm:w-[60%]">
+                  {/* Description — full width, readable */}
+                  <p className="font-sans text-[12px] sm:text-[12.5px] text-[#716B60] font-light leading-[1.65]">
                     {card.description}
                   </p>
                 </div>

@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Full-width Luxury Header / Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F3] border-b border-[#D8CFC2] shadow-xs select-none transition-colors">
+      <header className="sticky top-0 z-40 border-b border-[#D4C5A9] shadow-sm select-none transition-colors" style={{ backgroundColor: '#2C2416' }}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-14 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
           {/* LEFT — Official Brand Logo */}
           <div
@@ -96,13 +96,13 @@ export const Navbar: React.FC = () => {
                   onClick={item.onClick}
                   className={`font-nav transition-all relative py-1.5 cursor-pointer whitespace-nowrap ${
                     item.isActive
-                      ? 'text-[#B08D57]'
-                      : 'text-[#25221D] hover:text-[#B08D57]'
+                      ? 'text-[#D4B06A]'
+                      : 'text-[#E8D5A8] hover:text-[#D4B06A]'
                   }`}
                 >
                   <span>{item.label}</span>
                   {item.isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B08D57] rounded-full" />
+                    <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#D4B06A] rounded-full" />
                   )}
                 </button>
               );
@@ -111,29 +111,29 @@ export const Navbar: React.FC = () => {
 
           {/* RIGHT — Search + WhatsApp CTA + Hamburger */}
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-            {/* Search icon — always visible, opens modal on click */}
+            {/* Search icon */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-[#25221D] hover:text-[#B08D57] transition-colors cursor-pointer flex-shrink-0"
+              className="p-2 text-[#E8D5A8] hover:text-[#D4B06A] transition-colors cursor-pointer flex-shrink-0"
               title="Search gemstones & crystals"
               aria-label="Search gemstones and crystals"
             >
               <Search className="w-[20px] h-[20px] stroke-[1.75]" />
             </button>
 
-            {/* sm–md only: compact WhatsApp icon button */}
+            {/* sm–md: compact WhatsApp icon */}
             <a
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex lg:hidden p-2 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors items-center justify-center"
+              className="hidden sm:flex lg:hidden p-2 rounded-xl bg-[#B08D57]/20 hover:bg-[#B08D57]/30 transition-colors items-center justify-center"
               title="WhatsApp Inquiry"
               aria-label="WhatsApp Inquiry"
             >
-              <WhatsAppIcon className="w-5 h-5" style={{ color: '#25D366' }} />
+              <WhatsAppIcon className="w-5 h-5" style={{ color: '#D4B06A' }} />
             </a>
 
-            {/* Desktop WhatsApp CTA (lg and above) */}
+            {/* Desktop WhatsApp CTA */}
             <a
               href={whatsAppUrl}
               target="_blank"
@@ -146,10 +146,10 @@ export const Navbar: React.FC = () => {
               <span>Inquire on WhatsApp</span>
             </a>
 
-            {/* Hamburger — visible below lg */}
+            {/* Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-[#25221D] hover:text-[#B08D57] lg:hidden cursor-pointer"
+              className="p-2 text-[#E8D5A8] hover:text-[#D4B06A] lg:hidden cursor-pointer"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
@@ -166,13 +166,13 @@ export const Navbar: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-[#FAF8F3] border-l border-[#D8CFC2] p-6 flex flex-col justify-between overflow-y-auto z-50 shadow-2xl">
+          <div className="fixed inset-y-0 right-0 w-full max-w-xs border-l border-[#3D3020] p-6 flex flex-col justify-between overflow-y-auto z-50 shadow-2xl" style={{ backgroundColor: '#2C2416' }}>
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-[#D8CFC2]">
-                <Logo size="sm" variant="light" layout="stacked" />
+              <div className="flex items-center justify-between pb-6 border-b border-[#3D3020]">
+                <Logo size="sm" variant="light" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-[#25221D] hover:text-[#B08D57]"
+                  className="p-2 text-[#E8D5A8] hover:text-[#D4B06A]"
                   aria-label="Close menu"
                 >
                   <X className="w-6 h-6" />
@@ -188,29 +188,27 @@ export const Navbar: React.FC = () => {
                       setMobileMenuOpen(false);
                     }}
                     className={`block w-full text-left py-2.5 font-nav text-[16px] transition-colors cursor-pointer ${
-                      link.isActive ? 'text-[#B08D57] font-semibold' : 'text-[#25221D] hover:text-[#B08D57]'
+                      link.isActive ? 'text-[#D4B06A] font-semibold' : 'text-[#E8D5A8] hover:text-[#D4B06A]'
                     }`}
                   >
                     {link.label}
                   </button>
                 ))}
 
-                {/* Mobile Search Action */}
-                <div className="pt-3 border-t border-[#D8CFC2]/70">
+                <div className="pt-3 border-t border-[#3D3020]/70">
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
                       setIsSearchOpen(true);
                     }}
-                    className="w-full flex items-center gap-2.5 py-2.5 text-left font-nav text-[15px] text-[#25221D] hover:text-[#B08D57] transition-colors cursor-pointer"
+                    className="w-full flex items-center gap-2.5 py-2.5 text-left font-nav text-[15px] text-[#E8D5A8] hover:text-[#D4B06A] transition-colors cursor-pointer"
                   >
-                    <Search className="w-4 h-4 text-[#B08D57]" />
+                    <Search className="w-4 h-4 text-[#D4B06A]" />
                     <span>Search Stones</span>
                   </button>
                 </div>
 
-                {/* Direct WhatsApp Mobile CTA */}
-                <div className="pt-4 border-t border-[#D8CFC2]">
+                <div className="pt-4 border-t border-[#3D3020]">
                   <a
                     href={whatsAppUrl}
                     target="_blank"
@@ -225,9 +223,9 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-[#D8CFC2] text-xs text-[#6F6A63]">
-              <p className="font-eyebrow text-[10px]">NATURAL STONES • TIMELESS BEAUTY</p>
-              <p className="text-[11px] text-[#5A544A] mt-1">Geo Gems Crystals</p>
+            <div className="pt-6 border-t border-[#3D3020] text-xs" style={{ color: '#7A6E5E' }}>
+              <p className="font-eyebrow text-[10px]" style={{ color: '#B08D57' }}>NATURAL STONES • TIMELESS BEAUTY</p>
+              <p className="text-[11px] mt-1" style={{ color: '#B5A48A' }}>Geo Gems Crystals</p>
             </div>
           </div>
         </div>

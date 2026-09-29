@@ -1,62 +1,8 @@
 import React from 'react';
-import { Gem, Eye, FlaskConical, Globe } from 'lucide-react';
 import { useEcommerce } from '../context/EcommerceContext';
 import { EditorialOutlineRing, EditorialSmallDots } from './DecorativeElements';
 
-// Image assets for Why Us Section
 import whyUsCrystalsImg from '../assets/images/why_us_crystals_1790183910255.jpg';
-import specQuartzImg from '../assets/images/spec_clear_quartz_1790184002357.jpg';
-import specAmethystImg from '../assets/images/spec_amethyst_1790184023726.jpg';
-import specRoseQuartzImg from '../assets/images/spec_rose_quartz_1790184041671.jpg';
-import specLapisImg from '../assets/images/spec_lapis_stone_1790184060910.jpg';
-
-interface TrustCard {
-  number: string;
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  specimenImage: string;
-  specimenAlt: string;
-}
-
-const TRUST_CARDS: TrustCard[] = [
-  {
-    number: '01',
-    title: 'Natural Stones',
-    description:
-      'We focus on natural gemstones and crystals selected for their authentic color, form, and character.',
-    icon: Gem,
-    specimenImage: specQuartzImg,
-    specimenAlt: 'Pure faceted clear quartz crystal point',
-  },
-  {
-    number: '02',
-    title: 'Clear Product Details',
-    description:
-      'Each listing includes clear photos, weight, dimensions, origin, and treatment information where available.',
-    icon: Eye,
-    specimenImage: specAmethystImg,
-    specimenAlt: 'Natural deep purple amethyst cluster',
-  },
-  {
-    number: '03',
-    title: 'Helpful Guidance',
-    description:
-      'Whether you are buying your first crystal or choosing a fine gemstone, we help answer your questions clearly.',
-    icon: FlaskConical,
-    specimenImage: specRoseQuartzImg,
-    specimenAlt: 'Raw natural pink rose quartz stone',
-  },
-  {
-    number: '04',
-    title: 'Direct WhatsApp Support',
-    description:
-      'Message us directly on WhatsApp to ask about availability, pricing, or additional photos of any stone.',
-    icon: Globe,
-    specimenImage: specLapisImg,
-    specimenAlt: 'Natural royal blue lapis lazuli stone with golden flecks',
-  },
-];
 
 export const WhyUsSection: React.FC = () => {
   const { setCurrentView } = useEcommerce();
@@ -132,59 +78,7 @@ export const WhyUsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* ═══════════════════════════════════════════════════════════════
-            FOUR TRUST CARDS — Full-width horizontal row
-            Reference style: icon+number top, title+desc, curved dome image bottom
-            ═══════════════════════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 mt-10 sm:mt-14 lg:mt-18">
-          {TRUST_CARDS.map((card) => {
-            const Icon = card.icon;
-            return (
-              <div
-                key={card.number}
-                className="relative bg-[#FAF8F3] rounded-[18px] border border-[#E5DED2] hover:border-[#B08D57]/50 transition-all duration-300 group overflow-hidden shadow-[0_2px_14px_rgba(37,34,29,0.04)] flex flex-col"
-              >
-                {/* ── Image at BOTTOM — fixed height, does NOT overlap text ── */}
-                <div className="w-full h-[130px] sm:h-[140px] overflow-hidden flex-shrink-0 order-last">
-                  <img
-                    src={card.specimenImage}
-                    alt={card.specimenAlt}
-                    className="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  {/* Gradient fade top so it blends into card */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[130px] bg-gradient-to-b from-[#FAF8F3] via-transparent to-transparent pointer-events-none" />
-                </div>
-
-                {/* ── Text Content Area — full width, no overlap ── */}
-                <div className="relative z-10 p-4 sm:p-5 flex flex-col flex-grow">
-                  {/* Top Row: Icon circle + Number */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-full border border-[#B08D57]/40 flex items-center justify-center text-[#B08D57] bg-[#FAF8F3]">
-                      <Icon className="w-4 h-4 stroke-[1.5]" />
-                    </div>
-                    <span className="font-serif text-[13px] font-medium tracking-wide text-[#B08D57]/70">
-                      {card.number}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h4 className="font-serif text-[15px] sm:text-[16px] font-medium text-[#292820] leading-snug mb-2">
-                    {card.title}
-                  </h4>
-
-                  {/* Gold divider */}
-                  <div className="w-7 h-[1.5px] bg-[#B08D57]/50 mb-2.5" />
-
-                  {/* Description — full width, readable */}
-                  <p className="font-sans text-[12px] sm:text-[12.5px] text-[#716B60] font-light leading-[1.65]">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* Trust cards removed — same info shown in TrustStrip above hero */}
       </div>
 
       {/* Subtle partial outline ring in bottom-right corner */}

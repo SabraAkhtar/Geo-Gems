@@ -71,8 +71,8 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Full-width Luxury Header / Navigation Bar */}
-      <header className="sticky top-0 z-40 border-b select-none transition-colors" style={{ backgroundColor: '#7D8976', borderColor: '#687362' }}>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-14 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
+      <header className="sticky top-0 z-40 border-b select-none transition-colors" style={{ backgroundColor: '#1A1712', borderColor: '#2E2A24' }}>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
           {/* LEFT — Official Brand Logo */}
           <div
             onClick={() => {
@@ -166,9 +166,9 @@ export const Navbar: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed inset-y-0 right-0 w-full max-w-xs border-l p-6 flex flex-col justify-between overflow-y-auto z-50 shadow-2xl" style={{ backgroundColor: '#7D8976', borderColor: '#687362' }}>
+          <div className="fixed inset-y-0 right-0 w-full max-w-xs border-l p-6 flex flex-col justify-between overflow-y-auto z-50 shadow-2xl" style={{ backgroundColor: '#1A1712', borderColor: '#2E2A24' }}>
             <div>
-              <div className="flex items-center justify-between pb-6 border-b" style={{ borderColor: '#687362' }}>
+              <div className="flex items-center justify-between pb-6 border-b" style={{ borderColor: '#2E2A24' }}>
                 <Logo size="sm" variant="light" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -195,7 +195,7 @@ export const Navbar: React.FC = () => {
                   </button>
                 ))}
 
-                <div className="pt-3 border-t" style={{ borderColor: 'rgba(104,115,98,0.5)' }}>
+                <div className="pt-3 border-t" style={{ borderColor: 'rgba(46,42,36,0.8)' }}>
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
@@ -208,7 +208,7 @@ export const Navbar: React.FC = () => {
                   </button>
                 </div>
 
-                <div className="pt-4 border-t" style={{ borderColor: '#687362' }}>
+                <div className="pt-4 border-t" style={{ borderColor: '#2E2A24' }}>
                   <a
                     href={whatsAppUrl}
                     target="_blank"
@@ -223,9 +223,9 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t text-xs" style={{ borderColor: '#687362', color: '#E8F0E6' }}>
-              <p className="font-eyebrow text-[10px]" style={{ color: '#D4E8D0' }}>NATURAL STONES • TIMELESS BEAUTY</p>
-              <p className="text-[11px] mt-1" style={{ color: '#E8F0E6' }}>Geo Gems Crystals</p>
+            <div className="pt-6 border-t text-xs" style={{ borderColor: '#2E2A24', color: '#E8D5A8' }}>
+              <p className="font-eyebrow text-[10px]" style={{ color: '#B08D57' }}>NATURAL STONES • TIMELESS BEAUTY</p>
+              <p className="text-[11px] mt-1" style={{ color: '#A89880' }}>Geo Gems Crystals</p>
             </div>
           </div>
         </div>

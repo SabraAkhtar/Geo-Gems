@@ -15,10 +15,10 @@ export const Logo: React.FC<LogoProps> = ({
   // Navbar: sm = 40px, md = 48px
   // Footer: md = 64px
   const sizeClasses = {
-    sm: 'h-10',
-    md: 'h-12 sm:h-14',
-    lg: 'h-16 sm:h-20',
-    xl: 'h-24 sm:h-28',
+    sm: 'h-12',
+    md: 'h-14 sm:h-16',
+    lg: 'h-20 sm:h-24',
+    xl: 'h-28 sm:h-32',
   };
 
   return (

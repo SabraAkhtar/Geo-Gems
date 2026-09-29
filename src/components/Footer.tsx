@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
     */
     <footer
       className="select-none"
-      style={{ backgroundColor: '#7D8976', borderTop: '1px solid #687362' }}
+      style={{ backgroundColor: '#1A1712', borderTop: '1px solid #2E2A24' }}
     >
       <div className="max-w-[1300px] mx-auto px-5 sm:px-10 lg:px-12">
 
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
               </p>
             </div>
 
-            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#E8F0E6' }}>
+            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#A89880' }}>
               Discover natural gemstones and crystals, carefully selected for collectors,
               jewelry businesses, and crystal buyers worldwide.
             </p>
@@ -209,8 +209,8 @@ export const Footer: React.FC = () => {
         <div
           className="py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-[12px]"
           style={{
-            borderTop: '1px solid #3D3020',
-            color: '#7A6E5E',
+            borderTop: '1px solid #2E2A24',
+            color: '#6B6055',
           }}
         >
           <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>

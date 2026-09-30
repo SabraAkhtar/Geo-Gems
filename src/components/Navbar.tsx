@@ -84,9 +84,9 @@ export const Navbar: React.FC = () => {
             className="cursor-pointer hover:opacity-90 transition-opacity flex-shrink-0"
             title="GEO GEMS CRYSTALS — Natural Stones"
           >
-            {/* Mobile: smaller logo, Desktop: medium with more height */}
+            {/* Mobile: sm logo, Desktop: md logo */}
             <Logo size="sm" variant="light" className="sm:hidden" />
-            <Logo size="sm" variant="light" className="hidden sm:block" />
+            <Logo size="md" variant="light" className="hidden sm:block" />
           </div>
 
           {/* CENTER — Primary Navigation Links (Home, Gemstones, Crystals, About, Contact) */}

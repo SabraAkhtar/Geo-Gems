@@ -93,7 +93,7 @@ export const JewelrySection: React.FC = () => {
                   <img
                     src={piece.image}
                     alt={piece.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                     loading="lazy"
                   />
 
@@ -152,10 +152,7 @@ export const JewelrySection: React.FC = () => {
                   {/* Price & Action */}
                   <div className="pt-3 border-t border-[#E5DED2] flex items-center justify-between">
                     <div>
-                      <span className="text-[11px] uppercase tracking-wider text-[#5A544A] font-sans font-medium block">
-                        Price
-                      </span>
-                      <span className="font-serif text-[14px] sm:text-[17px] font-medium text-[#121212]">
+                      <span className="font-serif text-[15px] sm:text-[17px] font-semibold text-[#121212]">
                         {formatPrice(piece.priceUSD)}
                       </span>
                     </div>

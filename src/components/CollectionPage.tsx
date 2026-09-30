@@ -182,61 +182,65 @@ export const CollectionPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Primary Category Mode + Stone Variety Filter Pills */}
-        <div className="flex gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar scroll-smooth">
-          <button
-            onClick={() => navigateToCatalogMode('All')}
-            className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer ${
-              !filters.selectedCategory && !filters.selectedType && !filters.selectedCollection
-                ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
-                : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
-            }`}
-          >
-            All Stones ({publicStones.length})
-          </button>
-
-          <button
-            onClick={() => navigateToCatalogMode('Gemstone')}
-            className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer ${
-              filters.selectedCategory === 'Gemstone' && !filters.selectedType
-                ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
-                : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
-            }`}
-          >
-            Gemstones ({publicStones.filter((g) => inferStoneCategory(g) === 'Gemstone').length})
-          </button>
-
-          <button
-            onClick={() => navigateToCatalogMode('Crystal')}
-            className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer ${
-              filters.selectedCategory === 'Crystal' && !filters.selectedType
-                ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
-                : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
-            }`}
-          >
-            Crystals ({publicStones.filter((g) => inferStoneCategory(g) === 'Crystal').length})
-          </button>
-
-          {GEMSTONE_CATEGORIES.map((cat) => (
+        {/* Primary Category Mode + Stone Variety Filter Pills — with right fade indicator */}
+        <div className="relative mb-8">
+          <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar scroll-smooth">
             <button
-              key={cat.id}
-              onClick={() =>
-                setFilters((prev) => ({
-                  ...prev,
-                  selectedCategory: null,
-                  selectedType: cat.name,
-                  selectedCollection: null,
-                }))
-              }
-              className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer ${
-                filters.selectedType?.toLowerCase() === cat.name.toLowerCase()
+              onClick={() => navigateToCatalogMode('All')}
+              className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
+                !filters.selectedCategory && !filters.selectedType && !filters.selectedCollection
                   ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
                   : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
               }`}
             >
-              {cat.name}
+              All Stones ({publicStones.length})
             </button>
-          ))}
+
+            <button
+              onClick={() => navigateToCatalogMode('Gemstone')}
+              className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
+                filters.selectedCategory === 'Gemstone' && !filters.selectedType
+                  ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
+                  : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
+              }`}
+            >
+              Gemstones ({publicStones.filter((g) => inferStoneCategory(g) === 'Gemstone').length})
+            </button>
+
+            <button
+              onClick={() => navigateToCatalogMode('Crystal')}
+              className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
+                filters.selectedCategory === 'Crystal' && !filters.selectedType
+                  ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
+                  : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
+              }`}
+            >
+              Crystals ({publicStones.filter((g) => inferStoneCategory(g) === 'Crystal').length})
+            </button>
+
+            {GEMSTONE_CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    selectedCategory: null,
+                    selectedType: cat.name,
+                    selectedCollection: null,
+                  }))
+                }
+                className={`px-4 py-2 rounded-xl text-xs font-sans font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
+                  filters.selectedType?.toLowerCase() === cat.name.toLowerCase()
+                    ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
+                    : 'bg-white text-[#5A544A] border border-[#E5DED2] hover:border-[#B08D57] hover:text-[#121212]'
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </div>
+          {/* Right fade indicator — hints there are more pills */}
+          <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#FAF8F3] to-transparent pointer-events-none" />
         </div>
 
         {/* Main Section: Filters Sidebar + Grid */}

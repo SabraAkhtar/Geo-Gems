@@ -54,7 +54,7 @@ const FEATURE_CARDS: FeatureCardItem[] = [
 
 export const TrustStrip: React.FC = () => {
   return (
-    <section className="relative bg-transparent py-0 select-none overflow-hidden" style={{ marginTop: '-50px', zIndex: 20 }}>
+    <section className="relative bg-transparent py-0 select-none overflow-hidden -mt-12 sm:-mt-14 lg:-mt-16" style={{ zIndex: 20 }}>
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           {FEATURE_CARDS.map((card) => {
@@ -80,7 +80,7 @@ export const TrustStrip: React.FC = () => {
                     {card.title}
                   </h3>
                   <div className="w-6 h-[1px] bg-[#B08D57] my-2.5 sm:my-3.5 opacity-70" />
-                  <p className="font-sans text-[12px] sm:text-[13px] text-[#716B60] font-light leading-relaxed max-w-[85%]">
+                  <p className="font-sans text-[12px] sm:text-[13px] text-[#716B60] font-light leading-relaxed pr-16 sm:pr-20">
                     {card.description}
                   </p>
                 </div>

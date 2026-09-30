@@ -101,7 +101,7 @@ export const InspirationSection: React.FC = () => {
                     src={item.image}
                     alt={item.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-104"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                     loading="lazy"
                   />
                   {/* Strong gradient overlay for text readability */}

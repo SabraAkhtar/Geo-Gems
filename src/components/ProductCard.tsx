@@ -46,7 +46,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
         {/* Bookmark */}
         <button
           onClick={(e) => { e.stopPropagation(); toggleSavedStone(gemstone.id); }}
-          className={`absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center backdrop-blur-md transition-all z-10 shadow-xs cursor-pointer ${
+          className={`dot-btn absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center backdrop-blur-md transition-all z-10 shadow-xs cursor-pointer ${
             isSaved
               ? 'bg-[#B08D57] text-white border border-[#B08D57]'
               : 'bg-[#121212]/50 text-white/90 hover:bg-[#121212]/80 border border-white/20'
@@ -72,7 +72,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
         </span>
 
         {/* Stone name */}
-        <h3 className="font-serif text-[13px] sm:text-[15px] font-medium text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-2 leading-snug mb-1 flex-grow">
+        <h3 className="font-serif text-[14px] sm:text-[16px] font-medium text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-2 leading-snug mb-1 flex-grow">
           {gemstone.name}
         </h3>
 
@@ -93,7 +93,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
                 Price on Request
               </span>
             ) : (
-              <span className="font-serif text-[13px] sm:text-[15px] font-semibold text-[#121212]">
+              <span className="font-serif text-[15px] sm:text-[17px] font-semibold text-[#121212]">
                 {priceInfo.label}
               </span>
             )}

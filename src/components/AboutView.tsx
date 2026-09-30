@@ -123,13 +123,13 @@ export const AboutView: React.FC = () => {
 
                   {/* Secondary Card (Upper-Left) */}
                   <div className="absolute left-0 top-4 w-[50%] h-[300px] lg:h-[330px] rounded-[26px] overflow-hidden shadow-[0_14px_35px_rgba(41,40,32,0.09)] border border-[#E5DED2]/70 bg-[#F3EFE8] group">
-                    <img src={whyUsCrystalsImg} alt="Natural mineral formations" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <img src={whyUsCrystalsImg} alt="Natural mineral formations" className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
                   </div>
 
                   {/* Main Card (Center-Right) */}
                   <div className="absolute right-0 bottom-4 w-[58%] h-[350px] lg:h-[390px] rounded-[30px] overflow-hidden shadow-[0_20px_48px_rgba(41,40,32,0.12)] border border-[#E5DED2]/80 bg-[#F3EFE8] group z-10">
-                    <img src={heroEmeraldImg} alt="Colombian Emerald crystals" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <img src={heroEmeraldImg} alt="Colombian Emerald crystals" className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                   </div>
 

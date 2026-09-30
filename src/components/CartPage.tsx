@@ -71,7 +71,7 @@ export const CartPage: React.FC = () => {
     <div className="min-h-screen bg-[#FAF8F3]">
       {/* ── Page Header ── */}
       <div style={{ backgroundColor: '#1A1712', borderBottom: '1px solid #2E2A24' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 grid grid-cols-3 items-center">
           <button
             onClick={() => {
               setCurrentView('home');
@@ -83,7 +83,7 @@ export const CartPage: React.FC = () => {
             <span>Continue Shopping</span>
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center gap-3">
             <ShoppingCart className="w-5 h-5 text-[#B08D57]" />
             <h1 className="font-serif text-xl sm:text-2xl font-medium text-[#E8D5A8]">
               Inquiry Cart
@@ -95,7 +95,7 @@ export const CartPage: React.FC = () => {
             )}
           </div>
 
-          <div className="w-32" /> {/* spacer */}
+          <div /> {/* right spacer for grid balance */}
         </div>
       </div>
 
@@ -220,7 +220,7 @@ export const CartPage: React.FC = () => {
                             <div className="flex items-center bg-[#F5F1E9] rounded-xl border border-[#E5DED2] overflow-hidden">
                               <button
                                 onClick={() => updateQuantity(item.gemstone.id, item.quantity - 1)}
-                                className="w-9 h-9 flex items-center justify-center text-[#5A544A] hover:bg-[#E5DED2] hover:text-[#121212] transition-colors cursor-pointer"
+                                className="dot-btn w-9 h-9 flex items-center justify-center text-[#5A544A] hover:bg-[#E5DED2] hover:text-[#121212] transition-colors cursor-pointer"
                                 aria-label="Decrease quantity"
                               >
                                 <Minus className="w-3.5 h-3.5" />
@@ -230,7 +230,7 @@ export const CartPage: React.FC = () => {
                               </span>
                               <button
                                 onClick={() => updateQuantity(item.gemstone.id, item.quantity + 1)}
-                                className="w-9 h-9 flex items-center justify-center text-[#5A544A] hover:bg-[#E5DED2] hover:text-[#121212] transition-colors cursor-pointer"
+                                className="dot-btn w-9 h-9 flex items-center justify-center text-[#5A544A] hover:bg-[#E5DED2] hover:text-[#121212] transition-colors cursor-pointer"
                                 aria-label="Increase quantity"
                               >
                                 <Plus className="w-3.5 h-3.5" />

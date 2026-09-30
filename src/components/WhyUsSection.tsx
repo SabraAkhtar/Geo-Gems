@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { useEcommerce } from '../context/EcommerceContext';
 import { EditorialOutlineRing, EditorialSmallDots } from './DecorativeElements';
 
@@ -16,7 +17,7 @@ export const WhyUsSection: React.FC = () => {
           
           {/* LEFT COLUMN: LARGE GEMSTONE PHOTOGRAPH */}
           <div className="w-full lg:w-[46%] flex flex-col justify-center">
-            <div className="relative w-full h-[280px] sm:h-[420px] lg:h-[580px] xl:h-[630px] rounded-[14px] overflow-hidden border border-[#E5DED2] shadow-[0_4px_24px_rgba(37,34,29,0.05)] bg-[#FAF8F3] group">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[560px] xl:h-[600px] rounded-[14px] overflow-hidden border border-[#E5DED2] shadow-[0_4px_24px_rgba(37,34,29,0.05)] bg-[#FAF8F3] group">
               <img
                 src={whyUsCrystalsImg}
                 alt="Exquisite natural crystals, amethyst cluster, rose quartz, lapis lazuli and quartz on warm sunlit stone"
@@ -70,9 +71,7 @@ export const WhyUsSection: React.FC = () => {
                 className="inline-flex items-center gap-2 text-[12.5px] sm:text-[13px] font-sans font-medium tracking-[1.5px] uppercase text-[#B08D57] hover:text-[#292820] transition-colors cursor-pointer group"
               >
                 <span>ABOUT GEO GEMS CRYSTALS</span>
-                <span className="transition-transform group-hover:translate-x-1.5 text-sm sm:text-base">
-                  →
-                </span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
           </div>

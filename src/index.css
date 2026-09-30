@@ -32,33 +32,26 @@ body {
 }
 
 /* =========================================================================
-   MOBILE-FIRST — Base body sizing and reading comfort
+   MOBILE-FIRST — Base body sizing (merged with main @layer base below)
    ========================================================================= */
-@layer base {
-  body {
-    font-size: 15px; /* Slightly larger base on mobile for readability */
-  }
-}
 
 /* =========================================================================
-   MOBILE — Aggressive touch target enforcement
-   =========================================================================
-   Only applied to interactive elements, not decorative spans/divs.
-   Exceptions use .no-touch-target
+   MOBILE — Smart touch target enforcement — only for major interactive elements
+   Only applies to buttons/links that are NOT small decorative controls.
+   Small controls use .dot-btn or .no-touch-target to opt out.
    ========================================================================= */
 @media (max-width: 1023px) {
-  button:not(.no-touch-target),
-  a:not(.no-touch-target),
-  [role="button"]:not(.no-touch-target) {
+  /* Only primary interactive elements get forced touch targets */
+  .primary-button,
+  .secondary-button {
     min-height: 44px;
-    min-width: 44px;
   }
 
-  /* Inline text links and tiny pagination dots are exceptions */
-  .inline-touch,
-  .dot-btn {
-    min-height: unset;
-    min-width: unset;
+  /* Small decorative controls opt out */
+  .dot-btn,
+  .no-touch-target {
+    min-height: unset !important;
+    min-width: unset !important;
   }
 }
 
@@ -283,10 +276,10 @@ body {
 }
 
 .primary-button:hover {
-  background-color: #7D8976;
-  box-shadow: 0px 12px 20px rgba(125, 137, 118, 0.24);
+  background-color: #9E7B47;
+  box-shadow: 0px 12px 20px rgba(176, 141, 87, 0.28);
   color: #FFFFFF !important;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .primary-button:active {
@@ -550,7 +543,7 @@ body {
 
   .primary-button:active {
     transform: translateY(-1px);
-    background-color: #7D8976;
+    background-color: #9E7B47;
   }
 
   /* Also keep secondary-button as circle on touch — don't expand */

@@ -216,7 +216,7 @@ export const Hero: React.FC = () => {
           ═══════════════════════════════════════════════════════ */}
       <div
         className="hidden lg:flex relative min-h-[800px] flex-col justify-between overflow-hidden"
-        style={{ paddingBottom: '60px' }}
+        style={{ paddingBottom: '80px' }}
       >
         {/* Background image on right */}
         <div className="absolute inset-y-0 right-0 w-[58%] pointer-events-none z-0 overflow-hidden">

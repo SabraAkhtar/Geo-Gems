@@ -196,7 +196,7 @@ export const CategorySection: React.FC = () => {
                   <img
                     src={category.image}
                     alt={category.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-115"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.12]"
                     referrerPolicy="no-referrer"
                     loading="eager"
                   />
@@ -218,7 +218,7 @@ export const CategorySection: React.FC = () => {
               <button
                 key={pageIdx}
                 onClick={() => scrollToPage(pageIdx)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`dot-btn h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   activePageIndex === pageIdx
                     ? 'bg-[#B08D57] w-6'
                     : 'bg-[#D8CFC2] w-2.5 hover:bg-[#B08D57]'

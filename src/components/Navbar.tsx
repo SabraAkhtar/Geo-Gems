@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
   } = useEcommerce();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { cartCount, openCart } = useCart();
+  const { cartCount } = useCart();
 
   // Primary business inquiry WhatsApp URL
   const whatsAppUrl = getGeneralWhatsAppUrl(
@@ -113,11 +113,14 @@ export const Navbar: React.FC = () => {
 
           {/* RIGHT — Search + WhatsApp CTA + Hamburger */}
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-            {/* Cart icon */}
+            {/* Cart icon — navigates to full cart page */}
             <button
-              onClick={openCart}
+              onClick={() => {
+                setCurrentView('cart' as any);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="relative p-2 text-[#E8D5A8] hover:text-[#D4B06A] transition-colors cursor-pointer flex-shrink-0"
-              aria-label="Open cart"
+              aria-label="View cart"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (

@@ -16,7 +16,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
-  const { openGemstoneDetail, toggleSavedStone, isStoneSaved, formatPrice } = useEcommerce();
+  const { openGemstoneDetail, toggleSavedStone, isStoneSaved, formatPrice, setCurrentView } = useEcommerce();
   const { addToCart, cartItems } = useCart();
 
   const isSaved = isStoneSaved(gemstone.id);

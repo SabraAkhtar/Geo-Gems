@@ -25,6 +25,7 @@ import { SearchModal } from './components/SearchModal';
 import { InquiryModal } from './components/InquiryModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
+import { CartPage } from './components/CartPage';
 import { EducationModal } from './components/EducationModal';
 import { Sparkles } from 'lucide-react';
 import { updatePageSeo } from './utils/seo';
@@ -85,6 +86,7 @@ const MainAppContent: React.FC = () => {
         {currentView === 'education' && <EducationSection />}
         {currentView === 'about' && <AboutView />}
         {currentView === 'contact' && <ContactView />}
+        {currentView === 'cart' && <CartPage />}
         {currentView === 'privacy' && <LegalPolicyView mode="privacy" />}
         {currentView === 'terms' && <LegalPolicyView mode="terms" />}
         {currentView === 'not-found' && <NotFoundView />}

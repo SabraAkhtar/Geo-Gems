@@ -44,6 +44,7 @@ export type ViewType =
   | 'saved-stones'
   | 'about'
   | 'contact'
+  | 'cart'
   | 'education'
   | 'privacy'
   | 'terms'
@@ -198,6 +199,7 @@ export const EcommerceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     if (path === '/about') return 'about';
     if (path === '/education') return 'education';
     if (path === '/contact') return 'contact';
+    if (path === '/cart') return 'cart';
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
     if (path === '/') return 'home';
@@ -237,6 +239,9 @@ export const EcommerceProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             break;
           case 'contact':
             targetPath = '/contact';
+            break;
+          case 'cart':
+            targetPath = '/cart';
             break;
           case 'education':
             targetPath = '/education';

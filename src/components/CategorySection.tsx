@@ -198,7 +198,7 @@ export const CategorySection: React.FC = () => {
                     alt={category.name}
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-115"
                     referrerPolicy="no-referrer"
-                    loading="lazy"
+                    loading="eager"
                   />
                   {/* Subtle hover overlay */}
                   <div className="absolute inset-0 rounded-full bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

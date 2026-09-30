@@ -21,7 +21,7 @@ export const WhyUsSection: React.FC = () => {
                 src={whyUsCrystalsImg}
                 alt="Exquisite natural crystals, amethyst cluster, rose quartz, lapis lazuli and quartz on warm sunlit stone"
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                loading="lazy"
+                loading="eager"
               />
               <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">

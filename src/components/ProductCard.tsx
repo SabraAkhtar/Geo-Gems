@@ -38,7 +38,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
           src={gemstone.images?.[0] || '/stones/ruby.jpg'}
           alt={gemstone.name}
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
           referrerPolicy="no-referrer"
         />
 

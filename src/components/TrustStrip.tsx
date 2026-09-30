@@ -92,7 +92,7 @@ export const TrustStrip: React.FC = () => {
                       src={card.image}
                       alt={card.imageAlt}
                       className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-                      loading="lazy"
+                      loading="eager"
                     />
                     {/* Soft gradient blend for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#FFFFFF] via-[#FFFFFF]/40 to-transparent opacity-80" />

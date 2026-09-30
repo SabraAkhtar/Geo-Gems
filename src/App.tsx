@@ -23,9 +23,9 @@ import { AdminView } from './components/admin/AdminView';
 import { SavedStonesDrawer } from './components/SavedStonesDrawer';
 import { SearchModal } from './components/SearchModal';
 import { InquiryModal } from './components/InquiryModal';
+import { CartDrawer } from './components/CartDrawer';
+import { CartProvider } from './context/CartContext';
 import { EducationModal } from './components/EducationModal';
-import { Sparkles } from 'lucide-react';
-import { updatePageSeo } from './utils/seo';
 
 const MainAppContent: React.FC = () => {
   const { currentView, activeGemstone, closeGemstoneDetail, notification, filters } = useEcommerce();
@@ -96,6 +96,7 @@ const MainAppContent: React.FC = () => {
       <SearchModal />
       <InquiryModal />
       <EducationModal />
+      <CartDrawer />
 
       {/* Elegant Notification Toast */}
       {notification && (
@@ -113,7 +114,9 @@ const MainAppContent: React.FC = () => {
 export default function App() {
   return (
     <EcommerceProvider>
-      <MainAppContent />
+      <CartProvider>
+        <MainAppContent />
+      </CartProvider>
     </EcommerceProvider>
   );
 }

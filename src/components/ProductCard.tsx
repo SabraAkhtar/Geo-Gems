@@ -1,7 +1,8 @@
 import React from 'react';
-import { Bookmark } from 'lucide-react';
+import { Bookmark, ShoppingCart, Check } from 'lucide-react';
 import { Gemstone } from '../types';
 import { useEcommerce } from '../context/EcommerceContext';
+import { useCart } from '../context/CartContext';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import {
   getStoneId,
@@ -16,6 +17,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
   const { openGemstoneDetail, toggleSavedStone, isStoneSaved, formatPrice } = useEcommerce();
+  const { addToCart, cartItems } = useCart();
 
   const isSaved = isStoneSaved(gemstone.id);
   const isSold = gemstone.status === 'sold' || gemstone.status === 'sold_out';
@@ -23,6 +25,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
   const priceInfo = getPriceDisplay(gemstone, formatPrice);
   const weightDisplay = getWeightDisplay(gemstone, false);
   const cardWhatsAppUrl = getWhatsAppInquiryUrl(gemstone, undefined, undefined, isSold);
+  const isInCart = cartItems.some((item) => item.gemstone.id === gemstone.id);
 
   return (
     <div
@@ -47,7 +50,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
               ? 'bg-[#B08D57] text-white border border-[#B08D57]'
               : 'bg-[#121212]/50 text-white/90 hover:bg-[#121212]/80 border border-white/20'
           }`}
-          aria-label={isSaved ? 'Remove from Saved Stones' : 'Save Stone'}
+          aria-label={isSaved ? 'Remove from Saved' : 'Save Stone'}
         >
           <Bookmark className={`w-3 h-3 ${isSaved ? 'fill-current' : ''}`} />
         </button>
@@ -67,7 +70,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
           {gemstone.type}
         </span>
 
-        {/* Stone name — serif, bigger, readable */}
+        {/* Stone name */}
         <h3 className="font-serif text-[13px] sm:text-[15px] font-medium text-[#121212] group-hover:text-[#B08D57] transition-colors line-clamp-2 leading-snug mb-1 flex-grow">
           {gemstone.name}
         </h3>
@@ -78,15 +81,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
           {gemstone.origin ? ` · ${gemstone.origin.split(',')[0]}` : gemstone.cut ? ` · ${gemstone.cut}` : ''}
         </p>
 
-        {/* Price + WhatsApp CTA */}
-        <div className="mt-auto pt-2 border-t border-[#F0EAE1] flex items-center justify-between gap-1.5">
+        {/* Price row */}
+        <div className="mt-auto pt-2 border-t border-[#F0EAE1]">
           {/* Price */}
-          <div className="min-w-0 flex-1">
+          <div className="mb-2">
             {isSold ? (
               <span className="text-[11px] sm:text-[12px] font-sans font-medium text-[#9E9590]">Sold</span>
             ) : priceInfo.isPriceOnRequest ? (
               <span className="text-[10px] sm:text-[11px] font-sans font-semibold text-[#B08D57] leading-tight">
-                Price on<br className="xs:hidden" /> Request
+                Price on Request
               </span>
             ) : (
               <span className="font-serif text-[13px] sm:text-[15px] font-semibold text-[#121212]">
@@ -95,18 +98,49 @@ export const ProductCard: React.FC<ProductCardProps> = ({ gemstone }) => {
             )}
           </div>
 
-          {/* WhatsApp tap target — 36×36 minimum */}
-          <a
-            href={cardWhatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#7D8976] hover:bg-[#687362] flex items-center justify-center flex-shrink-0 transition-colors shadow-xs"
-            aria-label={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}
-            title={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}
-          >
-            <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
-          </a>
+          {/* Action buttons row */}
+          <div className="flex items-center gap-1.5">
+            {/* Add to Cart button */}
+            {!isSold && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToCart(gemstone);
+                }}
+                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-sans font-semibold tracking-wide transition-all duration-200 cursor-pointer border ${
+                  isInCart
+                    ? 'bg-[#B08D57] text-white border-[#B08D57]'
+                    : 'bg-[#FAF8F3] text-[#5A544A] border-[#E5DED2] hover:border-[#B08D57] hover:text-[#B08D57]'
+                }`}
+                aria-label={isInCart ? 'Added to cart' : 'Add to cart'}
+              >
+                {isInCart ? (
+                  <>
+                    <Check className="w-3 h-3" />
+                    <span>Added</span>
+                  </>
+                ) : (
+                  <>
+                    <ShoppingCart className="w-3 h-3" />
+                    <span>Add</span>
+                  </>
+                )}
+              </button>
+            )}
+
+            {/* WhatsApp quick inquiry icon */}
+            <a
+              href={cardWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="w-8 h-8 rounded-lg bg-[#7D8976] hover:bg-[#687362] flex items-center justify-center flex-shrink-0 transition-colors shadow-xs"
+              aria-label={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}
+              title={isSold ? 'Ask About Similar Stones' : 'Inquire on WhatsApp'}
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

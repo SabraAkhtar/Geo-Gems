@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, ShoppingCart } from 'lucide-react';
 import { useEcommerce } from '../context/EcommerceContext';
+import { useCart } from '../context/CartContext';
 import { Logo } from './Logo';
 import { getGeneralWhatsAppUrl } from '../utils/gemstoneHelpers';
 import { WhatsAppIcon } from './WhatsAppIcon';
@@ -15,6 +16,7 @@ export const Navbar: React.FC = () => {
   } = useEcommerce();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cartCount, openCart } = useCart();
 
   // Primary business inquiry WhatsApp URL
   const whatsAppUrl = getGeneralWhatsAppUrl(
@@ -111,6 +113,20 @@ export const Navbar: React.FC = () => {
 
           {/* RIGHT — Search + WhatsApp CTA + Hamburger */}
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+            {/* Cart icon */}
+            <button
+              onClick={openCart}
+              className="relative p-2 text-[#E8D5A8] hover:text-[#D4B06A] transition-colors cursor-pointer flex-shrink-0"
+              aria-label="Open cart"
+            >
+              <ShoppingCart className="w-5 h-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#B08D57] text-white text-[9px] font-bold flex items-center justify-center">
+                  {cartCount > 9 ? '9+' : cartCount}
+                </span>
+              )}
+            </button>
+
             {/* Search icon */}
             <button
               onClick={() => setIsSearchOpen(true)}

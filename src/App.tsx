@@ -26,6 +26,8 @@ import { InquiryModal } from './components/InquiryModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
 import { EducationModal } from './components/EducationModal';
+import { Sparkles } from 'lucide-react';
+import { updatePageSeo } from './utils/seo';
 
 const MainAppContent: React.FC = () => {
   const { currentView, activeGemstone, closeGemstoneDetail, notification, filters } = useEcommerce();

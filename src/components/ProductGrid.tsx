@@ -24,17 +24,20 @@ export const ProductGrid: React.FC = () => {
         gem.treatment?.toLowerCase().includes('natural formation') ||
         gem.treatment?.toLowerCase().includes('natural specimen')
       );
+    // 'all' tab — show all published products, newest first
     return true;
   });
 
-  // Show a clean complete set — always 8 (2 complete rows of 4 on desktop, 4 rows of 2 on mobile)
-  // If fewer than 8, show what exists but ensure divisible count per row
-  const total = filteredGemstones.length;
-  // On desktop we do 4-col → show multiples of 4 up to 8
-  // On tablet 2-col → any even count is fine
-  // Pick up to 8, but if total < 8 just show all
+  // Sort: newest products first (by createdAt descending) so newly added products appear first
+  const sortedGemstones = [...filteredGemstones].sort((a, b) => {
+    const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return dateB - dateA;
+  });
+
+  const total = sortedGemstones.length;
   const displayCount = total <= 8 ? total : 8;
-  const displayStones = filteredGemstones.slice(0, displayCount);
+  const displayStones = sortedGemstones.slice(0, displayCount);
   const hasMore = total > displayCount;
 
   return (

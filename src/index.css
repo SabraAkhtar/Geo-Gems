@@ -243,9 +243,13 @@ body {
    GEO GEMS CRYSTALS — LUXURY BUTTON SYSTEM
    ========================================================================= */
 
-/* 1. PRIMARY BUTTON — Luxury Gold #B08D57 with subtle upward lift */
+/* 1. PRIMARY BUTTON — Luxury Gold #B08D57 with subtle upward lift
+   IMPORTANT: display is intentionally NOT set here.
+   Components control visibility via Tailwind (hidden, flex, inline-flex, etc.)
+   so that responsive utilities like "hidden lg:inline-flex" work correctly.
+*/
 .primary-button {
-  display: inline-flex;
+  /* display intentionally omitted — controlled by Tailwind utilities */
   align-items: center;
   justify-content: center;
   gap: 0.6em;
@@ -273,6 +277,32 @@ body {
   white-space: nowrap;
   user-select: none;
   min-height: 44px;
+}
+
+/*
+  Default display for <button> and <a> elements using .primary-button
+  when no Tailwind visibility/display class is present.
+  This is overridden by Tailwind's `hidden`, `flex`, `inline-flex`, etc.
+*/
+button.primary-button,
+a.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When Tailwind applies flex/inline-flex, ensure internal alignment stays correct */
+.primary-button.flex,
+.primary-button.inline-flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When Tailwind applies w-full, switch to block-level flex */
+.primary-button.w-full {
+  display: flex;
+  width: 100%;
 }
 
 .primary-button:hover {

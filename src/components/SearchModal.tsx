@@ -62,13 +62,13 @@ export const SearchModal: React.FC = () => {
       />
 
       <div
-        className="min-h-screen px-4 pt-16 pb-12 flex justify-center relative"
+        className="min-h-screen px-3 sm:px-4 pt-12 sm:pt-16 pb-12 flex justify-center relative"
         onClick={(e) => {
           if (e.target === e.currentTarget) setIsSearchOpen(false);
         }}
       >
         <div
-          className="relative bg-[#FAF8F3] rounded-2xl max-w-2xl w-full shadow-2xl border border-[#E5DED2] p-6 z-10 animate-in fade-in zoom-in-95 duration-200 h-fit max-h-[85vh] flex flex-col"
+          className="relative bg-[#FAF8F3] rounded-2xl w-full max-w-2xl shadow-2xl border border-[#E5DED2] p-4 sm:p-6 z-10 animate-in fade-in zoom-in-95 duration-200 h-fit max-h-[90vh] flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Search Input Bar */}

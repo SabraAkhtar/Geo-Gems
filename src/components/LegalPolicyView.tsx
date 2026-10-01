@@ -150,7 +150,7 @@ export const LegalPolicyView: React.FC<LegalPolicyViewProps> = ({ mode }) => {
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="primary-button text-white"
+              className="primary-button inline-flex"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Inquire on WhatsApp</span>

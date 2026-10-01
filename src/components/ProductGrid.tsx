@@ -71,9 +71,9 @@ export const ProductGrid: React.FC = () => {
           ))}
         </div>
 
-        {/* Product Grid — 2 col mobile, 3 col sm-md, 4 col lg+ */}
+        {/* Product Grid — always 2-col on mobile, 3-col md, 4-col lg */}
         {displayStones.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-5">
             {displayStones.map((gemstone) => (
               <ProductCard key={gemstone.id} gemstone={gemstone} />
             ))}

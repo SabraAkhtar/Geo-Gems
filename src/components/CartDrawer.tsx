@@ -281,7 +281,7 @@ export const CartDrawer: React.FC = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="primary-button w-full justify-center mt-2"
+                    className="primary-button flex w-full items-center justify-center gap-2 mt-2"
                     style={{ fontSize: '13px', letterSpacing: '1.6px', padding: '0.95em 1.5em' }}
                   >
                     <WhatsAppIcon className="w-4 h-4 text-white" />

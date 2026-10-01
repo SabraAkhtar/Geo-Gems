@@ -110,7 +110,7 @@ export const CategorySection: React.FC = () => {
   };
 
   return (
-    <section id="gemstones-categories" className="relative py-10 sm:py-14 lg:py-20 bg-[#F5F1E9] border-b border-[#D8CFC2] overflow-hidden select-none">
+    <section id="gemstones-categories" className="relative py-10 sm:py-14 lg:py-20 bg-[#F5F1E9] border-b border-[#D8CFC2] select-none overflow-hidden">
       {/* Subtle Decorative Elements — Strictly in background corners away from images & titles */}
       <div
         aria-hidden="true"
@@ -182,17 +182,31 @@ export const CategorySection: React.FC = () => {
           {/* Circular Category Cards Row */}
           <div
             ref={scrollContainerRef}
-            className="flex items-center gap-5 sm:gap-7 lg:gap-8 overflow-x-auto pb-4 pt-2 px-2 scroll-smooth no-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex items-start gap-4 sm:gap-6 lg:gap-8 overflow-x-auto pb-4 pt-2 no-scrollbar"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              overscrollBehaviorX: 'contain',
+              WebkitOverflowScrolling: 'touch',
+              scrollSnapType: 'x mandatory',
+            }}
           >
             {GEMSTONE_CATEGORIES.map((category) => (
               <div
                 key={category.id}
                 onClick={() => navigateToCategory(category.id)}
-                className="flex-shrink-0 flex flex-col items-center group cursor-pointer w-[110px] sm:w-[140px] md:w-[160px] lg:w-[185px]"
+                className="flex-shrink-0 flex flex-col items-center group cursor-pointer"
+                style={{
+                  scrollSnapAlign: 'start',
+                  /* Show ~2.5 items on 360px: (360 - 32px padding) / 2.5 ≈ 131px per item */
+                  width: 'clamp(108px, 34vw, 185px)',
+                }}
               >
-                {/* Perfect Circle Container for the Stone Image */}
-                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden aspect-square bg-[#EAE3D8] relative shadow-md border-2 border-[#D8CFC2] group-hover:border-[#B08D57] group-hover:shadow-xl transition-all duration-300">
+                {/* Circle image */}
+                <div
+                  className="rounded-full overflow-hidden aspect-square bg-[#EAE3D8] relative shadow-md border-2 border-[#D8CFC2] group-hover:border-[#B08D57] group-hover:shadow-xl transition-all duration-300"
+                  style={{ width: '100%', maxWidth: '185px' }}
+                >
                   <img
                     src={category.image}
                     alt={category.name}
@@ -200,12 +214,11 @@ export const CategorySection: React.FC = () => {
                     referrerPolicy="no-referrer"
                     loading="eager"
                   />
-                  {/* Subtle hover overlay */}
                   <div className="absolute inset-0 rounded-full bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
 
-                {/* Stone Name Underneath */}
-                <h3 className="font-serif text-sm sm:text-base lg:text-[17px] font-medium text-[#151515] group-hover:text-[#B08D57] transition-colors mt-3 sm:mt-4 text-center tracking-wide">
+                {/* Category name */}
+                <h3 className="font-serif text-[13px] sm:text-[15px] lg:text-[17px] font-medium text-[#151515] group-hover:text-[#B08D57] transition-colors mt-2.5 sm:mt-3 text-center tracking-wide leading-snug px-1">
                   {category.name}
                 </h3>
               </div>

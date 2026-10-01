@@ -47,12 +47,14 @@ export const Footer: React.FC = () => {
         {/* TOP GOLD LINE ACCENT */}
         <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-50" />
 
-        {/* ROW 1 — Main Footer Content */}
-        <div
-          className="py-10 sm:py-14 lg:py-16 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start"
-        >
-          {/* Brand Identity — full width on mobile, 5 cols on desktop */}
-          <div className="col-span-2 lg:col-span-5 space-y-4">
+        {/* ROW 1 — Main Footer Content
+            Mobile:  single column (col-span-2 for brand, each other col full-width)
+            Tablet:  2-col grid
+            Desktop: 12-col editorial grid
+        */}
+        <div className="py-10 sm:py-14 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start">
+          {/* Brand Identity — full width on mobile and tablet-left, 5 cols on desktop */}
+          <div className="sm:col-span-2 lg:col-span-5 space-y-4">
             <div
               onClick={() => handleNavigate('home')}
               className="cursor-pointer inline-block"
@@ -77,7 +79,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Explore Column */}
-          <div className="col-span-1 lg:col-span-2 space-y-3">
+          <div className="lg:col-span-2 space-y-3">
             <h4
               className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
               style={{ color: '#FFFFFF' }}
@@ -109,7 +111,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Customer Support Column */}
-          <div className="col-span-1 lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-3">
             <h4
               className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
               style={{ color: '#E8D5A8' }}
@@ -159,7 +161,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Follow Us Column */}
-          <div className="col-span-2 sm:col-span-1 lg:col-span-2 space-y-3">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-3">
             <h4
               className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
               style={{ color: '#E8D5A8' }}
@@ -207,29 +209,13 @@ export const Footer: React.FC = () => {
 
         {/* BOTTOM COPYRIGHT BAR */}
         <div
-          className="py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-[12px]"
-          style={{
-            borderTop: '1px solid #2E2A24',
-            color: '#6B6055',
-          }}
+          className="py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-sans text-[12px]"
+          style={{ borderTop: '1px solid #2E2A24', color: '#6B6055' }}
         >
-          <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
-
-          <div className="flex items-center gap-5">
-            <button
-              onClick={() => handleNavigate('privacy')}
-              className="transition-colors hover:text-[#D4B06A] cursor-pointer"
-              style={{ color: 'inherit' }}
-            >
-              Privacy Policy
-            </button>
-            <button
-              onClick={() => handleNavigate('terms')}
-              className="transition-colors hover:text-[#D4B06A] cursor-pointer"
-              style={{ color: 'inherit' }}
-            >
-              Shipping &amp; Delivery
-            </button>
+          <span className="text-center sm:text-left">© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
+          <div className="flex items-center gap-5 flex-wrap justify-center">
+            <button onClick={() => handleNavigate('privacy')} className="transition-colors hover:text-[#D4B06A] cursor-pointer" style={{ color: 'inherit' }}>Privacy Policy</button>
+            <button onClick={() => handleNavigate('terms')} className="transition-colors hover:text-[#D4B06A] cursor-pointer" style={{ color: 'inherit' }}>Shipping &amp; Delivery</button>
           </div>
         </div>
       </div>

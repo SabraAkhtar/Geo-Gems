@@ -33,7 +33,7 @@ export const SavedStonesDrawer: React.FC = () => {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex">
-        <div className="w-screen max-w-md bg-[#FAF8F3] border-l border-[#E5DED2] shadow-2xl flex flex-col justify-between">
+        <div className="w-screen max-w-[min(420px,100vw)] bg-[#FAF8F3] border-l border-[#E5DED2] shadow-2xl flex flex-col justify-between">
           {/* Header */}
           <div className="p-6 border-b border-[#E5DED2] flex items-center justify-between bg-white">
             <div className="flex items-center gap-2.5">
@@ -72,7 +72,7 @@ export const SavedStonesDrawer: React.FC = () => {
                 </p>
                 <button
                   onClick={() => setIsSavedStonesOpen(false)}
-                  className="primary-button"
+                  className="primary-button inline-flex items-center justify-center gap-2"
                   style={{ padding: '0.85em 1.8em' }}
                 >
                   <span>Explore Collection</span>
@@ -162,7 +162,7 @@ export const SavedStonesDrawer: React.FC = () => {
                 href={getWhatsAppInquiryUrl(savedList[0])}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="primary-button w-full"
+                className="primary-button w-full flex items-center justify-center gap-2"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Inquire on WhatsApp</span>

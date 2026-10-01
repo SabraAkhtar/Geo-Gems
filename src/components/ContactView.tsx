@@ -432,7 +432,7 @@ export const ContactView: React.FC = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="primary-button w-full sm:w-auto"
+                    className="primary-button flex w-full sm:w-auto items-center justify-center gap-2"
                   >
                     <span>Send Inquiry</span>
                     <ArrowRight className="w-4 h-4" />

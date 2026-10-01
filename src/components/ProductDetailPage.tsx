@@ -460,7 +460,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
       </div>
 
       {/* ─── STICKY MOBILE WHATSAPP CTA BAR ─── */}
-      {/* Visible only on mobile (below lg). Stays fixed at the bottom for easy access. */}
       <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#FAF8F3]/95 backdrop-blur-md border-t border-[#E5DED2] px-4 py-3 shadow-[0_-4px_20px_rgba(37,34,29,0.08)]">
         <div className="flex items-center gap-3 max-w-lg mx-auto">
           <div className="flex-1 min-w-0">
@@ -469,14 +468,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
               {priceInfo.isPriceOnRequest ? 'Price on Request' : priceInfo.label}
             </p>
           </div>
+          {/* Use inline-flex directly — NOT .primary-button class — to avoid CSS display conflict */}
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="primary-button flex-shrink-0"
-            style={{ padding: '0.75em 1.4em', fontSize: '12px', letterSpacing: '1.4px' }}
+            className="flex-shrink-0 inline-flex items-center gap-2 rounded-full bg-[#B08D57] hover:bg-[#9E7B47] text-white font-sans font-medium transition-colors"
+            style={{ padding: '0.75em 1.4em', fontSize: '12px', letterSpacing: '1.4px', textTransform: 'uppercase' }}
           >
-            <WhatsAppIcon className="w-4 h-4 text-white" />
+            <WhatsAppIcon className="w-4 h-4 text-white flex-shrink-0" />
             <span>{getInquiryButtonLabel(gemstone)}</span>
           </a>
         </div>

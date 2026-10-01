@@ -71,31 +71,29 @@ export const CartPage: React.FC = () => {
     <div className="min-h-screen bg-[#FAF8F3]">
       {/* ── Page Header ── */}
       <div style={{ backgroundColor: '#1A1712', borderBottom: '1px solid #2E2A24' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 grid grid-cols-3 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex items-center gap-3">
           <button
-            onClick={() => {
-              setCurrentView('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="inline-flex items-center gap-2 text-[#B5A48A] hover:text-[#D4B06A] transition-colors cursor-pointer text-sm font-sans"
+            onClick={() => { setCurrentView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="inline-flex items-center gap-1.5 text-[#B5A48A] hover:text-[#D4B06A] transition-colors cursor-pointer text-sm font-sans flex-shrink-0"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Continue Shopping</span>
+            <ArrowLeft className="w-4 h-4 flex-shrink-0" />
+            <span className="hidden sm:inline">Continue Shopping</span>
           </button>
 
-          <div className="flex items-center justify-center gap-3">
-            <ShoppingCart className="w-5 h-5 text-[#B08D57]" />
-            <h1 className="font-serif text-xl sm:text-2xl font-medium text-[#E8D5A8]">
+          <div className="flex-1 flex items-center justify-center gap-2.5">
+            <ShoppingCart className="w-5 h-5 text-[#B08D57] flex-shrink-0" />
+            <h1 className="font-serif text-lg sm:text-2xl font-medium text-[#E8D5A8] truncate">
               Inquiry Cart
             </h1>
             {cartCount > 0 && (
-              <span className="w-6 h-6 rounded-full bg-[#B08D57] text-white text-[11px] font-bold flex items-center justify-center">
+              <span className="w-6 h-6 rounded-full bg-[#B08D57] text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0">
                 {cartCount}
               </span>
             )}
           </div>
 
-          <div /> {/* right spacer for grid balance */}
+          {/* right balance */}
+          <div className="w-8 sm:w-24 flex-shrink-0" />
         </div>
       </div>
 
@@ -116,7 +114,7 @@ export const CartPage: React.FC = () => {
               setCurrentView('collection');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="primary-button"
+            className="primary-button inline-flex items-center justify-center gap-2"
           >
             <span>Browse Our Collection</span>
             <ArrowRight className="w-4 h-4" />
@@ -451,10 +449,10 @@ export const CartPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Submit button */}
+                    {/* Submit button — inline-flex directly to avoid CSS display conflict */}
                     <button
                       type="submit"
-                      className="primary-button w-full justify-center"
+                      className="primary-button w-full flex items-center justify-center gap-2"
                       style={{ fontSize: '13px', letterSpacing: '1.6px', padding: '1em 1.5em' }}
                     >
                       <WhatsAppIcon className="w-4 h-4 text-white" />

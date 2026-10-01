@@ -50,7 +50,7 @@ export const BespokeInquiryCTA: React.FC = () => {
           Tell us what gemstone, crystal, shape, or size you are looking for. We will check our
           available stones and share details directly on WhatsApp.
         </p>
-        <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="primary-button w-full sm:w-auto justify-center">
+        <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="primary-button inline-flex w-full sm:w-auto items-center justify-center gap-2">
           <WhatsAppIcon className="w-4 h-4 text-white" />
           <span>Inquire on WhatsApp</span>
         </a>

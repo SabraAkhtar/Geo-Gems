@@ -66,8 +66,8 @@ export const JewelrySection: React.FC = () => {
           </div>
         </div>
 
-        {/* 6 Jewelry Product Cards Grid */}
-        <div className="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+        {/* Grid: 2-col mobile, 2-col md, 3-col lg */}
+        <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
           {filteredPieces.map((piece, idx) => {
             const stoneObj = jewelryToGemstone(piece);
             const isSaved = isStoneSaved(piece.id);
@@ -130,7 +130,7 @@ export const JewelrySection: React.FC = () => {
                 </div>
 
                 {/* Details Section */}
-                <div className="p-3 sm:p-4 lg:p-5 flex flex-col flex-grow justify-between bg-white">
+                <div className="p-2.5 sm:p-4 lg:p-5 flex flex-col flex-grow justify-between bg-white min-w-0">
                   <div>
                     {/* Metal & Category */}
                     <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-[#B08D57] font-sans font-medium mb-1">
@@ -139,7 +139,7 @@ export const JewelrySection: React.FC = () => {
                     </div>
 
                     {/* Title in Cormorant Garamond */}
-                    <h3 className="font-serif text-[13px] sm:text-[16px] text-[#121212] group-hover:text-[#B08D57] transition-colors leading-snug line-clamp-2 mb-1">
+                    <h3 className="min-w-0 font-serif text-[12px] sm:text-[15px] text-[#121212] group-hover:text-[#B08D57] transition-colors leading-snug line-clamp-2 mb-1">
                       {piece.name}
                     </h3>
 

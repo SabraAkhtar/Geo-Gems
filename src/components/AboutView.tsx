@@ -186,7 +186,7 @@ export const AboutView: React.FC = () => {
                 ))}
               </div>
               <div>
-                <button onClick={handleExploreClick} className="primary-button w-full sm:w-auto">
+                <button onClick={handleExploreClick} className="primary-button inline-flex w-full sm:w-auto items-center justify-center gap-2">
                   <span>Explore Our Gemstones</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>

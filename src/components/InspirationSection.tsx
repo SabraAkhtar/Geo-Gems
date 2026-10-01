@@ -87,8 +87,8 @@ export const InspirationSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Four equal-width gemstone cards in one row on desktop */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+          {/* Four equal-width gemstone cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
             {inspirationItems.map((item) => (
               <div
                 key={item.title}

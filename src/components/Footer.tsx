@@ -60,13 +60,7 @@ export const Footer: React.FC = () => {
           {/* Brand — always full width (col-span-2) */}
           <div className="col-span-2 lg:col-span-5 space-y-3">
             <div onClick={() => handleNavigate('home')} className="cursor-pointer inline-block" title="Geo Gems Crystals">
-              <Logo size="sm" variant="light" showTagline={false} />
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-[1px] bg-[#B08D57] inline-block opacity-70" />
-              <p className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] uppercase" style={{ color: '#B08D57' }}>
-                NATURAL STONES • TIMELESS BEAUTY
-              </p>
+              <Logo size="md" variant="light" showTagline={false} />
             </div>
             <p className="font-sans text-[12.5px] sm:text-[13.5px] leading-[1.65]" style={{ color: '#A89880' }}>
               Natural gemstones and crystals, carefully selected for collectors and jewelry businesses worldwide.
@@ -135,7 +129,17 @@ export const Footer: React.FC = () => {
           className="py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-sans text-[12px]"
           style={{ borderTop: '1px solid #2E2A24', color: '#6B6055' }}
         >
-          <span className="text-center sm:text-left">© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <span>© 2026 GEO GEMS CRYSTALS. Natural gemstones &amp; crystals.</span>
+            <button
+              onClick={() => handleNavigate('admin')}
+              className="transition-colors hover:text-[#B08D57] cursor-pointer text-[11px]"
+              style={{ color: '#4A4540' }}
+              title="Admin Dashboard"
+            >
+              Admin
+            </button>
+          </div>
           <div className="flex items-center gap-5 flex-wrap justify-center">
             <button onClick={() => handleNavigate('privacy')} className="transition-colors hover:text-[#D4B06A] cursor-pointer" style={{ color: 'inherit' }}>Privacy Policy</button>
             <button onClick={() => handleNavigate('terms')} className="transition-colors hover:text-[#D4B06A] cursor-pointer" style={{ color: 'inherit' }}>Shipping &amp; Delivery</button>

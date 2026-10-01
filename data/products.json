@@ -551,5 +551,47 @@
     "stockStatus": "in_stock",
     "stockCount": 2,
     "videoUrl": null
+  },
+  {
+    "id": "geo-demo-new-001",
+    "stoneId": "GGC-RB-002",
+    "slug": "5-10-ct-unheated-vivid-red-ruby-mogok-ggc-rb-002",
+    "name": "5.10 ct Vivid Red Natural Ruby — Mogok",
+    "category": "Gemstone",
+    "type": "Ruby",
+    "tagline": "Unheated Vivid Red Natural Corundum • Mogok, Myanmar",
+    "carat": 5.1,
+    "weight": 5.1,
+    "weightUnit": "ct",
+    "priceDisplayType": "fixed",
+    "priceAmount": 32000,
+    "priceUSD": 32000,
+    "currency": "USD",
+    "status": "published",
+    "createdAt": "2026-10-01T10:00:00.000Z",
+    "updatedAt": "2026-10-01T10:00:00.000Z",
+    "dimensions": "10.20 x 8.80 x 6.10 mm",
+    "color": "Vivid Pigeon Blood Red",
+    "cut": "Oval Brilliant Cut",
+    "clarity": "Eye Clean • VS Grade",
+    "origin": "Mogok Valley, Myanmar (Burma)",
+    "naturalStatus": "100% Natural Earth-Mined",
+    "treatment": "Unheated / No Heat Treatment",
+    "certificate": {
+      "issuer": "GIA Gemological Report",
+      "reportNumber": "GIA-2206845123",
+      "verified": true
+    },
+    "images": [
+      "/stones/ruby.jpg"
+    ],
+    "description": "A breathtaking 5.10 carat natural Mogok ruby displaying an intense pigeon blood red color with exceptional transparency. This unheated stone carries full GIA documentation confirming its natural origin and no heat treatment — among the rarest qualities in fine rubies.",
+    "loreAndProperties": "Mogok Valley rubies are the world standard for pigeon blood red color, celebrated by collectors and jewelers for centuries for their natural fluorescence and unrivaled saturation.",
+    "collectionId": "ruby-collection",
+    "isFeatured": true,
+    "isBestseller": true,
+    "stockStatus": "rare_1_of_1",
+    "stockCount": 1,
+    "videoUrl": null
   }
 ]

@@ -47,62 +47,47 @@ export const Footer: React.FC = () => {
         {/* TOP GOLD LINE ACCENT */}
         <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#B08D57] to-transparent opacity-50" />
 
-        {/* ROW 1 — Main Footer Content
-            Mobile:  single column (col-span-2 for brand, each other col full-width)
-            Tablet:  2-col grid
-            Desktop: 12-col editorial grid
+        {/*
+          MOBILE  (< sm):  2-col grid
+            Row 1: Brand (col-span-2, full width)
+            Row 2: Explore | Customer Support  (1 col each)
+            Row 3: Follow Us (col-span-2, full width, horizontal layout)
+          TABLET  (sm):    2-col grid (same)
+          DESKTOP (lg):    12-col editorial grid
         */}
-        <div className="py-10 sm:py-14 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start">
-          {/* Brand Identity — full width on mobile and tablet-left, 5 cols on desktop */}
-          <div className="sm:col-span-2 lg:col-span-5 space-y-4">
-            <div
-              onClick={() => handleNavigate('home')}
-              className="cursor-pointer inline-block"
-              title="Geo Gems Crystals"
-            >
-              {/* Logo on warm dark bg — the gold G shows beautifully */}
-              <Logo size="md" variant="light" showTagline={false} />
-            </div>
+        <div className="py-8 sm:py-14 lg:py-16 grid grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start">
 
-            {/* Gold tagline line */}
-            <div className="flex items-center gap-2.5">
-              <span className="w-6 h-[1px] bg-[#B08D57] inline-block opacity-70" />
-              <p className="font-eyebrow text-[10px] sm:text-xs" style={{ color: '#B08D57' }}>
+          {/* Brand — always full width (col-span-2) */}
+          <div className="col-span-2 lg:col-span-5 space-y-3">
+            <div onClick={() => handleNavigate('home')} className="cursor-pointer inline-block" title="Geo Gems Crystals">
+              <Logo size="sm" variant="light" showTagline={false} />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-[1px] bg-[#B08D57] inline-block opacity-70" />
+              <p className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] uppercase" style={{ color: '#B08D57' }}>
                 NATURAL STONES • TIMELESS BEAUTY
               </p>
             </div>
-
-            <p className="font-sans text-[13.5px] leading-[1.7] max-w-[360px]" style={{ color: '#A89880' }}>
-              Discover natural gemstones and crystals, carefully selected for collectors,
-              jewelry businesses, and crystal buyers worldwide.
+            <p className="font-sans text-[12.5px] sm:text-[13.5px] leading-[1.65]" style={{ color: '#A89880' }}>
+              Natural gemstones and crystals, carefully selected for collectors and jewelry businesses worldwide.
             </p>
           </div>
 
-          {/* Explore Column */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4
-              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
-              style={{ color: '#FFFFFF' }}
-            >
+          {/* Explore — col 1 */}
+          <div className="col-span-1 lg:col-span-2 space-y-2.5">
+            <h4 className="font-sans text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.1em]" style={{ color: '#FFFFFF' }}>
               Explore
             </h4>
-            <ul className="space-y-2 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
+            <ul className="space-y-1.5 font-sans text-[12.5px] sm:text-[13.5px]" style={{ color: '#B5A48A' }}>
               {[
                 { label: 'Gemstones', action: () => navigateToCatalogMode('Gemstone') },
                 { label: 'Crystals', action: () => navigateToCatalogMode('Crystal') },
-                { label: 'Gemstone Guides', action: () => handleNavigate('education') },
-                {
-                  label: `Saved Stones${savedStonesCount > 0 ? ` (${savedStonesCount})` : ''}`,
-                  action: () => setIsSavedStonesOpen(true),
-                },
+                { label: 'Gem Guides', action: () => handleNavigate('education') },
+                { label: `Saved Stones${savedStonesCount > 0 ? ` (${savedStonesCount})` : ''}`, action: () => setIsSavedStonesOpen(true) },
                 { label: 'About Us', action: () => handleNavigate('about') },
               ].map((item) => (
                 <li key={item.label}>
-                  <button
-                    onClick={item.action}
-                    className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
-                    style={{ color: 'inherit' }}
-                  >
+                  <button onClick={item.action} className="cursor-pointer text-left leading-[1.7] transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>
                     {item.label}
                   </button>
                 </li>
@@ -110,99 +95,37 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Customer Support Column */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4
-              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
-              style={{ color: '#E8D5A8' }}
-            >
-              Customer Support
+          {/* Customer Support — col 2 */}
+          <div className="col-span-1 lg:col-span-3 space-y-2.5">
+            <h4 className="font-sans text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.1em]" style={{ color: '#E8D5A8' }}>
+              Support
             </h4>
-            <ul className="space-y-2 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
-              <li>
-                <button
-                  onClick={() => handleNavigate('contact')}
-                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
-                  style={{ color: 'inherit' }}
-                >
-                  Contact Us
-                </button>
-              </li>
-              <li>
-                <a
-                  href={whatsAppUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
-                  style={{ color: 'inherit' }}
-                >
-                  Inquire on WhatsApp
-                </a>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigate('privacy')}
-                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
-                  style={{ color: 'inherit' }}
-                >
-                  Privacy Policy
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigate('terms')}
-                  className="cursor-pointer text-left leading-[1.8] transition-colors hover:text-[#D4B06A]"
-                  style={{ color: 'inherit' }}
-                >
-                  Shipping &amp; Delivery
-                </button>
-              </li>
+            <ul className="space-y-1.5 font-sans text-[12.5px] sm:text-[13.5px]" style={{ color: '#B5A48A' }}>
+              <li><button onClick={() => handleNavigate('contact')} className="cursor-pointer text-left leading-[1.7] transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>Contact Us</button></li>
+              <li><a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="inline-block leading-[1.7] transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>WhatsApp</a></li>
+              <li><button onClick={() => handleNavigate('privacy')} className="cursor-pointer text-left leading-[1.7] transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>Privacy Policy</button></li>
+              <li><button onClick={() => handleNavigate('terms')} className="cursor-pointer text-left leading-[1.7] transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>Shipping</button></li>
             </ul>
           </div>
 
-          {/* Follow Us Column */}
-          <div className="sm:col-span-2 lg:col-span-2 space-y-3">
-            <h4
-              className="font-sans text-[12px] font-semibold uppercase tracking-[0.1em]"
-              style={{ color: '#E8D5A8' }}
-            >
+          {/* Follow Us — full width on mobile, 2 cols on lg */}
+          <div className="col-span-2 lg:col-span-2 space-y-2.5">
+            <h4 className="font-sans text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.1em]" style={{ color: '#E8D5A8' }}>
               Follow Us
             </h4>
-            <div className="space-y-2.5 font-sans text-[13.5px]" style={{ color: '#B5A48A' }}>
-              <div>
-                <a
-                  href={OFFICIAL_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] group"
-                  style={{ color: 'inherit' }}
-                >
-                  <Instagram className="w-4 h-4 flex-shrink-0" style={{ color: '#B08D57' }} />
-                  <span>Instagram</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href={OFFICIAL_TIKTOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] group"
-                  style={{ color: 'inherit' }}
-                >
-                  <Music2 className="w-4 h-4 flex-shrink-0" style={{ color: '#B08D57' }} />
-                  <span>TikTok</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="mailto:concierge@geogemscrystals.com"
-                  className="inline-flex items-start gap-2 transition-colors hover:text-[#D4B06A] text-[12px]"
-                  style={{ color: 'inherit' }}
-                >
-                  <Mail className="w-3.5 h-3.5 flex-shrink-0 mt-px" style={{ color: '#B08D57' }} />
-                  <span className="break-all">concierge@geogemscrystals.com</span>
-                </a>
-              </div>
+            <div className="flex flex-row flex-wrap gap-x-5 gap-y-2 lg:flex-col lg:space-y-2 font-sans text-[12.5px] sm:text-[13.5px]" style={{ color: '#B5A48A' }}>
+              <a href={OFFICIAL_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>
+                <Instagram className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
+                <span>Instagram</span>
+              </a>
+              <a href={OFFICIAL_TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>
+                <Music2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
+                <span>TikTok</span>
+              </a>
+              <a href="mailto:concierge@geogemscrystals.com" className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] text-[11.5px]" style={{ color: 'inherit' }}>
+                <Mail className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
+                <span className="break-all">concierge@geogemscrystals.com</span>
+              </a>
             </div>
           </div>
         </div>

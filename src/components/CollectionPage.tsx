@@ -326,8 +326,7 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
 
       {/* Filter panel — always visible on desktop (hidden on mobile until toggled) */}
       <div
-        className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}
-        style={{ maxHeight: 'calc(100vh - 7rem)', overflowY: 'auto' }}
+        className={`collection-sidebar-inner bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}
       >
         {/* Header */}
         <div className="hidden lg:flex items-center justify-between pb-3 border-b border-[#E5DED2]">

@@ -603,49 +603,68 @@ a.primary-button {
 }
 
 /* =========================================================================
-   COLLECTION PAGE — Sticky filter sidebar layout
+   COLLECTION PAGE — Scroll-bounded sticky filter sidebar
    
-   Root cause of sticky failure:
-   - Tailwind grid utilities apply align-items:stretch by default in some
-     configurations, preventing sticky from working on grid children.
-   - Using explicit CSS here guarantees correct behaviour independent of
-     Tailwind's utility specificity.
+   HOW CSS STICKY WORKS (and why it failed before):
+   ─────────────────────────────────────────────────
+   position:sticky works when ALL of these are true:
+   1. The element has position:sticky + a top/bottom value
+   2. NO ancestor has overflow:hidden, overflow:auto, or overflow:scroll
+      (overflow:visible is fine, which is the default)
+   3. The element's direct grid/flex parent uses align-items:start
+      OR the element itself uses align-self:start
+      (Without this, grid stretches the cell to full column height,
+       so the element is already "filling" its container and sticky
+       triggers immediately at the very bottom — looks broken)
+   4. The containing block (scrolling ancestor = usually html/body) is
+      taller than the sticky element
    
-   The sidebar uses position:sticky with:
-   - top: 90px  (accounts for ~56px navbar + breathing room)
-   - align-self: start  (CRITICAL — prevents grid from stretching the cell)
-   - max-height + overflow-y: auto  (sidebar scrolls internally if taller than viewport)
-   - height: fit-content  (sidebar doesn't stretch to match products column)
+   PREVIOUS BUG: overflow-y:auto was set on .collection-sidebar itself,
+   which made it an overflow container — sticky children of an overflow
+   container are relative to THAT container, not the viewport. Since the
+   sidebar IS the sticky element, it was constrained to itself = broken.
+   
+   FIX: Sticky on the wrapper (.collection-sidebar), overflow-y:auto only
+   on the inner filter panel (.collection-sidebar-inner) if needed.
    ========================================================================= */
 
-/* Mobile: single column stacked layout */
+/* Mobile: single column, normal flow */
 .collection-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  align-items: start;
 }
 
-/* Desktop: sidebar fixed 280px + products fill remaining space */
+/* Desktop: two-column grid — sidebar + products */
 @media (min-width: 1024px) {
   .collection-grid {
     grid-template-columns: 280px minmax(0, 1fr);
     gap: 2rem;
+    align-items: start; /* MUST be start — stretch breaks sticky */
   }
 }
 
+/* Sidebar wrapper — this is the sticky element */
 .collection-sidebar {
-  /* Mobile: normal flow */
   width: 100%;
+  /* NO overflow here — that would break sticky */
 }
 
 @media (min-width: 1024px) {
   .collection-sidebar {
     position: sticky;
-    top: 90px;           /* below sticky navbar (~56-64px) + breathing room */
-    align-self: start;   /* CRITICAL: prevents grid cell from stretching */
-    height: fit-content; /* sidebar height = its content, not the grid row */
-    max-height: calc(100vh - 110px); /* prevent sidebar from taller than viewport */
-    overflow-y: auto;    /* internal scroll if sidebar is tall */
+    top: 88px;           /* navbar height ~56px + 32px breathing room */
+    align-self: start;   /* redundant with align-items:start but explicit */
+    height: fit-content; /* do not stretch to match product column height */
+  }
+}
+
+/* Inner filter panel — overflow scroll only if taller than viewport */
+@media (min-width: 1024px) {
+  .collection-sidebar-inner {
+    max-height: calc(100vh - 108px); /* viewport minus sticky offset minus margin */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #D8CFC2 transparent;
   }
 }

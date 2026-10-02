@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { Gemstone, Currency, FilterState, EducationalArticle } from '../types';
 import { GEMSTONES } from '../data/gemstones';
+import PRODUCTS_JSON from '../../data/products.json';
 import { getStoneId } from '../utils/gemstoneHelpers';
 
 export const CURRENCIES: Currency[] = [
@@ -164,7 +165,24 @@ interface EcommerceContextType {
 const EcommerceContext = createContext<EcommerceContextType | undefined>(undefined);
 
 export const EcommerceProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [allProducts, setAllProducts] = useState<Gemstone[]>(GEMSTONES);
+  /*
+    IMPORTANT: Initial state uses PRODUCTS_JSON (data/products.json) as the authoritative
+    source. This file contains ALL products including admin-added ones.
+    GEMSTONES (src/data/gemstones.ts) is kept as a legacy fallback only.
+    
+    Why: Vercel static deployments do not run the Express server, so /api/products
+    may be unavailable on first load. Using products.json guarantees ALL products
+    (including admin-added) are visible immediately without waiting for the API.
+  */
+  const [allProducts, setAllProducts] = useState<Gemstone[]>(() => {
+    // Use products.json as primary source — it has all admin-added products
+    const jsonProducts = PRODUCTS_JSON as any[];
+    if (jsonProducts && jsonProducts.length > 0) {
+      return jsonProducts as Gemstone[];
+    }
+    // Fallback to hardcoded if JSON is empty
+    return GEMSTONES;
+  });
   const [isLoadingProducts, setIsLoadingProducts] = useState<boolean>(false);
   const [activeGemstone, setActiveGemstone] = useState<Gemstone | null>(null);
 

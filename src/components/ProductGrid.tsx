@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { GEMSTONES } from '../data/gemstones';
 import { ProductCard } from './ProductCard';
 import { useEcommerce } from '../context/EcommerceContext';
 
@@ -8,7 +7,9 @@ export const ProductGrid: React.FC = () => {
   const { setCurrentView, allProducts } = useEcommerce();
   const [activeTab, setActiveTab] = useState<'all' | 'bestsellers' | 'rare' | 'untreated'>('all');
 
-  const sourceGemstones = allProducts && allProducts.length > 0 ? allProducts : GEMSTONES;
+  // allProducts comes from EcommerceContext which now uses products.json as primary source
+  // This ensures admin-added products are always visible
+  const sourceGemstones = allProducts;
 
   const filteredGemstones = sourceGemstones.filter((gem) => {
     if (gem.status === 'draft') return false;

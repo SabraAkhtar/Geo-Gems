@@ -296,7 +296,7 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="lg:col-span-3">
+    <div className="lg:col-span-3 lg:sticky lg:top-24 lg:self-start">
       {/* Mobile toggle button */}
       <button
         className="lg:hidden w-full flex items-center justify-between bg-white border border-[#E5DED2] rounded-2xl px-4 py-3.5 shadow-xs cursor-pointer mb-2"
@@ -315,7 +315,7 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
       </button>
 
       {/* Filter panel — always visible on desktop, toggleable on mobile */}
-      <div className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto`}>
+      <div className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}>
         {/* Header */}
         <div className="hidden lg:flex items-center justify-between pb-3 border-b border-[#E5DED2]">
           <div className="flex items-center gap-2">

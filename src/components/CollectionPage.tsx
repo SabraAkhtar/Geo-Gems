@@ -137,7 +137,7 @@ export const CollectionPage: React.FC = () => {
   const breadcrumbPrimary = isCrystalView ? 'Crystals' : 'Gemstones';
 
   return (
-    <div className="py-8 sm:py-10 lg:py-16 bg-[#FAF8F3] min-h-screen">
+    <div className="py-8 sm:py-10 lg:py-16 bg-[#FAF8F3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb & Header */}
         <div className="mb-6 sm:mb-8">
@@ -296,7 +296,15 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="lg:col-span-3 lg:sticky lg:top-24 lg:self-start">
+    /*
+      sticky requires:
+      1. position:sticky on the element
+      2. top value set
+      3. NO overflow:hidden/auto/scroll on any ancestor
+      4. The element's containing block must be taller than the element
+      5. self-start prevents grid from stretching the cell to full height
+    */
+    <div className="lg:col-span-3" style={{ alignSelf: 'start', position: 'sticky', top: '6rem' }}>
       {/* Mobile toggle button */}
       <button
         className="lg:hidden w-full flex items-center justify-between bg-white border border-[#E5DED2] rounded-2xl px-4 py-3.5 shadow-xs cursor-pointer mb-2"
@@ -314,8 +322,11 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
         {open ? <ChevronUp className="w-4 h-4 text-[#5A544A]" /> : <ChevronDown className="w-4 h-4 text-[#5A544A]" />}
       </button>
 
-      {/* Filter panel — always visible on desktop, toggleable on mobile */}
-      <div className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}>
+      {/* Filter panel — always visible on desktop (hidden on mobile until toggled) */}
+      <div
+        className={`bg-white p-5 rounded-2xl border border-[#E5DED2] shadow-xs space-y-6 ${open ? 'block' : 'hidden'} lg:block`}
+        style={{ maxHeight: 'calc(100vh - 7rem)', overflowY: 'auto' }}
+      >
         {/* Header */}
         <div className="hidden lg:flex items-center justify-between pb-3 border-b border-[#E5DED2]">
           <div className="flex items-center gap-2">

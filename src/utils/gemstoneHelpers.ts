@@ -2,8 +2,10 @@ import { Gemstone } from '../types';
 
 export const BUSINESS_WHATSAPP_NUMBER = '923275315493'; // +92 327 5315493
 export const BUSINESS_WHATSAPP_DISPLAY = '+92 327 5315493';
-export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/geogemscrystals';
-export const OFFICIAL_TIKTOK_URL = 'https://www.tiktok.com/@geogemscrystals';
+export const OFFICIAL_INSTAGRAM_URL = 'https://www.instagram.com/geo_gems_crystals/';
+export const OFFICIAL_TIKTOK_URL = 'https://www.tiktok.com/@crystalgirl212';
+// Etsy: set the real shop URL here when ready — leave empty string to hide the link
+export const OFFICIAL_ETSY_URL = '';
 
 export interface FormattedPriceInfo {
   type: 'fixed' | 'on_request' | 'starting_from';

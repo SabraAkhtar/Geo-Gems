@@ -1,11 +1,12 @@
 import React from 'react';
-import { Instagram, Music2, Mail } from 'lucide-react';
+import { Instagram, Music2, Mail, ShoppingBag } from 'lucide-react';
 import { Logo } from './Logo';
 import { useEcommerce } from '../context/EcommerceContext';
 import {
   getGeneralWhatsAppUrl,
   OFFICIAL_INSTAGRAM_URL,
   OFFICIAL_TIKTOK_URL,
+  OFFICIAL_ETSY_URL,
 } from '../utils/gemstoneHelpers';
 
 export const Footer: React.FC = () => {
@@ -116,6 +117,12 @@ export const Footer: React.FC = () => {
                 <Music2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
                 <span>TikTok</span>
               </a>
+              {OFFICIAL_ETSY_URL && (
+                <a href={OFFICIAL_ETSY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A]" style={{ color: 'inherit' }}>
+                  <ShoppingBag className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
+                  <span>Etsy</span>
+                </a>
+              )}
               <a href="mailto:concierge@geogemscrystals.com" className="inline-flex items-center gap-2 transition-colors hover:text-[#D4B06A] text-[11.5px]" style={{ color: 'inherit' }}>
                 <Mail className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#B08D57' }} />
                 <span className="break-all">concierge@geogemscrystals.com</span>

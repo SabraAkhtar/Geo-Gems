@@ -267,30 +267,28 @@ export const AdminDashboard: React.FC = () => {
     <div className="min-h-screen bg-[#FAF8F3] text-[#151515] flex flex-col font-sans">
       {/* Top Luxury Admin Header */}
       <header className="bg-white border-b border-[#E1D9CD] sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-          <div className="flex items-center gap-3.5">
-            <Logo size="sm" layout="badge_only" />
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="font-serif text-lg sm:text-xl font-medium tracking-tight text-[#151515]">
-                  GEO GEMS CRYSTALS
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-3">
+
+          {/* LEFT — Logo + title */}
+          <div className="flex items-center gap-2.5 min-w-0 flex-1">
+            <Logo size="xs" layout="badge_only" className="flex-shrink-0" />
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="font-serif text-[15px] sm:text-lg font-medium tracking-tight text-[#151515] whitespace-nowrap">
+                  Geo Gems
                 </h1>
-                <span className="px-2 py-0.5 bg-[#B08D57]/15 text-[#8F6F3A] text-[10px] font-mono uppercase tracking-widest font-semibold rounded">
+                <span className="px-1.5 py-0.5 bg-[#B08D57]/15 text-[#8F6F3A] text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-semibold rounded whitespace-nowrap">
                   Admin CMS
                 </span>
               </div>
-              <p className="text-[11px] text-[#716B60] hidden sm:block">
-                {adminUser?.username
-                  ? `Signed in as ${adminUser.username} • Catalog & Inquiry Management`
-                  : 'Stone Inventory, Media Uploads & Customer Inquiry Portal'}
-              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* RIGHT — Actions */}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
             <button
               onClick={handleManualRefresh}
-              title="Refresh inventory & inquiries"
+              title="Refresh"
               className="p-2 text-[#716B60] hover:text-[#151515] hover:bg-[#FAF8F3] rounded-lg border border-transparent hover:border-[#E1D9CD] transition-colors cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin text-[#B08D57]' : ''}`} />
@@ -298,66 +296,68 @@ export const AdminDashboard: React.FC = () => {
 
             <button
               onClick={() => setCurrentView('home')}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold tracking-wider text-[#716B60] hover:text-[#151515] hover:bg-[#FAF8F3] rounded-lg border border-[#E1D9CD] transition-colors uppercase cursor-pointer"
+              className="p-2 sm:px-3 sm:py-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#716B60] hover:text-[#151515] hover:bg-[#FAF8F3] rounded-lg border border-[#E1D9CD] transition-colors cursor-pointer"
+              title="View Website"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">View Website</span>
+              <span className="hidden sm:inline uppercase tracking-wider">View Website</span>
             </button>
 
             <button
               onClick={adminLogout}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold tracking-wider text-[#A14B38] hover:bg-[#A14B38]/10 rounded-lg border border-[#A14B38]/30 transition-colors uppercase cursor-pointer"
+              className="p-2 sm:px-3 sm:py-2 inline-flex items-center gap-1.5 text-xs font-semibold text-[#A14B38] hover:bg-[#A14B38]/10 rounded-lg border border-[#A14B38]/30 transition-colors cursor-pointer"
+              title="Sign Out"
             >
               <LogOut className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Sign Out</span>
+              <span className="hidden sm:inline uppercase tracking-wider">Sign Out</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Container */}
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
         {/* PRIMARY NAVIGATION TABS */}
-        <div className="flex flex-wrap items-center gap-3 mb-6">
+        <div className="flex items-stretch gap-2 mb-6 overflow-x-auto no-scrollbar pb-1">
           <button
             onClick={() => setActiveTab('inventory')}
-            className={`px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
+            className={`flex-shrink-0 px-3 sm:px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'inventory'
                 ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
                 : 'bg-white text-[#5A544A] border border-[#E1D9CD] hover:border-[#B08D57]'
             }`}
           >
-            <Layers className="w-4 h-4 text-[#B08D57]" />
-            <span>Stone Inventory ({totalCount})</span>
+            <Layers className="w-4 h-4 text-[#B08D57] flex-shrink-0" />
+            <span>Inventory ({totalCount})</span>
           </button>
 
           <button
             onClick={() => setActiveTab('inquiries')}
-            className={`px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
+            className={`flex-shrink-0 px-3 sm:px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'inquiries'
                 ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
                 : 'bg-white text-[#5A544A] border border-[#E1D9CD] hover:border-[#B08D57]'
             }`}
           >
-            <Inbox className="w-4 h-4 text-[#B08D57]" />
-            <span>Customer Inquiries ({inquiries.length})</span>
+            <Inbox className="w-4 h-4 text-[#B08D57] flex-shrink-0" />
+            <span>Inquiries ({inquiries.length})</span>
             {newInquiriesCount > 0 && (
               <span className="px-1.5 py-0.5 bg-[#B08D57] text-[#151515] rounded-full text-[10px] font-bold">
-                {newInquiriesCount} new
+                {newInquiriesCount}
               </span>
             )}
           </button>
 
           <button
             onClick={() => setActiveTab('audit')}
-            className={`px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
+            className={`flex-shrink-0 px-3 sm:px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'audit'
                 ? 'bg-[#121212] text-[#FAF8F3] shadow-xs'
                 : 'bg-white text-[#5A544A] border border-[#E1D9CD] hover:border-[#B08D57]'
             }`}
           >
-            <ShieldCheck className="w-4 h-4 text-[#B08D57]" />
-            <span>Activity Log ({auditLogs.length})</span>
+            <ShieldCheck className="w-4 h-4 text-[#B08D57] flex-shrink-0" />
+            <span>Activity ({auditLogs.length})</span>
           </button>
         </div>
 
@@ -547,11 +547,11 @@ export const AdminDashboard: React.FC = () => {
         ) : (
           <>
             {/* SECTION 1: OVERVIEW STATS CARDS */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {/* Card 1: Total */}
               <div
                 onClick={() => setStatusFilter('all')}
-                className={`p-5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-3.5 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                   statusFilter === 'all'
                     ? 'bg-white border-[#B08D57] shadow-sm ring-1 ring-[#B08D57]'
                     : 'bg-white border-[#E1D9CD] hover:border-[#B08D57]/60'
@@ -563,7 +563,7 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                   <Layers className="w-4 h-4 text-[#B08D57]" />
                 </div>
-                <div className="font-serif text-3xl font-semibold text-[#151515] mt-2">
+                <div className="font-serif text-2xl sm:text-3xl font-semibold text-[#151515] mt-2">
                   {totalCount}
                 </div>
                 <p className="text-[11px] text-[#716B60] mt-1">All registered stones</p>
@@ -572,7 +572,7 @@ export const AdminDashboard: React.FC = () => {
               {/* Card 2: Published */}
               <div
                 onClick={() => setStatusFilter('published')}
-                className={`p-5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-3.5 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                   statusFilter === 'published'
                     ? 'bg-emerald-50/50 border-emerald-500 shadow-sm ring-1 ring-emerald-500'
                     : 'bg-white border-[#E1D9CD] hover:border-emerald-500/60'
@@ -584,7 +584,7 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 </div>
-                <div className="font-serif text-3xl font-semibold text-emerald-900 mt-2">
+                <div className="font-serif text-2xl sm:text-3xl font-semibold text-emerald-900 mt-2">
                   {publishedCount}
                 </div>
                 <p className="text-[11px] text-emerald-700/80 mt-1">Live on public website</p>
@@ -593,7 +593,7 @@ export const AdminDashboard: React.FC = () => {
               {/* Card 3: Draft */}
               <div
                 onClick={() => setStatusFilter('draft')}
-                className={`p-5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-3.5 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                   statusFilter === 'draft'
                     ? 'bg-slate-100 border-slate-600 shadow-sm ring-1 ring-slate-600'
                     : 'bg-white border-[#E1D9CD] hover:border-slate-400'
@@ -605,7 +605,7 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                   <FileText className="w-4 h-4 text-slate-600" />
                 </div>
-                <div className="font-serif text-3xl font-semibold text-slate-900 mt-2">
+                <div className="font-serif text-2xl sm:text-3xl font-semibold text-slate-900 mt-2">
                   {draftCount}
                 </div>
                 <p className="text-[11px] text-slate-600 mt-1">Private &amp; unpublished</p>
@@ -614,7 +614,7 @@ export const AdminDashboard: React.FC = () => {
               {/* Card 4: Sold Out / Reserved */}
               <div
                 onClick={() => setStatusFilter('sold_out')}
-                className={`p-5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-3.5 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                   statusFilter === 'sold_out'
                     ? 'bg-amber-50/70 border-amber-600 shadow-sm ring-1 ring-amber-600'
                     : 'bg-white border-[#E1D9CD] hover:border-amber-500'
@@ -626,7 +626,7 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                   <Archive className="w-4 h-4 text-amber-600" />
                 </div>
-                <div className="font-serif text-3xl font-semibold text-amber-900 mt-2">
+                <div className="font-serif text-2xl sm:text-3xl font-semibold text-amber-900 mt-2">
                   {soldOutCount}
                 </div>
                 <p className="text-[11px] text-amber-700/80 mt-1">Sold &amp; reserved stones</p>

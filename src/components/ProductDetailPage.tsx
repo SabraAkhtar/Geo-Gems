@@ -9,9 +9,6 @@ import {
   Film,
   ChevronRight,
   Info,
-  Instagram,
-  Music2,
-  ShoppingBag,
 } from 'lucide-react';
 import { Gemstone } from '../types';
 import { useEcommerce } from '../context/EcommerceContext';
@@ -22,9 +19,6 @@ import {
   getWhatsAppInquiryUrl,
   getInquiryButtonLabel,
   getProductUrl,
-  OFFICIAL_INSTAGRAM_URL,
-  OFFICIAL_TIKTOK_URL,
-  OFFICIAL_ETSY_URL,
 } from '../utils/gemstoneHelpers';
 import { ProductCard } from './ProductCard';
 import { SecondaryButton } from './SecondaryButton';
@@ -376,76 +370,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ gemstone, 
             </div>
           </div>
         )}
-
-        {/* ══════════════════════════════════════════════════════════════════
-            SECTION D — SOCIAL MEDIA / FOLLOW US
-        ══════════════════════════════════════════════════════════════════ */}
-        <div className="rounded-2xl border border-[#E1D9CD] bg-[#FAF8F3] p-5 sm:p-7 mb-10 sm:mb-14">
-          <div className="text-center mb-6">
-            <span className="font-eyebrow block mb-1">Stay Connected</span>
-            <h2 className="font-serif text-xl sm:text-2xl font-medium text-[#121212]">
-              Follow Us for More Natural Beauty
-            </h2>
-            <p className="text-[13px] font-sans text-[#716B60] mt-2">
-              New gemstones, crystals, and rare finds — follow our journey.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-stretch justify-center gap-4">
-            {/* TikTok */}
-            <a
-              href={OFFICIAL_TIKTOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2.5 px-6 py-5 bg-white rounded-2xl border border-[#E5DED2] hover:border-[#B08D57] transition-colors group min-w-[120px] text-center"
-              aria-label="Follow us on TikTok"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#F5F1E9] border border-[#E5DED2] flex items-center justify-center group-hover:bg-[#B08D57] group-hover:border-[#B08D57] transition-all">
-                <Music2 className="w-4.5 h-4.5 text-[#B08D57] group-hover:text-white transition-colors" />
-              </div>
-              <div>
-                <span className="block text-[13px] font-sans font-semibold text-[#121212] group-hover:text-[#B08D57] transition-colors">TikTok</span>
-                <span className="block text-[11px] font-sans text-[#8C8578]">@crystalgirl212</span>
-              </div>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href={OFFICIAL_INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2.5 px-6 py-5 bg-white rounded-2xl border border-[#E5DED2] hover:border-[#B08D57] transition-colors group min-w-[120px] text-center"
-              aria-label="Follow us on Instagram"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#F5F1E9] border border-[#E5DED2] flex items-center justify-center group-hover:bg-[#B08D57] group-hover:border-[#B08D57] transition-all">
-                <Instagram className="w-4.5 h-4.5 text-[#B08D57] group-hover:text-white transition-colors" />
-              </div>
-              <div>
-                <span className="block text-[13px] font-sans font-semibold text-[#121212] group-hover:text-[#B08D57] transition-colors">Instagram</span>
-                <span className="block text-[11px] font-sans text-[#8C8578]">@geo_gems_crystals</span>
-              </div>
-            </a>
-
-            {/* Etsy — only shown when URL is configured */}
-            {OFFICIAL_ETSY_URL && (
-              <a
-                href={OFFICIAL_ETSY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2.5 px-6 py-5 bg-white rounded-2xl border border-[#E5DED2] hover:border-[#B08D57] transition-colors group min-w-[120px] text-center"
-                aria-label="Visit our Etsy shop"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#F5F1E9] border border-[#E5DED2] flex items-center justify-center group-hover:bg-[#B08D57] group-hover:border-[#B08D57] transition-all">
-                  <ShoppingBag className="w-4.5 h-4.5 text-[#B08D57] group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <span className="block text-[13px] font-sans font-semibold text-[#121212] group-hover:text-[#B08D57] transition-colors">Etsy Shop</span>
-                  <span className="block text-[11px] font-sans text-[#8C8578]">Geo Gems Crystals</span>
-                </div>
-              </a>
-            )}
-          </div>
-        </div>
 
         {/* ── Similar Stones ─────────────────────────────────────────────────── */}
         {similarStones.length > 0 && (

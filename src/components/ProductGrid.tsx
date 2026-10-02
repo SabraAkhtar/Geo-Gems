@@ -28,8 +28,15 @@ export const ProductGrid: React.FC = () => {
     return true;
   });
 
-  // Sort: newest products first (by createdAt descending) so newly added products appear first
+  // Sort: isFeatured products first, then by createdAt descending
+  // This ensures newly added products AND featured products both appear prominently
   const sortedGemstones = [...filteredGemstones].sort((a, b) => {
+    // Featured products always come first on "All Stones" tab
+    if (activeTab === 'all') {
+      if (a.isFeatured && !b.isFeatured) return -1;
+      if (!a.isFeatured && b.isFeatured) return 1;
+    }
+    // Then sort by newest first
     const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
     const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
     return dateB - dateA;

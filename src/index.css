@@ -601,3 +601,51 @@ a.primary-button {
     width: 0;
   }
 }
+
+/* =========================================================================
+   COLLECTION PAGE — Sticky filter sidebar layout
+   
+   Root cause of sticky failure:
+   - Tailwind grid utilities apply align-items:stretch by default in some
+     configurations, preventing sticky from working on grid children.
+   - Using explicit CSS here guarantees correct behaviour independent of
+     Tailwind's utility specificity.
+   
+   The sidebar uses position:sticky with:
+   - top: 90px  (accounts for ~56px navbar + breathing room)
+   - align-self: start  (CRITICAL — prevents grid from stretching the cell)
+   - max-height + overflow-y: auto  (sidebar scrolls internally if taller than viewport)
+   - height: fit-content  (sidebar doesn't stretch to match products column)
+   ========================================================================= */
+
+/* Mobile: single column stacked layout */
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Desktop: sidebar fixed 280px + products fill remaining space */
+@media (min-width: 1024px) {
+  .collection-grid {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+.collection-sidebar {
+  /* Mobile: normal flow */
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .collection-sidebar {
+    position: sticky;
+    top: 90px;           /* below sticky navbar (~56-64px) + breathing room */
+    align-self: start;   /* CRITICAL: prevents grid cell from stretching */
+    height: fit-content; /* sidebar height = its content, not the grid row */
+    max-height: calc(100vh - 110px); /* prevent sidebar from taller than viewport */
+    overflow-y: auto;    /* internal scroll if sidebar is tall */
+  }
+}

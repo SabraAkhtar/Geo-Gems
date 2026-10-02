@@ -243,9 +243,15 @@ export const CollectionPage: React.FC = () => {
           <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#FAF8F3] to-transparent pointer-events-none" />
         </div>
 
-        {/* Main Section: Filters Sidebar + Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Left Column: Filter Sidebar — collapsible on mobile */}
+        {/*
+          STICKY SIDEBAR — uses .collection-grid CSS class defined in index.css
+          The grid and sticky work together only when:
+          - Parent does NOT have overflow:hidden/auto/scroll
+          - Sidebar has position:sticky + top offset + align-self:start
+          - Grid uses align-items:start (not stretch)
+        */}
+        <div className="collection-grid">
+          {/* Left Column: Filter Sidebar */}
           <FilterSidebar
             filters={filters}
             setFilters={setFilters}
@@ -256,9 +262,8 @@ export const CollectionPage: React.FC = () => {
             colors={colors}
           />
 
-
           {/* Right Column: Gemstones Grid */}
-          <div className="lg:col-span-9">
+          <div>
             {filteredGemstones.length === 0 ? (
               <div className="text-center py-20 bg-white rounded-2xl border border-[#E5DED2] p-8 max-w-lg mx-auto">
                 <Sparkles className="w-10 h-10 text-[#B08D57] mx-auto mb-3 opacity-60" />
@@ -268,15 +273,12 @@ export const CollectionPage: React.FC = () => {
                 <p className="font-body-small text-[#5A544A] max-w-sm mx-auto mb-6">
                   Try adjusting your weight or price range, or reset the filters to view all stones.
                 </p>
-                <button
-                  onClick={resetFilters}
-                  className="primary-button"
-                >
+                <button onClick={resetFilters} className="primary-button">
                   <span>Reset Filters</span>
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
                 {filteredGemstones.map((gem) => (
                   <ProductCard key={gem.id} gemstone={gem} />
                 ))}
@@ -304,7 +306,7 @@ function FilterSidebar({ filters, setFilters, resetFilters, activeFiltersCount, 
       4. The element's containing block must be taller than the element
       5. self-start prevents grid from stretching the cell to full height
     */
-    <div className="lg:col-span-3" style={{ alignSelf: 'start', position: 'sticky', top: '6rem' }}>
+    <div className="collection-sidebar">
       {/* Mobile toggle button */}
       <button
         className="lg:hidden w-full flex items-center justify-between bg-white border border-[#E5DED2] rounded-2xl px-4 py-3.5 shadow-xs cursor-pointer mb-2"

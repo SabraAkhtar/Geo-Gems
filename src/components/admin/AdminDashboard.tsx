@@ -637,9 +637,29 @@ export const AdminDashboard: React.FC = () => {
             <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#E1D9CD] shadow-xs mb-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
               {/* Left: Add New Product Button + Category Filter */}
               <div className="flex flex-wrap items-center gap-3">
-                <button onClick={handleOpenAddModal} className="primary-button w-full sm:w-auto">
+                <button onClick={handleOpenAddModal} className="primary-button flex items-center gap-2 w-full sm:w-auto">
                   <Plus className="w-4 h-4 text-white" />
                   <span>Add New Stone</span>
+                </button>
+
+                {/* Export products.json — updates the static file used by homepage */}
+                <button
+                  onClick={() => {
+                    const json = JSON.stringify(allProducts, null, 2);
+                    const blob = new Blob([json], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'products.json';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    showNotification('products.json downloaded. Replace data/products.json in your project and redeploy to show new products on homepage.');
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#B08D57] border border-[#B08D57]/40 hover:bg-[#B08D57]/10 rounded-xl transition-colors cursor-pointer"
+                  title="Download products.json to update homepage"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Export Products</span>
                 </button>
 
                 <div className="flex items-center gap-1 bg-[#FAF8F3] p-1 rounded-xl border border-[#E1D9CD]">
